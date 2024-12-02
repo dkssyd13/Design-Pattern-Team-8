@@ -1,5 +1,7 @@
 package rabbitescape.engine;
 
+import rabbitescape.engine.state.State;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,52 +52,52 @@ public class ChangeDescription
         RABBIT_TURNING_RIGHT_TO_LEFT_RISING,
         RABBIT_TURNING_RIGHT_TO_LEFT_LOWERING,
         RABBIT_BROLLYCHUTING,
-        RABBIT_FALLING,
-        RABBIT_FALLING_1,
+        RABBIT_FALLING, // DONE
+        RABBIT_FALLING_1, // DONE
 
         /** The flat block is two squares below where this starts.*/
-        RABBIT_FALLING_1_TO_DEATH,
+        RABBIT_FALLING_1_TO_DEATH, // DONE
 
         /** Part 2 of the animation for RABBIT_FALLING_1_TO_DEATH.*/
-        RABBIT_DYING_OF_FALLING_2,
+        RABBIT_DYING_OF_FALLING_2, // DONE
 
         /** The rabbit starts on the death square.*/
-        RABBIT_DYING_OF_FALLING,
+        RABBIT_DYING_OF_FALLING, // DONE
 
         /** The slope is one square below where this starts. */
-        RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT,
+        RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT, // DONE
 
         /** Part 2 of the animation for
          *  RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT */
-        RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2,
+        RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2, // DONE
 
         /** The slope is two squares below where this starts. */
-        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT,
+        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT, // DONE
 
         /** Part 2 of RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT. */
-        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2,
+        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2, // DONE
 
         /** The slope is one square below where this starts. */
-        RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT,
+        RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT, // DONE
 
         /** Part 2 of the animation for
          *  RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT */
-        RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2,
+        RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2, // DONE
 
         /** The slope is two squares below where this starts. */
-        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT,
+        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT, // DONE
 
         /** Part 2 of RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT. */
-        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2,
+        RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2, // DONE
 
-        RABBIT_FALLING_ONTO_LOWER_RIGHT,
-        RABBIT_FALLING_ONTO_RISE_RIGHT,
-        RABBIT_FALLING_ONTO_LOWER_LEFT,
-        RABBIT_FALLING_ONTO_RISE_LEFT,
-        RABBIT_FALLING_1_ONTO_LOWER_RIGHT,
-        RABBIT_FALLING_1_ONTO_RISE_RIGHT,
-        RABBIT_FALLING_1_ONTO_LOWER_LEFT,
-        RABBIT_FALLING_1_ONTO_RISE_LEFT,
+        RABBIT_FALLING_ONTO_LOWER_RIGHT, // DONE
+        RABBIT_FALLING_ONTO_RISE_RIGHT, // DONE
+        RABBIT_FALLING_ONTO_LOWER_LEFT, // DONE
+        RABBIT_FALLING_ONTO_RISE_LEFT, // DONE
+        RABBIT_FALLING_1_ONTO_LOWER_RIGHT, // DONE
+        RABBIT_FALLING_1_ONTO_RISE_RIGHT, // DONE
+        RABBIT_FALLING_1_ONTO_LOWER_LEFT, // DONE
+        RABBIT_FALLING_1_ONTO_RISE_LEFT, // DONE
         RABBIT_RISING_RIGHT_START,
         RABBIT_RISING_RIGHT_CONTINUE,
         RABBIT_RISING_RIGHT_END,
@@ -226,13 +228,27 @@ public class ChangeDescription
     {
         public final int x;
         public final int y;
-        public final State state;
+        public final State state; // TODO : 삭제 필요
+        public final rabbitescape.engine.state.State statE;
 
         public Change( int x, int y, State state )
         {
             this.x = x;
             this.y = y;
             this.state = state;
+            this.statE = null;
+        }
+
+        public Change(
+            int x,
+            int y,
+            rabbitescape.engine.state.State statE
+        )
+        {
+            this.x = x;
+            this.y = y;
+            this.state = null;
+            this.statE = statE;
         }
     }
 
@@ -240,6 +256,10 @@ public class ChangeDescription
 
     public void add( int x, int y, State state )
     {
+        changes.add( new Change( x, y, state ) );
+    }
+
+    public void add(int x, int y, rabbitescape.engine.state.State state) {
         changes.add( new Change( x, y, state ) );
     }
 }

@@ -18,6 +18,12 @@ public class ChangeRenderer
 
     private static void charForChange( Change change, Chars chars )
     {
+
+        if (change.statE != null) { // TODO : 모든 state 클래스 만든 후 올바른 위치에 ( + if 문 제거 == change 클래스 수정)
+            change.statE.charForChange(change, chars);
+            return;
+        }
+
         // Handle bridging specially
         Position bridgingPos = RabbitStates.whereBridging(
             new StateAndPosition( change.state, change.x, change.y ) );
@@ -148,19 +154,19 @@ public class ChangeRenderer
             case RABBIT_BROLLYCHUTING:
                 chars.set( change.x, change.y + 1, ':' );
                 break;
-            case RABBIT_FALLING:
+            case RABBIT_FALLING: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 'f' );
                 break;
-            case RABBIT_FALLING_ONTO_LOWER_RIGHT:
+            case RABBIT_FALLING_ONTO_LOWER_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 'e' );
                 break;
-            case RABBIT_FALLING_ONTO_LOWER_LEFT:
+            case RABBIT_FALLING_ONTO_LOWER_LEFT: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 's' );
                 break;
-            case RABBIT_FALLING_ONTO_RISE_RIGHT:
+            case RABBIT_FALLING_ONTO_RISE_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 'h' );
                 break;
@@ -168,45 +174,45 @@ public class ChangeRenderer
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 'a' );
                 break;
-            case RABBIT_FALLING_1:
+            case RABBIT_FALLING_1: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 break;
-            case RABBIT_FALLING_1_ONTO_LOWER_RIGHT:
+            case RABBIT_FALLING_1_ONTO_LOWER_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'e' );
                 break;
-            case RABBIT_FALLING_1_ONTO_LOWER_LEFT:
+            case RABBIT_FALLING_1_ONTO_LOWER_LEFT: // DONE
                 chars.set( change.x, change.y + 1, 's' );
                 break;
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT:
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 chars.set( change.x, change.y + 2, 'x' );
                 break;
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2:
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2: // DONE
                 chars.set( change.x, change.y, 'X' );
                 break;
-            case RABBIT_FALLING_1_ONTO_RISE_RIGHT:
+            case RABBIT_FALLING_1_ONTO_RISE_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'h' );
                 break;
-            case RABBIT_FALLING_1_ONTO_RISE_LEFT:
+            case RABBIT_FALLING_1_ONTO_RISE_LEFT: // DONE
                 chars.set( change.x, change.y + 1, 'a' );
                 break;
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT:
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT:
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT: // DONE
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT: // DONE
                 chars.set( change.x, change.y + 1, 'x' );
                 break;
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2:
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2:
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2: // DONE
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2: // DONE
                 chars.set( change.x, change.y, 'y' );
                 break;
-            case RABBIT_FALLING_1_TO_DEATH:
+            case RABBIT_FALLING_1_TO_DEATH: // DONE
                 chars.set( change.x, change.y + 1, 'x' );
                 break;
-            case RABBIT_DYING_OF_FALLING_2:
+            case RABBIT_DYING_OF_FALLING_2: // DONE
                 chars.set( change.x, change.y, 'y' );
                 break;
-            case RABBIT_DYING_OF_FALLING:
+            case RABBIT_DYING_OF_FALLING: // DONE
                 chars.set( change.x, change.y, 'X' );
                 break;
             case RABBIT_ENTERING_EXIT:

@@ -21,6 +21,7 @@ import rabbitescape.engine.solution.SolutionExceptions;
 import rabbitescape.engine.solution.SolutionParser;
 import rabbitescape.engine.solution.SolutionRunner;
 import rabbitescape.engine.solution.SolutionExceptions.RanPastEnd;
+import rabbitescape.engine.state.falling.*;
 import rabbitescape.engine.textworld.ArrayByKeyElementMissing;
 import rabbitescape.engine.textworld.DuplicateMetaKey;
 import rabbitescape.engine.textworld.ItemsLineProcessor;
@@ -321,14 +322,25 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 8, 3 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, RABBIT_FALLING_ONTO_LOWER_RIGHT );
-        desc.add( 1, 0, RABBIT_FALLING_ONTO_RISE_RIGHT );
-        desc.add( 2, 0, RABBIT_FALLING_ONTO_LOWER_LEFT );
-        desc.add( 3, 0, RABBIT_FALLING_ONTO_RISE_LEFT );
-        desc.add( 4, 0, RABBIT_FALLING_1_ONTO_LOWER_RIGHT );
-        desc.add( 5, 0, RABBIT_FALLING_1_ONTO_RISE_RIGHT );
-        desc.add( 6, 0, RABBIT_FALLING_1_ONTO_LOWER_LEFT );
-        desc.add( 7, 0, RABBIT_FALLING_1_ONTO_RISE_LEFT );
+        // TODO : 주석 삭제
+//        desc.add( 0, 0, RABBIT_FALLING_ONTO_LOWER_RIGHT );
+//        desc.add( 1, 0, RABBIT_FALLING_ONTO_RISE_RIGHT );
+//        desc.add( 2, 0, RABBIT_FALLING_ONTO_LOWER_LEFT );
+//        desc.add( 3, 0, RABBIT_FALLING_ONTO_RISE_LEFT );
+//        desc.add( 4, 0, RABBIT_FALLING_1_ONTO_LOWER_RIGHT );
+//        desc.add( 5, 0, RABBIT_FALLING_1_ONTO_RISE_RIGHT );
+//        desc.add( 6, 0, RABBIT_FALLING_1_ONTO_LOWER_LEFT );
+//        desc.add( 7, 0, RABBIT_FALLING_1_ONTO_RISE_LEFT );
+
+        // Falling 관련 State 패턴 적용 테스트
+        desc.add( 0, 0, new RabbitFallingOntoLowerRight() );
+        desc.add( 1, 0, new RabbitFallingOntoRiseRight());
+        desc.add( 2, 0, new RabbitFallingOntoLowerLeft() );
+        desc.add( 3, 0, new RabbitFallingOntoRiseLeft());
+        desc.add( 4, 0, new RabbitFalling1OntoLowerRightState());
+        desc.add( 5, 0, new RabbitFalling1OntoRiseRight() );
+        desc.add( 6, 0, new RabbitFalling1OntoLowerLeft());
+        desc.add( 7, 0, new RabbitFalling1OntoRiseLeft() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),

@@ -63,36 +63,36 @@ public class Falling extends Behaviour
     {
         switch ( state )
         {
-            case RABBIT_DYING_OF_FALLING:
-            case RABBIT_DYING_OF_FALLING_2:
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2:
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2:
+            case RABBIT_DYING_OF_FALLING: // DONE
+            case RABBIT_DYING_OF_FALLING_2: // DONE
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2: // DONE
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2: // DONE
             {
                 world.changes.killRabbit( rabbit );
                 return true;
             }
-            case RABBIT_FALLING:
-            case RABBIT_FALLING_ONTO_LOWER_RIGHT:
-            case RABBIT_FALLING_ONTO_LOWER_LEFT:
-            case RABBIT_FALLING_ONTO_RISE_RIGHT:
-            case RABBIT_FALLING_ONTO_RISE_LEFT:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT:
-            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT:
+            case RABBIT_FALLING: //DONE
+            case RABBIT_FALLING_ONTO_LOWER_RIGHT: // DONE
+            case RABBIT_FALLING_ONTO_LOWER_LEFT: // DONE
+            case RABBIT_FALLING_ONTO_RISE_RIGHT: // DONE
+            case RABBIT_FALLING_ONTO_RISE_LEFT: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT: // DONE
+            case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT: // DONE
             {
                 heightFallen += 2;
                 rabbit.y = rabbit.y + 2;
                 return true;
             }
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT:
-            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT:
-            case RABBIT_FALLING_1_TO_DEATH:
-            case RABBIT_FALLING_1:
-            case RABBIT_FALLING_1_ONTO_LOWER_RIGHT:
-            case RABBIT_FALLING_1_ONTO_LOWER_LEFT:
-            case RABBIT_FALLING_1_ONTO_RISE_RIGHT:
-            case RABBIT_FALLING_1_ONTO_RISE_LEFT:
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT: // DONE
+            case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT: // DONE
+            case RABBIT_FALLING_1_TO_DEATH: // DONE
+            case RABBIT_FALLING_1: // DONE
+            case RABBIT_FALLING_1_ONTO_LOWER_RIGHT: // DONE
+            case RABBIT_FALLING_1_ONTO_LOWER_LEFT: // DONE
+            case RABBIT_FALLING_1_ONTO_RISE_RIGHT: // DONE
+            case RABBIT_FALLING_1_ONTO_RISE_LEFT: // DONE
             {
                 heightFallen += 1;
                 rabbit.y = rabbit.y + 1;
@@ -192,7 +192,7 @@ public class Falling extends Behaviour
             }
             else
             {
-                return State.RABBIT_FALLING_1_TO_DEATH;
+                return State.RABBIT_FALLING_1_TO_DEATH; // (State에) 필요 X
             }
         }
         else
@@ -232,7 +232,7 @@ public class Falling extends Behaviour
                 }
                 if ( t.isFlat( twoBelow ) ) // Flat block
                 {
-                    return State.RABBIT_FALLING_1;
+                    return State.RABBIT_FALLING_1; // (State에) 필요 X
                 }
                 if( t.isUpSlope( twoBelow ) )
                 {
@@ -251,7 +251,7 @@ public class Falling extends Behaviour
             }
             else
             {
-                return State.RABBIT_FALLING;
+                return State.RABBIT_FALLING; // (State에) 필요 X
             }
         }
     }
@@ -270,5 +270,15 @@ public class Falling extends Behaviour
         heightFallen = BehaviourState.restoreFromState(
             saveState, "Falling.heightFallen", heightFallen
         );
+    }
+
+    public int getHeightFallen()
+    {
+        return heightFallen;
+    }
+
+    public void setHeightFallen( int heightFallen )
+    {
+        this.heightFallen = heightFallen;
     }
 }
