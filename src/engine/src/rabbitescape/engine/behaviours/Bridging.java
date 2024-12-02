@@ -12,7 +12,7 @@ import rabbitescape.engine.ChangeDescription.State;
 
 public class Bridging extends Behaviour
 {
-    enum BridgeType
+    public enum BridgeType
     {
         ALONG,
         UP,
