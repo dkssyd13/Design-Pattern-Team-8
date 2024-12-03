@@ -121,28 +121,28 @@ public class ChangeRenderer
             case RABBIT_RISING_LEFT_END: // DONE
                 chars.set( change.x - 1, change.y - 1, '!' );
                 break;
-            case RABBIT_LOWERING_RIGHT_START:
+            case RABBIT_LOWERING_RIGHT_START: // DONE
                 chars.set( change.x + 1, change.y + 1, '-' );
                 break;
-            case RABBIT_LOWERING_RIGHT_CONTINUE:
+            case RABBIT_LOWERING_RIGHT_CONTINUE: // DONE
                 chars.set( change.x + 1, change.y + 1, '@' );
                 break;
-            case RABBIT_LOWERING_RIGHT_END:
+            case RABBIT_LOWERING_RIGHT_END: // DONE
                 chars.set( change.x + 1, change.y, '_' );
                 break;
-            case RABBIT_LOWERING_LEFT_START:
+            case RABBIT_LOWERING_LEFT_START: // DONE
                 chars.set( change.x - 1, change.y + 1, '=' );
                 break;
-            case RABBIT_LOWERING_LEFT_CONTINUE:
+            case RABBIT_LOWERING_LEFT_CONTINUE: // DONE
                 chars.set( change.x - 1, change.y + 1, '%' );
                 break;
-            case RABBIT_LOWERING_LEFT_END:
+            case RABBIT_LOWERING_LEFT_END: // DONE
                 chars.set( change.x - 1, change.y, '+' );
                 break;
-            case RABBIT_LOWERING_AND_RISING_RIGHT:
+            case RABBIT_LOWERING_AND_RISING_RIGHT: // DONE
                 chars.set( change.x + 1, change.y, ',' );
                 break;
-            case RABBIT_LOWERING_AND_RISING_LEFT:
+            case RABBIT_LOWERING_AND_RISING_LEFT: // DONE
                 chars.set( change.x - 1, change.y, '.' );
                 break;
             case RABBIT_RISING_AND_LOWERING_RIGHT: // DONE
