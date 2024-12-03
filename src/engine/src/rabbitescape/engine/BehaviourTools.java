@@ -64,8 +64,8 @@ public class BehaviourTools
     {
         switch( rabbit.state)
         {
-        case RABBIT_ENTERING_EXIT_CLIMBING_RIGHT:
-        case RABBIT_ENTERING_EXIT_CLIMBING_LEFT:
+        case RABBIT_ENTERING_EXIT_CLIMBING_RIGHT: // DONE
+        case RABBIT_ENTERING_EXIT_CLIMBING_LEFT: // DONE
         case RABBIT_CLIMBING_LEFT_START:
         case RABBIT_CLIMBING_LEFT_CONTINUE_1:
         case RABBIT_CLIMBING_LEFT_CONTINUE_2:

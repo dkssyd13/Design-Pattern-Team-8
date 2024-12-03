@@ -55,9 +55,9 @@ public class Exiting extends Behaviour
     public boolean behave( World world, Rabbit rabbit, State state )
     {
         if (
-               state == RABBIT_ENTERING_EXIT
-            || state == RABBIT_ENTERING_EXIT_CLIMBING_RIGHT
-            || state == RABBIT_ENTERING_EXIT_CLIMBING_LEFT
+               state == RABBIT_ENTERING_EXIT // DONE
+            || state == RABBIT_ENTERING_EXIT_CLIMBING_RIGHT // DONE
+            || state == RABBIT_ENTERING_EXIT_CLIMBING_LEFT // DONE
            )
         {
             world.changes.saveRabbit( rabbit );

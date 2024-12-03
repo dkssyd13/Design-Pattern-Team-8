@@ -215,7 +215,7 @@ public class ChangeRenderer
             case RABBIT_DYING_OF_FALLING: // DONE
                 chars.set( change.x, change.y, 'X' );
                 break;
-            case RABBIT_ENTERING_EXIT:
+            case RABBIT_ENTERING_EXIT: // DONE
                 chars.set( change.x, change.y, 'R' );
                 break;
             case RABBIT_BASHING_RIGHT:
