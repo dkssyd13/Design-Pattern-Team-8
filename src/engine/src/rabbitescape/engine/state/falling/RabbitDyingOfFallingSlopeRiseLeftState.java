@@ -1,14 +1,12 @@
 package rabbitescape.engine.state.falling;
 
-
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-/** Part 2 of RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT. */
-public class RabbitDyingOfFalling2SlopeRiseLeft2 extends RabbitFallingCommon
+public class RabbitDyingOfFallingSlopeRiseLeftState extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(
@@ -17,14 +15,15 @@ public class RabbitDyingOfFalling2SlopeRiseLeft2 extends RabbitFallingCommon
         Falling fallingBehavior
     )
     {
-        world.changes.killRabbit( rabbit );
+        fallingBehavior.setHeightFallen( fallingBehavior.getHeightFallen() + 1 );
+        rabbit.y = rabbit.y + 1;
         return true;
     }
 
     @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
-        chars.set( change.x, change.y, 'X' );
+        chars.set( change.x, change.y + 1, 'x' );
     }
 
 }

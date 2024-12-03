@@ -8,7 +8,7 @@ import rabbitescape.engine.behaviours.Bridging;
 import rabbitescape.engine.state.RabbitState;
 import rabbitescape.engine.util.Position;
 
-public abstract class RabbitFallingCommon implements RabbitState
+abstract class RabbitFallingCommon implements RabbitState
 {
     @Override
     public boolean rabbitIsFalling()

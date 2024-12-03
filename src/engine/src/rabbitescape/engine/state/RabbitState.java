@@ -3,8 +3,6 @@ package rabbitescape.engine.state;
 import rabbitescape.engine.*;
 import rabbitescape.engine.behaviours.Bridging;
 import rabbitescape.engine.behaviours.Falling;
-import rabbitescape.engine.textworld.Chars;
-import rabbitescape.engine.ChangeDescription.Change;
 import rabbitescape.engine.util.Position;
 
 public interface RabbitState extends State {

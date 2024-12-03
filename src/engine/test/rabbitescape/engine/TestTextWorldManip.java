@@ -333,14 +333,14 @@ public class TestTextWorldManip
 //        desc.add( 7, 0, RABBIT_FALLING_1_ONTO_RISE_LEFT );
 
         // Falling 관련 State 패턴 적용 테스트
-        desc.add( 0, 0, new RabbitFallingOntoLowerRight() );
-        desc.add( 1, 0, new RabbitFallingOntoRiseRight());
-        desc.add( 2, 0, new RabbitFallingOntoLowerLeft() );
-        desc.add( 3, 0, new RabbitFallingOntoRiseLeft());
-        desc.add( 4, 0, new RabbitFalling1OntoLowerRightState());
-        desc.add( 5, 0, new RabbitFalling1OntoRiseRight() );
-        desc.add( 6, 0, new RabbitFalling1OntoLowerLeft());
-        desc.add( 7, 0, new RabbitFalling1OntoRiseLeft() );
+        desc.add( 0, 0, new RabbitFallingOntoLowerRightState() );
+        desc.add( 1, 0, new RabbitFallingOntoRiseRightState());
+        desc.add( 2, 0, new RabbitFallingOntoLowerLeftState() );
+        desc.add( 3, 0, new RabbitFallingOntoRiseLeftState());
+        desc.add( 4, 0, new RabbitFalling1OntoLowerRightStateState());
+        desc.add( 5, 0, new RabbitFalling1OntoRiseRightState() );
+        desc.add( 6, 0, new RabbitFalling1OntoLowerLeftState());
+        desc.add( 7, 0, new RabbitFalling1OntoRiseLeftState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),

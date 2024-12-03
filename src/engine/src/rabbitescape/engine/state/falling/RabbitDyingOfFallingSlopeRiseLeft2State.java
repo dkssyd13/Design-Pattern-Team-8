@@ -6,7 +6,7 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitDyingOfFalling2SlopeRiseRight2 extends RabbitFallingCommon
+public class RabbitDyingOfFallingSlopeRiseLeft2State extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(
@@ -22,7 +22,7 @@ public class RabbitDyingOfFalling2SlopeRiseRight2 extends RabbitFallingCommon
     @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
-        chars.set( change.x, change.y, 'X' );
+        chars.set( change.x, change.y, 'y' );
     }
 
 }

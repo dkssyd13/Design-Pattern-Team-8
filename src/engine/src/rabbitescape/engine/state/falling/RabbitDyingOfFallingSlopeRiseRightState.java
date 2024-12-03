@@ -6,7 +6,7 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitFalling1ToDeath extends RabbitFallingCommon
+public class RabbitDyingOfFallingSlopeRiseRightState extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(

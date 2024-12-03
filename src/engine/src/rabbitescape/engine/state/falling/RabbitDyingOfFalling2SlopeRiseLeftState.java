@@ -6,7 +6,8 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitFalling1OntoRiseLeft extends RabbitFallingCommon
+/** The slope is two squares below where this starts. */
+public class RabbitDyingOfFalling2SlopeRiseLeftState extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(
@@ -15,14 +16,16 @@ public class RabbitFalling1OntoRiseLeft extends RabbitFallingCommon
         Falling fallingBehavior
     )
     {
-        fallingBehavior.setHeightFallen( fallingBehavior.getHeightFallen() + 1 );
-        rabbit.y = rabbit.y + 1;
+        fallingBehavior.setHeightFallen( fallingBehavior.getHeightFallen() + 2 );
+        rabbit.y = rabbit.y + 2;
         return true;
     }
 
     @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
-        chars.set( change.x, change.y + 1, 'a' );
+        chars.set( change.x, change.y + 1, 'f' );
+        chars.set( change.x, change.y + 2, 'x' );
     }
+
 }

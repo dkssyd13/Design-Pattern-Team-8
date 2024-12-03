@@ -6,7 +6,7 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitFallingOntoLowerRight extends RabbitFallingCommon
+public class RabbitDyingOfFallingSlopeRiseRight2State extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(
@@ -15,16 +15,14 @@ public class RabbitFallingOntoLowerRight extends RabbitFallingCommon
         Falling fallingBehavior
     )
     {
-        fallingBehavior.setHeightFallen( fallingBehavior.getHeightFallen() + 2 );
-        rabbit.y = rabbit.y + 2;
+        world.changes.killRabbit( rabbit );
         return true;
     }
 
     @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
-        chars.set( change.x, change.y + 1, 'f' );
-        chars.set( change.x, change.y + 2, 'e' );
+        chars.set( change.x, change.y, 'y' );
     }
 
 }
