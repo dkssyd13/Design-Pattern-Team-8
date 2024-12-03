@@ -212,9 +212,9 @@ public class Walking extends Behaviour
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_RISING_LEFT_START:
+            case RABBIT_RISING_LEFT_START: // DONE
             case RABBIT_LOWERING_AND_RISING_LEFT:
-            case RABBIT_RISING_AND_LOWERING_LEFT:
+            case RABBIT_RISING_AND_LOWERING_LEFT: // DONE
             {
                 --rabbit.x;
                 rabbit.onSlope = true;
@@ -226,36 +226,36 @@ public class Walking extends Behaviour
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_RISING_RIGHT_START:
+            case RABBIT_RISING_RIGHT_START: // DONE
             case RABBIT_LOWERING_AND_RISING_RIGHT:
-            case RABBIT_RISING_AND_LOWERING_RIGHT:
+            case RABBIT_RISING_AND_LOWERING_RIGHT: // DONE
             {
                 ++rabbit.x;
                 rabbit.onSlope = true;
                 return true;
             }
-            case RABBIT_RISING_LEFT_END:
+            case RABBIT_RISING_LEFT_END: // DONE
             {
                 --rabbit.y;
                 --rabbit.x;
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_RISING_LEFT_CONTINUE:
+            case RABBIT_RISING_LEFT_CONTINUE: // DONE
             {
                 --rabbit.y;
                 --rabbit.x;
                 rabbit.onSlope = true;
                 return true;
             }
-            case RABBIT_RISING_RIGHT_END:
+            case RABBIT_RISING_RIGHT_END: // DONE
             {
                 --rabbit.y;
                 ++rabbit.x;
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_RISING_RIGHT_CONTINUE:
+            case RABBIT_RISING_RIGHT_CONTINUE:// DONE
             {
                 --rabbit.y;
                 ++rabbit.x;

@@ -22,6 +22,7 @@ import rabbitescape.engine.solution.SolutionParser;
 import rabbitescape.engine.solution.SolutionRunner;
 import rabbitescape.engine.solution.SolutionExceptions.RanPastEnd;
 import rabbitescape.engine.state.falling.*;
+import rabbitescape.engine.state.rising.*;
 import rabbitescape.engine.textworld.ArrayByKeyElementMissing;
 import rabbitescape.engine.textworld.DuplicateMetaKey;
 import rabbitescape.engine.textworld.ItemsLineProcessor;
@@ -125,10 +126,15 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 8 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 1, RABBIT_RISING_RIGHT_START );
-        desc.add( 0, 3, RABBIT_RISING_RIGHT_CONTINUE );
-        desc.add( 0, 5, RABBIT_RISING_RIGHT_END );
-        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING );
+//        desc.add( 0, 1, RABBIT_RISING_RIGHT_START );
+//        desc.add( 0, 3, RABBIT_RISING_RIGHT_CONTINUE );
+//        desc.add( 0, 5, RABBIT_RISING_RIGHT_END );
+//        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING );
+
+        desc.add( 0, 1, new RabbitRisingRightStartState() );
+        desc.add( 0, 3, new RabbitRisingRightContinueState() );
+        desc.add( 0, 5, new RabbitRisingRightEndState() );
+        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING ); // TODO : State 패턴 적용
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -151,10 +157,14 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 8 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 4, 1, RABBIT_RISING_LEFT_START );
-        desc.add( 4, 3, RABBIT_RISING_LEFT_CONTINUE  );
-        desc.add( 4, 5, RABBIT_RISING_LEFT_END  );
-        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  );
+//        desc.add( 4, 1, RABBIT_RISING_LEFT_START );
+//        desc.add( 4, 3, RABBIT_RISING_LEFT_CONTINUE  );
+//        desc.add( 4, 5, RABBIT_RISING_LEFT_END  );
+//        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  );
+        desc.add( 4, 1, new RabbitRisingLeftStartState() );
+        desc.add( 4, 3, new RabbitRisingLeftContinueState() );
+        desc.add( 4, 5, new RabbitRisingLeftEndState()  );
+        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  ); // TODO : State 패턴 적용
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -229,9 +239,13 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 5 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, RABBIT_FALLING );
-        desc.add( 2, 1, RABBIT_FALLING  );
-        desc.add( 1, 2, RABBIT_FALLING_1 );
+//        desc.add( 0, 0, RABBIT_FALLING ); // TODO : 주석 삭제
+//        desc.add( 2, 1, RABBIT_FALLING  );
+//        desc.add( 1, 2, RABBIT_FALLING_1 );
+
+        desc.add( 0, 0, new RabbitFallingState());
+        desc.add( 2, 1, new RabbitFallingState()  );
+        desc.add( 1, 2, new RabbitFalling1State() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -251,8 +265,11 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, RABBIT_FALLING_1_TO_DEATH );
-        desc.add( 2, 0, RABBIT_DYING_OF_FALLING_2  );
+//        desc.add( 0, 0, RABBIT_FALLING_1_TO_DEATH ); // TODO : 주석 삭제
+//        desc.add( 2, 0, RABBIT_DYING_OF_FALLING_2  );
+
+        desc.add( 0, 0, new RabbitFalling1ToDeathState() );
+        desc.add( 2, 0, new RabbitDyingOfFalling2State()  );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -269,7 +286,8 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, RABBIT_DYING_OF_FALLING );
+//        desc.add( 0, 0, RABBIT_DYING_OF_FALLING ); // TODO : 주석 삭제
+        desc.add( 0, 0, new RabbitDyingOfFallingState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -304,8 +322,11 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, RABBIT_RISING_AND_LOWERING_RIGHT );
-        desc.add( 4, 0, RABBIT_RISING_AND_LOWERING_LEFT );
+//        desc.add( 0, 0, RABBIT_RISING_AND_LOWERING_RIGHT ); // TODO : 주석 삭제
+//        desc.add( 4, 0, RABBIT_RISING_AND_LOWERING_LEFT );
+
+        desc.add( 0, 0, new RabbitRisingAndLoweringRightState() );
+        desc.add( 4, 0, new RabbitRisingAndLoweringLeftState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
