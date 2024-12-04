@@ -79,28 +79,28 @@ public class ChangeRenderer
             case RABBIT_BURNING_ON_SLOPE:
                 chars.set(  change.x, change.y, 'X' );
                 break;
-            case RABBIT_WALKING_LEFT:
+            case RABBIT_WALKING_LEFT: // DONE
                 chars.set( change.x-1, change.y, '<' );
                 break;
-            case RABBIT_TURNING_LEFT_TO_RIGHT:
+            case RABBIT_TURNING_LEFT_TO_RIGHT: // DONE
                 chars.set( change.x, change.y, '|' );
                 break;
-            case RABBIT_TURNING_LEFT_TO_RIGHT_RISING:
+            case RABBIT_TURNING_LEFT_TO_RIGHT_RISING: // DONE
                 chars.set( change.x, change.y, '|' );
                 break;
-            case RABBIT_TURNING_LEFT_TO_RIGHT_LOWERING:
+            case RABBIT_TURNING_LEFT_TO_RIGHT_LOWERING: // DONE
                 chars.set( change.x, change.y, '[' );
                 break;
-            case RABBIT_WALKING_RIGHT:
+            case RABBIT_WALKING_RIGHT: // DONE
                 chars.set( change.x + 1, change.y, '>' );
                 break;
-            case RABBIT_TURNING_RIGHT_TO_LEFT:
+            case RABBIT_TURNING_RIGHT_TO_LEFT: // DONE
                 chars.set( change.x, change.y, '?' );
                 break;
-            case RABBIT_TURNING_RIGHT_TO_LEFT_RISING:
+            case RABBIT_TURNING_RIGHT_TO_LEFT_RISING: // DONE
                 chars.set( change.x, change.y, '?' );
                 break;
-            case RABBIT_TURNING_RIGHT_TO_LEFT_LOWERING:
+            case RABBIT_TURNING_RIGHT_TO_LEFT_LOWERING: // DONE
                 chars.set( change.x, change.y, ']' );
                 break;
             case RABBIT_RISING_RIGHT_START: // DONE
@@ -151,7 +151,7 @@ public class ChangeRenderer
             case RABBIT_RISING_AND_LOWERING_LEFT: // DONE
                 chars.set( change.x - 1, change.y, 'm' );
                 break;
-            case RABBIT_BROLLYCHUTING:
+            case RABBIT_BROLLYCHUTING: // DONE
                 chars.set( change.x, change.y + 1, ':' );
                 break;
             case RABBIT_FALLING: // DONE

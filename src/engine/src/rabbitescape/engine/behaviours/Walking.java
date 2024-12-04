@@ -194,13 +194,13 @@ public class Walking extends Behaviour
     {
         switch ( state )
         {
-            case RABBIT_WALKING_LEFT:
+            case RABBIT_WALKING_LEFT: // DONE
             {
                 --rabbit.x;
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_WALKING_RIGHT:
+            case RABBIT_WALKING_RIGHT: // DONE
             {
                 ++rabbit.x;
                 rabbit.onSlope = false;
@@ -278,19 +278,19 @@ public class Walking extends Behaviour
                 rabbit.onSlope = true;
                 return true;
             }
-            case RABBIT_TURNING_LEFT_TO_RIGHT:
+            case RABBIT_TURNING_LEFT_TO_RIGHT: // DONE
                 rabbit.onSlope = false; // Intentional fall-through
-            case RABBIT_TURNING_LEFT_TO_RIGHT_RISING:
-            case RABBIT_TURNING_LEFT_TO_RIGHT_LOWERING:
+            case RABBIT_TURNING_LEFT_TO_RIGHT_RISING: // DONE
+            case RABBIT_TURNING_LEFT_TO_RIGHT_LOWERING: // DONE
             {
                 rabbit.dir = RIGHT;
                 checkJumpOntoSlope( world, rabbit );
                 return true;
             }
-            case RABBIT_TURNING_RIGHT_TO_LEFT:
+            case RABBIT_TURNING_RIGHT_TO_LEFT: // DONE
                 rabbit.onSlope = false; // Intentional fall-through
-            case RABBIT_TURNING_RIGHT_TO_LEFT_RISING:
-            case RABBIT_TURNING_RIGHT_TO_LEFT_LOWERING:
+            case RABBIT_TURNING_RIGHT_TO_LEFT_RISING: // DONE
+            case RABBIT_TURNING_RIGHT_TO_LEFT_LOWERING: // DONE
             {
                 rabbit.dir = LEFT;
                 checkJumpOntoSlope( world, rabbit );
@@ -309,7 +309,7 @@ public class Walking extends Behaviour
     /**
      * If we turn around near a slope, we jump onto it
      */
-    private void checkJumpOntoSlope( World world, Rabbit rabbit )
+    private void checkJumpOntoSlope( World world, Rabbit rabbit ) // TODO : 삭제
     {
         Block thisBlock = world.getBlockAt( rabbit.x, rabbit.y );
         if ( isBridge( thisBlock ) )
@@ -326,7 +326,7 @@ public class Walking extends Behaviour
         }
     }
 
-    private boolean isBridge( Block block )
+    private boolean isBridge( Block block ) // TODO : 삭제
     {
         return (
                block != null

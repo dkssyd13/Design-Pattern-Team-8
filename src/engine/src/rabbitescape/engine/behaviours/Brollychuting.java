@@ -82,7 +82,7 @@ public class Brollychuting extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == RABBIT_BROLLYCHUTING )
+        if ( state == RABBIT_BROLLYCHUTING ) // DONE
         {
             rabbit.y = rabbit.y + 1;
             return true;

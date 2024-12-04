@@ -12,7 +12,7 @@ public class TestRabbit
     public void Rabbit_reports_state_in_lowercase()
     {
         Rabbit r = new Rabbit( 1, 1, Direction.LEFT, Rabbit.Type.RABBIT );
-        r.state = RABBIT_WALKING_LEFT;
+        r.state = RABBIT_WALKING_LEFT; // TODO : 테스트 필요
         assertThat(r.stateName(), equalTo("rabbit_walking_left"));
     }
 
