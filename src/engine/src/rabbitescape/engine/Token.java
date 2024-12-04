@@ -50,7 +50,7 @@ public class Token extends Thing
         state = switchType( type, false, false, onSlope );
     }
 
-    private static State switchType( 
+    private static State switchType(  // TODO : State 적용
         Type type, 
         boolean moving,
         boolean slopeBelow, 
@@ -179,20 +179,20 @@ public class Token extends Thing
     {
         switch ( state )
         {
-        case TOKEN_BASH_FALLING:
-        case TOKEN_BASH_FALL_TO_SLOPE:
-        case TOKEN_DIG_FALLING:
-        case TOKEN_DIG_FALL_TO_SLOPE:
-        case TOKEN_BRIDGE_FALLING:
-        case TOKEN_BRIDGE_FALL_TO_SLOPE:
-        case TOKEN_BLOCK_FALLING:
-        case TOKEN_BLOCK_FALL_TO_SLOPE:
-        case TOKEN_CLIMB_FALLING:
-        case TOKEN_CLIMB_FALL_TO_SLOPE:
-        case TOKEN_EXPLODE_FALL_TO_SLOPE:
-        case TOKEN_EXPLODE_FALLING:
-        case TOKEN_BROLLY_FALLING:
-        case TOKEN_BROLLY_FALL_TO_SLOPE:
+        case TOKEN_BASH_FALLING: // DONE
+        case TOKEN_BASH_FALL_TO_SLOPE: // DONE
+        case TOKEN_DIG_FALLING: // DONE
+        case TOKEN_DIG_FALL_TO_SLOPE: // DONE
+        case TOKEN_BRIDGE_FALLING: // DONE
+        case TOKEN_BRIDGE_FALL_TO_SLOPE: // DONE
+        case TOKEN_BLOCK_FALLING: // DONE
+        case TOKEN_BLOCK_FALL_TO_SLOPE: // DONE
+        case TOKEN_CLIMB_FALLING: // DONE
+        case TOKEN_CLIMB_FALL_TO_SLOPE: // DONE
+        case TOKEN_EXPLODE_FALL_TO_SLOPE: // DONE
+        case TOKEN_EXPLODE_FALLING: // DONE
+        case TOKEN_BROLLY_FALLING: // DONE
+        case TOKEN_BROLLY_FALL_TO_SLOPE: // DONE
         {
             ++y;
 
@@ -230,4 +230,6 @@ public class Token extends Thing
     {
         return type.toString();
     }
+
+
 }

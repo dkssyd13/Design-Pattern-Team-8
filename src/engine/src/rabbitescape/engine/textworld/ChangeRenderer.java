@@ -300,35 +300,35 @@ public class ChangeRenderer
                 break;
             case RABBIT_OUT_OF_BOUNDS: // DONE
                 break;
-            case TOKEN_BASH_STILL:
-            case TOKEN_BASH_ON_SLOPE:
-            case TOKEN_DIG_STILL:
-            case TOKEN_DIG_ON_SLOPE:
-            case TOKEN_BRIDGE_STILL:
-            case TOKEN_BRIDGE_ON_SLOPE:
-            case TOKEN_BLOCK_STILL:
-            case TOKEN_BLOCK_ON_SLOPE:
-            case TOKEN_CLIMB_STILL:
-            case TOKEN_CLIMB_ON_SLOPE:
-            case TOKEN_EXPLODE_STILL:
-            case TOKEN_EXPLODE_ON_SLOPE:
-            case TOKEN_BROLLY_STILL:
-            case TOKEN_BROLLY_ON_SLOPE:
+            case TOKEN_BASH_STILL: // DONE
+            case TOKEN_BASH_ON_SLOPE: // DONE
+            case TOKEN_DIG_STILL: // DONE
+            case TOKEN_DIG_ON_SLOPE: // DONE
+            case TOKEN_BRIDGE_STILL: // DONE
+            case TOKEN_BRIDGE_ON_SLOPE: // DONE
+            case TOKEN_BLOCK_STILL: // DONE
+            case TOKEN_BLOCK_ON_SLOPE: // DONE
+            case TOKEN_CLIMB_STILL: // DONE
+            case TOKEN_CLIMB_ON_SLOPE: // DONE
+            case TOKEN_EXPLODE_STILL: // DONE
+            case TOKEN_EXPLODE_ON_SLOPE: // DONE
+            case TOKEN_BROLLY_STILL: // DONE
+            case TOKEN_BROLLY_ON_SLOPE: // DONE
                 break;
-            case TOKEN_BASH_FALLING:
-            case TOKEN_BASH_FALL_TO_SLOPE:
-            case TOKEN_DIG_FALLING:
-            case TOKEN_DIG_FALL_TO_SLOPE:
-            case TOKEN_BRIDGE_FALLING:
-            case TOKEN_BRIDGE_FALL_TO_SLOPE:
-            case TOKEN_BLOCK_FALLING:
-            case TOKEN_BLOCK_FALL_TO_SLOPE:
-            case TOKEN_CLIMB_FALLING:
-            case TOKEN_CLIMB_FALL_TO_SLOPE:
-            case TOKEN_EXPLODE_FALLING:
-            case TOKEN_EXPLODE_FALL_TO_SLOPE:
-            case TOKEN_BROLLY_FALLING:
-            case TOKEN_BROLLY_FALL_TO_SLOPE:
+            case TOKEN_BASH_FALLING: // DONE
+            case TOKEN_BASH_FALL_TO_SLOPE: // DONE
+            case TOKEN_DIG_FALLING: // DONE
+            case TOKEN_DIG_FALL_TO_SLOPE: // DONE
+            case TOKEN_BRIDGE_FALLING: // DONE
+            case TOKEN_BRIDGE_FALL_TO_SLOPE: // DONE
+            case TOKEN_BLOCK_FALLING: // DONE
+            case TOKEN_BLOCK_FALL_TO_SLOPE: // DONE
+            case TOKEN_CLIMB_FALLING: // DONE
+            case TOKEN_CLIMB_FALL_TO_SLOPE: // DONE
+            case TOKEN_EXPLODE_FALLING: // DONE
+            case TOKEN_EXPLODE_FALL_TO_SLOPE: // DONE
+            case TOKEN_BROLLY_FALLING: // DONE
+            case TOKEN_BROLLY_FALL_TO_SLOPE: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 break;
             case WATER_REGION:
