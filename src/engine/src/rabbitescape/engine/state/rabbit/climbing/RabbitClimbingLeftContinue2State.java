@@ -4,7 +4,7 @@ import rabbitescape.engine.*;
 import rabbitescape.engine.behaviours.Climbing;
 import rabbitescape.engine.behaviours.Exiting;
 import rabbitescape.engine.state.State;
-import rabbitescape.engine.state.entering.RabbitEnteringExitClimbingLeftState;
+import rabbitescape.engine.state.rabbit.entering.RabbitEnteringExitClimbingLeftState;
 import rabbitescape.engine.textworld.Chars;
 
 
