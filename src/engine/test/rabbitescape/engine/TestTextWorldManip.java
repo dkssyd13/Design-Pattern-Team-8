@@ -29,6 +29,10 @@ import rabbitescape.engine.state.rabbit.climbing.*;
 import rabbitescape.engine.state.rabbit.falling.*;
 import rabbitescape.engine.state.rabbit.lowering.*;
 import rabbitescape.engine.state.rabbit.rising.*;
+import rabbitescape.engine.state.token.TokenBashFallingState;
+import rabbitescape.engine.state.token.TokenBlockFallingState;
+import rabbitescape.engine.state.token.TokenBridgeFallingState;
+import rabbitescape.engine.state.token.TokenDigFallingState;
 import rabbitescape.engine.textworld.ArrayByKeyElementMissing;
 import rabbitescape.engine.textworld.DuplicateMetaKey;
 import rabbitescape.engine.textworld.ItemsLineProcessor;
@@ -398,10 +402,15 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 4, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 0, 0, TOKEN_BASH_FALLING );
-        desc.add( 1, 0, TOKEN_DIG_FALLING );
-        desc.add( 2, 0, TOKEN_BRIDGE_FALLING );
-        desc.add( 3, 0, TOKEN_BLOCK_FALLING );
+//        desc.add( 0, 0, TOKEN_BASH_FALLING ); // TODO : 주석 삭제
+//        desc.add( 1, 0, TOKEN_DIG_FALLING );
+//        desc.add( 2, 0, TOKEN_BRIDGE_FALLING );
+//        desc.add( 3, 0, TOKEN_BLOCK_FALLING );
+
+        desc.add( 0, 0, new TokenBashFallingState() );
+        desc.add( 1, 0, new TokenDigFallingState() );
+        desc.add( 2, 0, new TokenBridgeFallingState() );
+        desc.add( 3, 0, new TokenBlockFallingState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
