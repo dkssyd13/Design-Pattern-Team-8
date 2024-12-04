@@ -91,6 +91,12 @@ public class RabbitOutOfBoundsState implements RabbitState
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_OUT_OF_BOUNDS";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
 

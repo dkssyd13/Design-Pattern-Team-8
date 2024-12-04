@@ -18,6 +18,12 @@ public class RabbitTurningLeftToRightRisingState extends RabbitTurningCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_TURNING_LEFT_TO_RIGHT_RISING";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y, '|' );

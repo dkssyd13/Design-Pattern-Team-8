@@ -17,4 +17,10 @@ public class TokenClimbOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_CLIMB_ON_SLOPE";
+    }
 }

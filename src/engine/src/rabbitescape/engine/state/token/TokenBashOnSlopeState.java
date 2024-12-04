@@ -18,4 +18,10 @@ public class TokenBashOnSlopeState implements TokenState
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BASH_ON_SLOPE";
+    }
 }

@@ -17,4 +17,10 @@ public class TokenExplodeStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_EXPLODE_STILL";
+    }
 }

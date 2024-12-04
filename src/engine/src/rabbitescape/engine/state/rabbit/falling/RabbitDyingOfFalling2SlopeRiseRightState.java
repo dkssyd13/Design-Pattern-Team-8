@@ -23,6 +23,12 @@ public class RabbitDyingOfFalling2SlopeRiseRightState extends RabbitFallingCommo
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y + 1, 'f' );

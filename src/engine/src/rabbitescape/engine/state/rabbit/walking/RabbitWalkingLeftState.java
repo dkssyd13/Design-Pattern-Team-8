@@ -16,6 +16,12 @@ public class RabbitWalkingLeftState extends RabbitWalkingCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_WALKING_LEFT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x-1, change.y, '<' );

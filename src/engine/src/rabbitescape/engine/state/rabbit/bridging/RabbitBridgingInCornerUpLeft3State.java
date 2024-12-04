@@ -35,4 +35,10 @@ public class RabbitBridgingInCornerUpLeft3State extends RabbitBridgingCommon{
     {
         return '}';
     }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_BRIDGING_IN_CORNER_UP_LEFT_3";
+    }
 }

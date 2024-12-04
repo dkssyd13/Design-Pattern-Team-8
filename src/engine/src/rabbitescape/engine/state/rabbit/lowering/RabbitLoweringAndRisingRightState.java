@@ -16,6 +16,12 @@ public class RabbitLoweringAndRisingRightState extends RabbitLoweringCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_LOWERING_AND_RISING_RIGHT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x + 1, change.y, ',' );

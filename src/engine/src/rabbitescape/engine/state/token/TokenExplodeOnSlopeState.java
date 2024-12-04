@@ -17,4 +17,10 @@ public class TokenExplodeOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_EXPLODE_ON_SLOPE";
+    }
 }

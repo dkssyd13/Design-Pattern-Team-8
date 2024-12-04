@@ -17,6 +17,12 @@ public class RabbitBashingUpRIghtState extends RabbitBashingCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_BASHING_UP_RIGHT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x + 1, change.y - 1, 'K' );

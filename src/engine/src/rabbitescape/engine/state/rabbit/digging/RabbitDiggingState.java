@@ -16,6 +16,12 @@ public class RabbitDiggingState extends RabbitDiggingCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_DIGGING";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y + 1, 'D' );

@@ -17,4 +17,10 @@ public class TokenBrollyOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BROLLY_ON_SLOPE";
+    }
 }

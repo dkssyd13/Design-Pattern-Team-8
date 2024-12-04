@@ -71,6 +71,12 @@ public class RabbitCrashingState implements RabbitState
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_CRASHING";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y, 'Z' );

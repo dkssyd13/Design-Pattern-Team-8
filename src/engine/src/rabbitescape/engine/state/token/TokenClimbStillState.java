@@ -17,4 +17,10 @@ public class TokenClimbStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_CLIMB_STILL";
+    }
 }

@@ -23,6 +23,12 @@ public class RabbitFalling1OntoRiseLeftState extends RabbitFallingCommon
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_FALLING_1_ONTO_RISE_LEFT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y + 1, 'a' );

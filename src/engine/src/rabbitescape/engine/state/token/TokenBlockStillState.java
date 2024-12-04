@@ -17,4 +17,10 @@ public class TokenBlockStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BLOCK_STILL";
+    }
 }

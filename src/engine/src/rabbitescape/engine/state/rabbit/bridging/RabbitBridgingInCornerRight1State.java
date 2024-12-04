@@ -29,4 +29,10 @@ public class RabbitBridgingInCornerRight1State extends RabbitBridgingCommon
     {
         return 'B';
     }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_BRIDGING_IN_CORNER_RIGHT_1";
+    }
 }

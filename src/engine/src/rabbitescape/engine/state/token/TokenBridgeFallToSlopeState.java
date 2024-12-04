@@ -22,4 +22,10 @@ public class TokenBridgeFallToSlopeState implements TokenState{
     {
         chars.set( change.x, change.y + 1, 'f' );
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BRIDGE_FALL_TO_SLOPE";
+    }
 }

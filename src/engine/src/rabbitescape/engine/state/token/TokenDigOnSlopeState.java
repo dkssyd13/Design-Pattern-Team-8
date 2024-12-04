@@ -17,4 +17,10 @@ public class TokenDigOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_DIG_ON_SLOPE";
+    }
 }

@@ -23,4 +23,10 @@ public class TokenBashFallingState implements TokenState
     {
         chars.set( change.x, change.y + 1, 'f' );
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BASH_FALLING";
+    }
 }

@@ -18,4 +18,10 @@ public class TokenBashStillState implements TokenState
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BASH_STILL";
+    }
 }

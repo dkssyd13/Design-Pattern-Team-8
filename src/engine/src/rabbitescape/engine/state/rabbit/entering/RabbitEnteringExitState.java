@@ -10,4 +10,10 @@ public class RabbitEnteringExitState extends RabbitEnteringExitCommon
     {
         chars.set( change.x, change.y, 'R' );
     }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_ENTERING_EXIT";
+    }
 }

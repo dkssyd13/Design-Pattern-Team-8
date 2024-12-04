@@ -13,6 +13,12 @@ public class RabbitEnteringExitClimbingRightState extends
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_ENTERING_EXIT_CLIMBING_RIGHT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
 

@@ -23,6 +23,12 @@ public class RabbitFalling1ToDeathState extends RabbitFallingCommon
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_FALLING_1_TO_DEATH";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y + 1, 'x' );

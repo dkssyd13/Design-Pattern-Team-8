@@ -16,6 +16,12 @@ public class RabbitDiggingOnSlopeState extends RabbitDiggingCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_DIGGING_ON_SLOPE";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y, 'D' );

@@ -36,4 +36,10 @@ public class RabbitBridgingDownUpLeft3State extends RabbitBridgingCommon
     {
         return '}';
     }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_BRIDGING_DOWN_UP_LEFT_3";
+    }
 }

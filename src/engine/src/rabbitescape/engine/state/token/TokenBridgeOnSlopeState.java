@@ -17,4 +17,10 @@ public class TokenBridgeOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BRIDGE_ON_SLOPE";
+    }
 }

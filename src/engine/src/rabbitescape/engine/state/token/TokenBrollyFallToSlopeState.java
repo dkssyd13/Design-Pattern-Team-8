@@ -22,4 +22,10 @@ public class TokenBrollyFallToSlopeState implements TokenState{
     {
         chars.set( change.x, change.y + 1, 'f' );
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BROLLY_FALL_TO_SLOPE";
+    }
 }

@@ -18,6 +18,12 @@ public class RabbitClimbingRightBangHeadState extends RabbitClimbingCommon
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_CLIMBING_RIGHT_BANG_HEAD";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y, 'F' );

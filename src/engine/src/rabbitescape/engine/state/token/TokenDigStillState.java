@@ -17,4 +17,10 @@ public class TokenDigStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_DIG_STILL";
+    }
 }

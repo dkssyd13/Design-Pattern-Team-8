@@ -7,7 +7,6 @@ import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.textworld.Chars;
 
-/** Part 2 of RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT. */
 public class RabbitDyingOfFalling2SlopeRiseLeft2State extends RabbitFallingCommon
 {
     @Override
@@ -19,6 +18,12 @@ public class RabbitDyingOfFalling2SlopeRiseLeft2State extends RabbitFallingCommo
     {
         world.changes.killRabbit( rabbit );
         return true;
+    }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2";
     }
 
     @Override

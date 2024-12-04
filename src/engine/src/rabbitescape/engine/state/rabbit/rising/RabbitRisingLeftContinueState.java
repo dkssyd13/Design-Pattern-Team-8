@@ -17,6 +17,12 @@ public class RabbitRisingLeftContinueState extends RabbitRisingCommon{
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_RISING_LEFT_CONTINUE";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x - 1, change.y - 1, '^' );

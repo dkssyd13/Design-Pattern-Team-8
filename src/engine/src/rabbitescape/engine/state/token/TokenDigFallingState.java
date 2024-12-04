@@ -23,4 +23,10 @@ public class TokenDigFallingState implements TokenState
     {
         chars.set( change.x, change.y + 1, 'f' );
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_DIG_FALLING";
+    }
 }

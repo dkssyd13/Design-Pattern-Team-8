@@ -7,7 +7,7 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitFalling1OntoLowerRightStateState extends RabbitFallingCommon
+public class RabbitFalling1OntoLowerRightState extends RabbitFallingCommon
 {
     @Override
     public boolean moveRabbit(
@@ -20,6 +20,12 @@ public class RabbitFalling1OntoLowerRightStateState extends RabbitFallingCommon
         fallingBehavior.setHeightFallen( fallingBehavior.getHeightFallen() + 1 );
         rabbit.y = rabbit.y + 1;
         return true;
+    }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_FALLING_1_ONTO_LOWER_RIGHT";
     }
 
     @Override

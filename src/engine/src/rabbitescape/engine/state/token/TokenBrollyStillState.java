@@ -17,4 +17,10 @@ public class TokenBrollyStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BROLLY_STILL";
+    }
 }

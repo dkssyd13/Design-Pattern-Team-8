@@ -17,4 +17,10 @@ public class TokenBlockOnSlopeState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BLOCK_ON_SLOPE";
+    }
 }

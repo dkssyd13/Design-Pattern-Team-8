@@ -27,4 +27,10 @@ public class RabbitBridgingUpRight1State extends RabbitBridgingCommon
     {
         return 'B';
     }
+
+    @Override
+    public String name()
+    {
+        return "RABBIT_BRIDGING_UP_RIGHT_1";
+    }
 }

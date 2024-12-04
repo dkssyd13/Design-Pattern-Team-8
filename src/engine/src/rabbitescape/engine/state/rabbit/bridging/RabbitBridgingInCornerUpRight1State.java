@@ -7,8 +7,7 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Bridging;
 import rabbitescape.engine.util.Position;
 
-public class RabbitBridgingLeft1State extends RabbitBridgingCommon
-{
+public class RabbitBridgingInCornerUpRight1State extends RabbitBridgingCommon{
     @Override
     public boolean moveRabbit( World world, Rabbit rabbit, Behaviour behaviour )
     {
@@ -19,18 +18,18 @@ public class RabbitBridgingLeft1State extends RabbitBridgingCommon
     @Override
     public Position whereBridging( int x, int y )
     {
-        return new Position( x - 1, y );
+        return new Position( x, y - 1 );
     }
 
     @Override
     public char bridgingStage( ChangeDescription.State state )
     {
-        return 'E';
+        return 'B';
     }
 
     @Override
     public String name()
     {
-        return "RABBIT_BRIDGING_LEFT_1";
+        return "RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_1";
     }
 }

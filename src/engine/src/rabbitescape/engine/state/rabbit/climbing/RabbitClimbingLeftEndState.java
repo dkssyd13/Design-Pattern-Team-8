@@ -28,6 +28,12 @@ public class RabbitClimbingLeftEndState extends RabbitClimbingCommon
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_CLIMBING_LEFT_END";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x - 1, change.y - 1, 'U' );

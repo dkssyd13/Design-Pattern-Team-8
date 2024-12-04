@@ -70,6 +70,12 @@ public class RabbitWaitingRightState implements RabbitState
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_WAITING_RIGHT";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y, 'z' );

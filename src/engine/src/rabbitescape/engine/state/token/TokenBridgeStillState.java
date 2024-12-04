@@ -17,4 +17,10 @@ public class TokenBridgeStillState implements TokenState{
     {
 
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BRIDGE_STILL";
+    }
 }

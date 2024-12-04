@@ -18,6 +18,12 @@ public class RabbitLoweringLeftContinueState extends RabbitLoweringCommon
     }
 
     @Override
+    public String name()
+    {
+        return "RABBIT_LOWERING_LEFT_CONTINUE";
+    }
+
+    @Override
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x - 1, change.y + 1, '%' );

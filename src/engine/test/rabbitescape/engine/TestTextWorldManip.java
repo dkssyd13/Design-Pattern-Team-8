@@ -386,7 +386,7 @@ public class TestTextWorldManip
         desc.add( 1, 0, new RabbitFallingOntoRiseRightState());
         desc.add( 2, 0, new RabbitFallingOntoLowerLeftState() );
         desc.add( 3, 0, new RabbitFallingOntoRiseLeftState());
-        desc.add( 4, 0, new RabbitFalling1OntoLowerRightStateState());
+        desc.add( 4, 0, new RabbitFalling1OntoLowerRightState());
         desc.add( 5, 0, new RabbitFalling1OntoRiseRightState() );
         desc.add( 6, 0, new RabbitFalling1OntoLowerLeftState());
         desc.add( 7, 0, new RabbitFalling1OntoRiseLeftState() );

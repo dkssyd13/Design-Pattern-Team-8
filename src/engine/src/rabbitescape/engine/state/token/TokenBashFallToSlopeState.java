@@ -5,7 +5,7 @@ import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
 import rabbitescape.engine.textworld.Chars;
 
-public class TokenBashFallToSlope implements TokenState
+public class TokenBashFallToSlopeState implements TokenState
 {
     @Override
     public void step( World world, Token token )
@@ -23,5 +23,11 @@ public class TokenBashFallToSlope implements TokenState
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set( change.x, change.y + 1, 'f' );
+    }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_BASH_FALL_TO_SLOPE";
     }
 }

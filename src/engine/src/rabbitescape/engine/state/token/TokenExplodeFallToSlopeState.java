@@ -22,4 +22,10 @@ public class TokenExplodeFallToSlopeState implements TokenState{
     {
         chars.set( change.x, change.y + 1, 'f' );
     }
+
+    @Override
+    public String name()
+    {
+        return "TOKEN_EXPLODE_FALL_TO_SLOPE";
+    }
 }
