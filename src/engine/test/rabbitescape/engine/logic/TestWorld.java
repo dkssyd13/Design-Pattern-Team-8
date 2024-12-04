@@ -394,7 +394,7 @@ public class TestWorld
         // This is what we are testing: ask what's in the rabbitty square
         Rabbit[] rabbits = world.getRabbitsAt( 1, 0 );
 
-        assertThat( rabbits[0].state, equalTo( RABBIT_BRIDGING_RIGHT_1 ) );
+        assertThat( rabbits[0].state, equalTo( RABBIT_BRIDGING_RIGHT_1 ) ); // TODO : 테스트 확인
         assertThat( rabbits[1].state, equalTo( RABBIT_WALKING_RIGHT ) );
 
         assertThat( rabbits.length, equalTo( 2 ) );

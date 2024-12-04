@@ -406,44 +406,44 @@ public class Bridging extends Behaviour
     {
         switch ( state )
         {
-            case RABBIT_BRIDGING_RIGHT_1:
-            case RABBIT_BRIDGING_RIGHT_2:
-            case RABBIT_BRIDGING_LEFT_1:
-            case RABBIT_BRIDGING_LEFT_2:
+            case RABBIT_BRIDGING_RIGHT_1: // DONE
+            case RABBIT_BRIDGING_RIGHT_2: // DONE
+            case RABBIT_BRIDGING_LEFT_1: // DONE
+            case RABBIT_BRIDGING_LEFT_2: // DONE
             {
                 bridgeType = BridgeType.ALONG;
                 return true;
             }
-            case RABBIT_BRIDGING_UP_RIGHT_1:
-            case RABBIT_BRIDGING_UP_RIGHT_2:
-            case RABBIT_BRIDGING_UP_LEFT_1:
-            case RABBIT_BRIDGING_UP_LEFT_2:
+            case RABBIT_BRIDGING_UP_RIGHT_1: // DONE
+            case RABBIT_BRIDGING_UP_RIGHT_2: // DONE
+            case RABBIT_BRIDGING_UP_LEFT_1: // DONE
+            case RABBIT_BRIDGING_UP_LEFT_2: // DONE
             {
                 bridgeType = BridgeType.UP;
                 return true;
             }
-            case RABBIT_BRIDGING_DOWN_UP_RIGHT_1:
-            case RABBIT_BRIDGING_DOWN_UP_RIGHT_2:
-            case RABBIT_BRIDGING_DOWN_UP_LEFT_1:
-            case RABBIT_BRIDGING_DOWN_UP_LEFT_2:
+            case RABBIT_BRIDGING_DOWN_UP_RIGHT_1: // DONE
+            case RABBIT_BRIDGING_DOWN_UP_RIGHT_2: // DONE
+            case RABBIT_BRIDGING_DOWN_UP_LEFT_1: // DONE
+            case RABBIT_BRIDGING_DOWN_UP_LEFT_2: // DONE
             {
                 bridgeType = BridgeType.DOWN_UP;
                 return true;
             }
-            case RABBIT_BRIDGING_IN_CORNER_RIGHT_1:
-            case RABBIT_BRIDGING_IN_CORNER_LEFT_1:
-            case RABBIT_BRIDGING_IN_CORNER_RIGHT_2:
-            case RABBIT_BRIDGING_IN_CORNER_LEFT_2:
-            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_1:
-            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_1:
-            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_2:
-            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_2:
+            case RABBIT_BRIDGING_IN_CORNER_RIGHT_1: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_LEFT_1: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_RIGHT_2: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_LEFT_2: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_1: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_1: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_2: // DONE
+            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_2: // DONE
             {
                 bridgeType = BridgeType.ALONG;
                 return true;
             }
-            case RABBIT_BRIDGING_RIGHT_3:
-            case RABBIT_BRIDGING_DOWN_UP_RIGHT_3:
+            case RABBIT_BRIDGING_RIGHT_3: // DONE
+            case RABBIT_BRIDGING_DOWN_UP_RIGHT_3: // DONE
             {
                 rabbit.x++;
                 world.changes.addBlock(
@@ -458,8 +458,8 @@ public class Bridging extends Behaviour
 
                 return true;
             }
-            case RABBIT_BRIDGING_LEFT_3:
-            case RABBIT_BRIDGING_DOWN_UP_LEFT_3:
+            case RABBIT_BRIDGING_LEFT_3: // DONE
+            case RABBIT_BRIDGING_DOWN_UP_LEFT_3: // DONE
             {
                 rabbit.x--;
                 world.changes.addBlock(
@@ -474,7 +474,7 @@ public class Bridging extends Behaviour
 
                 return true;
             }
-            case RABBIT_BRIDGING_UP_RIGHT_3:
+            case RABBIT_BRIDGING_UP_RIGHT_3: // DONE
             {
                 rabbit.x++;
                 rabbit.y--;
@@ -490,7 +490,7 @@ public class Bridging extends Behaviour
 
                 return true;
             }
-            case RABBIT_BRIDGING_UP_LEFT_3:
+            case RABBIT_BRIDGING_UP_LEFT_3: // DONE
             {
                 rabbit.x--;
                 rabbit.y--;
@@ -506,7 +506,7 @@ public class Bridging extends Behaviour
 
                 return true;
             }
-            case RABBIT_BRIDGING_IN_CORNER_RIGHT_3:
+            case RABBIT_BRIDGING_IN_CORNER_RIGHT_3: // DONE
             {
                 rabbit.onSlope = true;
                 world.changes.addBlock(
@@ -520,7 +520,7 @@ public class Bridging extends Behaviour
                 );
                 return true;
             }
-            case RABBIT_BRIDGING_IN_CORNER_LEFT_3:
+            case RABBIT_BRIDGING_IN_CORNER_LEFT_3: // DONE
             {
                 rabbit.onSlope = true;
                 world.changes.addBlock(
@@ -534,7 +534,7 @@ public class Bridging extends Behaviour
                 );
                 return true;
             }
-            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_3:
+            case RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_3: // DONE
             {
                 rabbit.onSlope = true;
                 rabbit.y--;
@@ -549,7 +549,7 @@ public class Bridging extends Behaviour
                 );
                 return true;
             }
-            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_3:
+            case RABBIT_BRIDGING_IN_CORNER_UP_LEFT_3: // DONE
             {
                 rabbit.onSlope = true;
                 rabbit.y--;
@@ -611,5 +611,15 @@ public class Bridging extends Behaviour
         {
             ++smallSteps;
         }
+    }
+
+    public BridgeType getBridgeType()
+    {
+        return bridgeType;
+    }
+
+    public void setBridgeType( BridgeType bridgeType )
+    {
+        this.bridgeType = bridgeType;
     }
 }

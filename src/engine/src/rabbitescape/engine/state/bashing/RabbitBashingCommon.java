@@ -1,9 +1,6 @@
 package rabbitescape.engine.state.bashing;
 
-import rabbitescape.engine.ChangeDescription;
-import rabbitescape.engine.Rabbit;
-import rabbitescape.engine.StateAndPosition;
-import rabbitescape.engine.World;
+import rabbitescape.engine.*;
 import rabbitescape.engine.behaviours.Bridging;
 import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.state.RabbitState;
@@ -53,14 +50,14 @@ abstract class RabbitBashingCommon implements RabbitState {
     public boolean moveRabbit(
         World world,
         Rabbit rabbit,
-        Falling fallingBehavior
+        Behaviour behaviour
     )
     {
         return false;
     }
 
     @Override
-    public Position whereBridging( StateAndPosition change )
+    public Position whereBridging( int x, int y )
     {
         return null;
     }
@@ -68,7 +65,7 @@ abstract class RabbitBashingCommon implements RabbitState {
     @Override
     public char bridgingStage( ChangeDescription.State state )
     {
-        return 0;
+        return ' ';
     }
 
     @Override

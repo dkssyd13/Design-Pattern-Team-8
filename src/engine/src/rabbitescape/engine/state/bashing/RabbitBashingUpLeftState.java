@@ -1,5 +1,6 @@
 package rabbitescape.engine.state.bashing;
 
+import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
@@ -7,7 +8,7 @@ import rabbitescape.engine.textworld.Chars;
 
 public class RabbitBashingUpLeftState extends RabbitBashingCommon{
     @Override
-    public boolean behave( World world, Rabbit rabbit )
+    public boolean behave( World world, Rabbit rabbit, Behaviour behaviour )
     {
         world.changes.removeBlockAt( destX( rabbit ), rabbit.y - 1 );
         rabbit.slopeBashHop = true;

@@ -12,10 +12,10 @@ public interface RabbitState extends State {
     boolean rabbitIsBashing();
     boolean isBlocking();
     boolean isDigging();
-    boolean moveRabbit( World world, Rabbit rabbit, Falling fallingBehavior );
-    boolean behave(World world, Rabbit rabbit);
+    boolean moveRabbit( World world, Rabbit rabbit, Behaviour behaviour );
+    boolean behave(World world, Rabbit rabbit, Behaviour behaviour);
 //    boolean checkTriggered( Rabbit rabbit, World world ); // TODO : Falling의 checkTrigered 한번 더 확인. 없어도 구현 가능할 것 같음
-    Position whereBridging( StateAndPosition change );
+    Position whereBridging( int x, int y );
     char bridgingStage( ChangeDescription.State state );
 
     boolean moveRabbit(

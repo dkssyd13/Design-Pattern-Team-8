@@ -1,5 +1,6 @@
 package rabbitescape.engine.state.lowering;
 
+import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
@@ -8,7 +9,7 @@ import rabbitescape.engine.textworld.Chars;
 public class RabbitLoweringRightContinueState extends RabbitLoweringCommon
 {
     @Override
-    public boolean behave( World world, Rabbit rabbit )
+    public boolean behave( World world, Rabbit rabbit, Behaviour behaviour )
     {
         ++rabbit.y;
         ++rabbit.x;

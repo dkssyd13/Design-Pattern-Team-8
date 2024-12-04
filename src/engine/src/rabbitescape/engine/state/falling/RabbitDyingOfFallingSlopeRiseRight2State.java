@@ -1,9 +1,9 @@
 package rabbitescape.engine.state.falling;
 
+import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
-import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.textworld.Chars;
 
 public class RabbitDyingOfFallingSlopeRiseRight2State extends RabbitFallingCommon
@@ -12,7 +12,7 @@ public class RabbitDyingOfFallingSlopeRiseRight2State extends RabbitFallingCommo
     public boolean moveRabbit(
         World world,
         Rabbit rabbit,
-        Falling fallingBehavior
+        Behaviour behaviour
     )
     {
         world.changes.killRabbit( rabbit );

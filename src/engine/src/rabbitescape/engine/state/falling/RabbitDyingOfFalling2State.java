@@ -1,5 +1,6 @@
 package rabbitescape.engine.state.falling;
 
+import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
@@ -12,7 +13,7 @@ public class RabbitDyingOfFalling2State extends RabbitFallingCommon
     public boolean moveRabbit(
         World world,
         Rabbit rabbit,
-        Falling fallingBehavior
+        Behaviour behaviour
     )
     {
         world.changes.killRabbit( rabbit );
