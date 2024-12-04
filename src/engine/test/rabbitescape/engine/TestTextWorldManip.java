@@ -25,6 +25,7 @@ import rabbitescape.engine.state.bashing.RabbitBashingLeftState;
 import rabbitescape.engine.state.bashing.RabbitBashingRightState;
 import rabbitescape.engine.state.bashing.RabbitBashingUselesslyLeftState;
 import rabbitescape.engine.state.bashing.RabbitBashingUselesslyRightState;
+import rabbitescape.engine.state.climbing.*;
 import rabbitescape.engine.state.falling.*;
 import rabbitescape.engine.state.lowering.*;
 import rabbitescape.engine.state.rising.*;
@@ -444,14 +445,23 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 17, 3 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add(  1, 1, RABBIT_CLIMBING_LEFT_START );
-        desc.add(  3, 1, RABBIT_CLIMBING_LEFT_CONTINUE_1 );
-        desc.add(  5, 1, RABBIT_CLIMBING_LEFT_CONTINUE_2 );
-        desc.add(  7, 1, RABBIT_CLIMBING_LEFT_END );
-        desc.add(  9, 1, RABBIT_CLIMBING_RIGHT_START );
-        desc.add( 11, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_1 );
-        desc.add( 13, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_2 );
-        desc.add( 15, 1, RABBIT_CLIMBING_RIGHT_END );
+//        desc.add(  1, 1, RABBIT_CLIMBING_LEFT_START ); // TODO : 주석 삭제
+//        desc.add(  3, 1, RABBIT_CLIMBING_LEFT_CONTINUE_1 );
+//        desc.add(  5, 1, RABBIT_CLIMBING_LEFT_CONTINUE_2 );
+//        desc.add(  7, 1, RABBIT_CLIMBING_LEFT_END );
+//        desc.add(  9, 1, RABBIT_CLIMBING_RIGHT_START );
+//        desc.add( 11, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_1 );
+//        desc.add( 13, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_2 );
+//        desc.add( 15, 1, RABBIT_CLIMBING_RIGHT_END );
+
+        desc.add(  1, 1, new RabbitClimbingLeftStartState() );
+        desc.add(  3, 1, new RabbitClimbingLeftContinue1State() );
+        desc.add(  5, 1, new RabbitClimbingLeftContinue2State() );
+        desc.add(  7, 1, new RabbitClimbingLeftEndState() );
+        desc.add(  9, 1, new RabbitClimbingRightStartState() );
+        desc.add( 11, 1, new RabbitClimbingRightContinue1State() );
+        desc.add( 13, 1, new RabbitClimbingRightContinue2State() );
+        desc.add( 15, 1, new RabbitClimbingRightEndState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),

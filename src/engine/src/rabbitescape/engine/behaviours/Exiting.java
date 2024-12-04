@@ -38,11 +38,11 @@ public class Exiting extends Behaviour
     {
         if ( triggered )
         {
-            if ( t.rabbit.state == RABBIT_CLIMBING_LEFT_CONTINUE_2 )
+            if ( t.rabbit.state == RABBIT_CLIMBING_LEFT_CONTINUE_2 ) // DONE
             {
                 return RABBIT_ENTERING_EXIT_CLIMBING_LEFT;
             }
-            if ( t.rabbit.state == RABBIT_CLIMBING_RIGHT_CONTINUE_2 )
+            if ( t.rabbit.state == RABBIT_CLIMBING_RIGHT_CONTINUE_2 ) // DONE
             {
                 return RABBIT_ENTERING_EXIT_CLIMBING_RIGHT;
             }

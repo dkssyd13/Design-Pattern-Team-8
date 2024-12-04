@@ -40,17 +40,16 @@ public class Climbing extends Behaviour
         {
             return null;
         }
-
-        switch ( t.rabbit.state )
+        switch ( t.rabbit.state ) // TODO : switch문 대신 state를 RabbitClimbingCommon으로 타입 변환 후 newState 메서드 호출로 변경.
         {
-            case RABBIT_CLIMBING_RIGHT_START:
-            case RABBIT_CLIMBING_LEFT_START:
+            case RABBIT_CLIMBING_RIGHT_START: // DONE
+            case RABBIT_CLIMBING_LEFT_START: // DONE
                 return newStateStart( t );
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_1:
-            case RABBIT_CLIMBING_LEFT_CONTINUE_1:
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_1: // DONE
+            case RABBIT_CLIMBING_LEFT_CONTINUE_1: // DONE
                 return newStateCont1( t );
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_2:
-            case RABBIT_CLIMBING_LEFT_CONTINUE_2:
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_2: // DONE
+            case RABBIT_CLIMBING_LEFT_CONTINUE_2: // DONE
                 return newStateCont2( t );
             default:
                 return newStateNotClimbing( t );
@@ -146,14 +145,14 @@ public class Climbing extends Behaviour
 
         switch ( state )
         {
-            case RABBIT_CLIMBING_RIGHT_START:
-            case RABBIT_CLIMBING_LEFT_START:
+            case RABBIT_CLIMBING_RIGHT_START: // DONE
+            case RABBIT_CLIMBING_LEFT_START: // DONE
             {
                 abilityActive = true;
                 return true;
             }
-            case RABBIT_CLIMBING_RIGHT_END:
-            case RABBIT_CLIMBING_LEFT_END:
+            case RABBIT_CLIMBING_RIGHT_END: // DONE
+            case RABBIT_CLIMBING_LEFT_END: // DONE
             {
                 rabbit.x = t.nextX();
                 --rabbit.y;
@@ -164,21 +163,21 @@ public class Climbing extends Behaviour
                 abilityActive = false;
                 return true;
             }
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_1:
-            case RABBIT_CLIMBING_LEFT_CONTINUE_1:
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_1: // DONE
+            case RABBIT_CLIMBING_LEFT_CONTINUE_1: // DONE
             {
                 abilityActive = true;
                 return true;
             }
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_2:
-            case RABBIT_CLIMBING_LEFT_CONTINUE_2:
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_2: // DONE
+            case RABBIT_CLIMBING_LEFT_CONTINUE_2: // DONE
             {
                 abilityActive = true;
                 --rabbit.y;
                 return true;
             }
-            case RABBIT_CLIMBING_RIGHT_BANG_HEAD:
-            case RABBIT_CLIMBING_LEFT_BANG_HEAD:
+            case RABBIT_CLIMBING_RIGHT_BANG_HEAD: // DONE
+            case RABBIT_CLIMBING_LEFT_BANG_HEAD: // DONE
             {
                 rabbit.dir = opposite( rabbit.dir );
                 return true;
@@ -212,5 +211,15 @@ public class Climbing extends Behaviour
         abilityActive = BehaviourState.restoreFromState(
             saveState, "Climbing.abilityActive", abilityActive
         );
+    }
+
+    public boolean isAbilityActive()
+    {
+        return abilityActive;
+    }
+
+    public void setAbilityActive( boolean abilityActive )
+    {
+        this.abilityActive = abilityActive;
     }
 }

@@ -66,13 +66,5 @@ abstract class RabbitDiggingCommon implements RabbitState
         return ' ';
     }
 
-    @Override
-    public boolean moveRabbit(
-        Bridging.BridgeType bridgeType,
-        World world,
-        Rabbit rabbit
-    )
-    {
-        return false;
-    }
+
 }

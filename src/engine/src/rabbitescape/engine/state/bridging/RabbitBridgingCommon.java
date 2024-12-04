@@ -4,7 +4,6 @@ import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
-import rabbitescape.engine.behaviours.Bridging;
 import rabbitescape.engine.state.RabbitState;
 import rabbitescape.engine.textworld.Chars;
 
@@ -65,15 +64,5 @@ abstract class RabbitBridgingCommon implements RabbitState
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
 
-    }
-
-    @Override
-    public boolean moveRabbit(
-        Bridging.BridgeType bridgeType,
-        World world,
-        Rabbit rabbit
-    )
-    {
-        return false;
     }
 }

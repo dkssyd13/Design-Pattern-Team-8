@@ -242,30 +242,30 @@ public class ChangeRenderer
             case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
                 chars.set( change.x - 1, change.y, 'J' );
                 break;
-            case RABBIT_CLIMBING_LEFT_START:
+            case RABBIT_CLIMBING_LEFT_START: // DONE
                 chars.set( change.x, change.y, 'T' );
                 break;
-            case RABBIT_CLIMBING_LEFT_CONTINUE_1:
-            case RABBIT_CLIMBING_LEFT_CONTINUE_2:
+            case RABBIT_CLIMBING_LEFT_CONTINUE_1: // DONE
+            case RABBIT_CLIMBING_LEFT_CONTINUE_2: // DONE
                 chars.set( change.x, change.y - 1, 'Y' );
                 break;
-            case RABBIT_CLIMBING_LEFT_END:
+            case RABBIT_CLIMBING_LEFT_END: // DONE
                 chars.set( change.x - 1, change.y - 1, 'U' );
                 break;
-            case RABBIT_CLIMBING_LEFT_BANG_HEAD:
+            case RABBIT_CLIMBING_LEFT_BANG_HEAD: // DONE
                 chars.set( change.x, change.y, 'Y' );
                 break;
-            case RABBIT_CLIMBING_RIGHT_START:
+            case RABBIT_CLIMBING_RIGHT_START: // DONE
                 chars.set( change.x, change.y, 'G' );
                 break;
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_1:
-            case RABBIT_CLIMBING_RIGHT_CONTINUE_2:
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_1: // DONE
+            case RABBIT_CLIMBING_RIGHT_CONTINUE_2: // DONE
                 chars.set( change.x, change.y - 1, 'F' );
                 break;
-            case RABBIT_CLIMBING_RIGHT_END:
+            case RABBIT_CLIMBING_RIGHT_END: // DONE
                 chars.set( change.x + 1, change.y - 1, 'L' );
                 break;
-            case RABBIT_CLIMBING_RIGHT_BANG_HEAD:
+            case RABBIT_CLIMBING_RIGHT_BANG_HEAD: // DONE
                 chars.set( change.x, change.y, 'F' );
                 break;
             case RABBIT_DIGGING: // DONE

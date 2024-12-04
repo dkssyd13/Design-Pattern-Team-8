@@ -3,6 +3,8 @@ package rabbitescape.engine;
 import static rabbitescape.engine.Block.Shape.*;
 import static rabbitescape.engine.Direction.RIGHT;
 import static rabbitescape.engine.Direction.opposite;
+
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.util.Position;
 
 public class BehaviourTools
@@ -16,9 +18,17 @@ public class BehaviourTools
         this.world = world;
     }
 
-    public ChangeDescription.State rl(
+    public ChangeDescription.State rl( // TODO : 삭제
         ChangeDescription.State rightState,
         ChangeDescription.State leftState
+    )
+    {
+        return rabbit.dir == RIGHT ? rightState : leftState;
+    }
+
+    public State rl(
+        State rightState,
+        State leftState
     )
     {
         return rabbit.dir == RIGHT ? rightState : leftState;
@@ -66,16 +76,16 @@ public class BehaviourTools
         {
         case RABBIT_ENTERING_EXIT_CLIMBING_RIGHT: // DONE
         case RABBIT_ENTERING_EXIT_CLIMBING_LEFT: // DONE
-        case RABBIT_CLIMBING_LEFT_START:
-        case RABBIT_CLIMBING_LEFT_CONTINUE_1:
-        case RABBIT_CLIMBING_LEFT_CONTINUE_2:
-        case RABBIT_CLIMBING_LEFT_END:
-        case RABBIT_CLIMBING_LEFT_BANG_HEAD:
-        case RABBIT_CLIMBING_RIGHT_START:
-        case RABBIT_CLIMBING_RIGHT_CONTINUE_1:
-        case RABBIT_CLIMBING_RIGHT_CONTINUE_2:
-        case RABBIT_CLIMBING_RIGHT_END:
-        case RABBIT_CLIMBING_RIGHT_BANG_HEAD:
+        case RABBIT_CLIMBING_LEFT_START: // DONE
+        case RABBIT_CLIMBING_LEFT_CONTINUE_1:// DONE
+        case RABBIT_CLIMBING_LEFT_CONTINUE_2:// DONE
+        case RABBIT_CLIMBING_LEFT_END:// DONE
+        case RABBIT_CLIMBING_LEFT_BANG_HEAD:// DONE
+        case RABBIT_CLIMBING_RIGHT_START:// DONE
+        case RABBIT_CLIMBING_RIGHT_CONTINUE_1:// DONE
+        case RABBIT_CLIMBING_RIGHT_CONTINUE_2:// DONE
+        case RABBIT_CLIMBING_RIGHT_END:// DONE
+        case RABBIT_CLIMBING_RIGHT_BANG_HEAD:// DONE
             return true;
         default:
             return false;
