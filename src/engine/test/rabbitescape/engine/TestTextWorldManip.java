@@ -21,14 +21,6 @@ import rabbitescape.engine.solution.SolutionExceptions;
 import rabbitescape.engine.solution.SolutionParser;
 import rabbitescape.engine.solution.SolutionRunner;
 import rabbitescape.engine.solution.SolutionExceptions.RanPastEnd;
-import rabbitescape.engine.state.bashing.RabbitBashingLeftState;
-import rabbitescape.engine.state.bashing.RabbitBashingRightState;
-import rabbitescape.engine.state.bashing.RabbitBashingUselesslyLeftState;
-import rabbitescape.engine.state.bashing.RabbitBashingUselesslyRightState;
-import rabbitescape.engine.state.climbing.*;
-import rabbitescape.engine.state.falling.*;
-import rabbitescape.engine.state.lowering.*;
-import rabbitescape.engine.state.rising.*;
 import rabbitescape.engine.textworld.ArrayByKeyElementMissing;
 import rabbitescape.engine.textworld.DuplicateMetaKey;
 import rabbitescape.engine.textworld.ItemsLineProcessor;
@@ -137,7 +129,7 @@ public class TestTextWorldManip
 //        desc.add( 0, 5, RABBIT_RISING_RIGHT_END );
 //        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING );
 
-        desc.add( 0, 1, new RabbitRisingRightStartState() );
+        desc.add( 0, 1, new rabbitescape.engine.state.rising.RabbitRisingRightStartState() );
         desc.add( 0, 3, new RabbitRisingRightContinueState() );
         desc.add( 0, 5, new RabbitRisingRightEndState() );
         desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING ); // TODO : State 패턴 적용
