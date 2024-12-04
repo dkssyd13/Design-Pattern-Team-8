@@ -20,6 +20,12 @@ abstract class RabbitBashingCommon implements RabbitState {
     }
 
     @Override
+    public boolean rabbitIsDigging()
+    {
+        return false;
+    }
+
+    @Override
     public boolean rabbitIsClimbing()
     {
         return false;

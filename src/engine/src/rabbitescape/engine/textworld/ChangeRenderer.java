@@ -268,16 +268,16 @@ public class ChangeRenderer
             case RABBIT_CLIMBING_RIGHT_BANG_HEAD:
                 chars.set( change.x, change.y, 'F' );
                 break;
-            case RABBIT_DIGGING:
+            case RABBIT_DIGGING: // DONE
                 chars.set( change.x, change.y + 1, 'D' );
                 break;
-            case RABBIT_DIGGING_USELESSLY:
+            case RABBIT_DIGGING_USELESSLY: // DONE
                 chars.set( change.x, change.y + 1, 'D' );
                 break;
-            case RABBIT_DIGGING_ON_SLOPE:
+            case RABBIT_DIGGING_ON_SLOPE: // DONE
                 chars.set( change.x, change.y, 'D' );
                 break;
-            case RABBIT_DIGGING_2:
+            case RABBIT_DIGGING_2: // DONE
                 chars.set( change.x, change.y, 'D' );
                 break;
             case RABBIT_BLOCKING:

@@ -1,4 +1,4 @@
-package rabbitescape.engine.state.rising;
+package rabbitescape.engine.state.digging;
 
 import rabbitescape.engine.ChangeDescription;
 import rabbitescape.engine.Rabbit;
@@ -9,14 +9,8 @@ import rabbitescape.engine.behaviours.Falling;
 import rabbitescape.engine.state.RabbitState;
 import rabbitescape.engine.util.Position;
 
-abstract class RabbitRisingCommon implements RabbitState
+abstract class RabbitDiggingCommon implements RabbitState
 {
-    @Override
-    public boolean rabbitIsDigging()
-    {
-        return false;
-    }
-
     @Override
     public boolean rabbitIsFalling()
     {
@@ -27,6 +21,12 @@ abstract class RabbitRisingCommon implements RabbitState
     public boolean rabbitIsClimbing()
     {
         return false;
+    }
+
+    @Override
+    public boolean rabbitIsDigging()
+    {
+        return true;
     }
 
     @Override

@@ -75,20 +75,20 @@ public class Digging extends Behaviour
     {
         switch ( state )
         {
-            case RABBIT_DIGGING:
+            case RABBIT_DIGGING: // DONE
             {
                 world.changes.removeBlockAt( rabbit.x, rabbit.y + 1 );
                 ++rabbit.y;
                 return true;
             }
-            case RABBIT_DIGGING_ON_SLOPE:
+            case RABBIT_DIGGING_ON_SLOPE: // DONE
             {
                 world.changes.removeBlockAt( rabbit.x, rabbit.y );
                 rabbit.onSlope = false;
                 return true;
             }
-            case RABBIT_DIGGING_2:
-            case RABBIT_DIGGING_USELESSLY:
+            case RABBIT_DIGGING_2: // DONE
+            case RABBIT_DIGGING_USELESSLY: // DONE
             {
                 return true;
             }
@@ -117,10 +117,10 @@ public class Digging extends Behaviour
     {
         switch ( state )
         {
-            case RABBIT_DIGGING:
-            case RABBIT_DIGGING_2:
-            case RABBIT_DIGGING_ON_SLOPE:
-            case RABBIT_DIGGING_USELESSLY:
+            case RABBIT_DIGGING: // DONE
+            case RABBIT_DIGGING_2: // DONE
+            case RABBIT_DIGGING_ON_SLOPE: // DONE
+            case RABBIT_DIGGING_USELESSLY: // DONE
                 return true;
             default:
                 return false;

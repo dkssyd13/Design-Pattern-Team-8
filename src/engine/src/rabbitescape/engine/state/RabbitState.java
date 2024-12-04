@@ -8,6 +8,7 @@ import rabbitescape.engine.util.Position;
 public interface RabbitState extends State {
     boolean rabbitIsFalling();
     boolean rabbitIsClimbing();
+    boolean rabbitIsDigging();
     boolean rabbitIsBashing();
     boolean isBlocking();
     boolean isDigging();

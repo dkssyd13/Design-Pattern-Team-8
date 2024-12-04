@@ -12,6 +12,12 @@ import rabbitescape.engine.util.Position;
 abstract class RabbitLoweringCommon implements RabbitState
 {
     @Override
+    public boolean rabbitIsDigging()
+    {
+        return false;
+    }
+
+    @Override
     public boolean rabbitIsFalling()
     {
         return false;

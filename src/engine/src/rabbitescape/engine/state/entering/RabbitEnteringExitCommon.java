@@ -24,6 +24,12 @@ abstract class RabbitEnteringExitCommon implements RabbitState
     }
 
     @Override
+    public boolean rabbitIsDigging()
+    {
+        return false;
+    }
+
+    @Override
     public boolean rabbitIsBashing()
     {
         return false;
