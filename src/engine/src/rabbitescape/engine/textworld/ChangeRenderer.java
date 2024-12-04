@@ -280,9 +280,9 @@ public class ChangeRenderer
             case RABBIT_DIGGING_2: // DONE
                 chars.set( change.x, change.y, 'D' );
                 break;
-            case RABBIT_BLOCKING:
-            case RABBIT_BLOCKING_RISE_RIGHT:
-            case RABBIT_BLOCKING_RISE_LEFT:
+            case RABBIT_BLOCKING: // DONE
+            case RABBIT_BLOCKING_RISE_RIGHT: // DONE
+            case RABBIT_BLOCKING_RISE_LEFT: // DONE
                 chars.set( change.x, change.y, 'H' );
                 break;
             case RABBIT_EXPLODING:
