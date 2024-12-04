@@ -285,17 +285,17 @@ public class ChangeRenderer
             case RABBIT_BLOCKING_RISE_LEFT: // DONE
                 chars.set( change.x, change.y, 'H' );
                 break;
-            case RABBIT_EXPLODING:
+            case RABBIT_EXPLODING: // DONE
                 chars.set( change.x, change.y, 'P' );
                 break;
             case RABBIT_DROWNING: // DONE
                 chars.set( change.x, change.y, 'R' );
                 break;
-            case RABBIT_CRASHING:
+            case RABBIT_CRASHING: // DONE
                 chars.set( change.x, change.y, 'Z' );
                 break;
-            case RABBIT_WAITING_LEFT:
-            case RABBIT_WAITING_RIGHT:
+            case RABBIT_WAITING_LEFT: // DONE
+            case RABBIT_WAITING_RIGHT: // DONE
                 chars.set( change.x, change.y, 'z' );
                 break;
             case RABBIT_OUT_OF_BOUNDS: // DONE

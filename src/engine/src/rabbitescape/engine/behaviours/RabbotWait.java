@@ -88,8 +88,8 @@ public class RabbotWait extends Behaviour
     public boolean behave( World world, Rabbit rabbit, State state )
     {
         if ( 
-            state == State.RABBIT_WAITING_LEFT ||
-            state == State.RABBIT_WAITING_RIGHT 
+            state == State.RABBIT_WAITING_LEFT || // DONE
+            state == State.RABBIT_WAITING_RIGHT  // DONE
         )
         {
             return true;

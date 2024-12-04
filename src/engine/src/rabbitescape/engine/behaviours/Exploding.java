@@ -33,7 +33,7 @@ public class Exploding extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == RABBIT_EXPLODING )
+        if ( state == RABBIT_EXPLODING ) // DONE
         {
             world.changes.killRabbit( rabbit );
             return true;

@@ -49,7 +49,7 @@ public class RabbotCrash extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == State.RABBIT_CRASHING )
+        if ( state == State.RABBIT_CRASHING ) // DONE
         {
             world.changes.killRabbit( rabbit );
             return true;
