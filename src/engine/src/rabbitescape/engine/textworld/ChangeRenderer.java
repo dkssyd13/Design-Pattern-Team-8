@@ -218,28 +218,28 @@ public class ChangeRenderer
             case RABBIT_ENTERING_EXIT: // DONE
                 chars.set( change.x, change.y, 'R' );
                 break;
-            case RABBIT_BASHING_RIGHT:
+            case RABBIT_BASHING_RIGHT: // DONE
                 chars.set( change.x + 1, change.y, 'K' );
                 break;
-            case RABBIT_BASHING_LEFT:
+            case RABBIT_BASHING_LEFT: // DONE
                 chars.set( change.x - 1, change.y, 'W' );
                 break;
-            case RABBIT_BASHING_UP_RIGHT:
+            case RABBIT_BASHING_UP_RIGHT: // DONE
                 chars.set( change.x + 1, change.y - 1, 'K' );
                 break;
-            case RABBIT_BASHING_UP_LEFT:
+            case RABBIT_BASHING_UP_LEFT: // DONE
                 chars.set( change.x - 1, change.y - 1, 'W' );
                 break;
-            case RABBIT_BASHING_USELESSLY_RIGHT:
+            case RABBIT_BASHING_USELESSLY_RIGHT: // DONE
                 chars.set( change.x + 1, change.y, 'I' );
                 break;
-            case RABBIT_BASHING_USELESSLY_LEFT:
+            case RABBIT_BASHING_USELESSLY_LEFT: // DONE
                 chars.set( change.x - 1, change.y, 'J' );
                 break;
-            case RABBIT_BASHING_USELESSLY_RIGHT_UP:
+            case RABBIT_BASHING_USELESSLY_RIGHT_UP: // DONE
                 chars.set( change.x + 1, change.y, 'I' );
                 break;
-            case RABBIT_BASHING_USELESSLY_LEFT_UP:
+            case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
                 chars.set( change.x - 1, change.y, 'J' );
                 break;
             case RABBIT_CLIMBING_LEFT_START:

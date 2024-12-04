@@ -21,6 +21,10 @@ import rabbitescape.engine.solution.SolutionExceptions;
 import rabbitescape.engine.solution.SolutionParser;
 import rabbitescape.engine.solution.SolutionRunner;
 import rabbitescape.engine.solution.SolutionExceptions.RanPastEnd;
+import rabbitescape.engine.state.bashing.RabbitBashingLeftState;
+import rabbitescape.engine.state.bashing.RabbitBashingRightState;
+import rabbitescape.engine.state.bashing.RabbitBashingUselesslyLeftState;
+import rabbitescape.engine.state.bashing.RabbitBashingUselesslyRightState;
 import rabbitescape.engine.state.falling.*;
 import rabbitescape.engine.state.lowering.*;
 import rabbitescape.engine.state.rising.*;
@@ -413,10 +417,15 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 4 );
 
         ChangeDescription desc = new ChangeDescription();
-        desc.add( 1, 0, RABBIT_BASHING_RIGHT );
-        desc.add( 1, 1, RABBIT_BASHING_LEFT );
-        desc.add( 1, 2, RABBIT_BASHING_USELESSLY_RIGHT );
-        desc.add( 1, 3, RABBIT_BASHING_USELESSLY_LEFT );
+//        desc.add( 1, 0, RABBIT_BASHING_RIGHT );// DONE // TODO : 주석 삭제
+//        desc.add( 1, 1, RABBIT_BASHING_LEFT ); // DONE
+//        desc.add( 1, 2, RABBIT_BASHING_USELESSLY_RIGHT ); // DONE
+//        desc.add( 1, 3, RABBIT_BASHING_USELESSLY_LEFT ); // DONE
+
+        desc.add( 1, 0, new RabbitBashingRightState() );
+        desc.add( 1, 1, new RabbitBashingLeftState() );
+        desc.add( 1, 2, new RabbitBashingUselesslyRightState() );
+        desc.add( 1, 3, new RabbitBashingUselesslyLeftState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),

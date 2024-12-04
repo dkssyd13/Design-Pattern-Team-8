@@ -86,14 +86,14 @@ public class BehaviourTools
     {
         switch( rabbit.state)
         {
-        case RABBIT_BASHING_RIGHT:
-        case RABBIT_BASHING_LEFT:
-        case RABBIT_BASHING_UP_RIGHT:
-        case RABBIT_BASHING_UP_LEFT:
-        case RABBIT_BASHING_USELESSLY_RIGHT:
-        case RABBIT_BASHING_USELESSLY_LEFT:
-        case RABBIT_BASHING_USELESSLY_RIGHT_UP:
-        case RABBIT_BASHING_USELESSLY_LEFT_UP:
+        case RABBIT_BASHING_RIGHT: // DONE
+        case RABBIT_BASHING_LEFT: // DONE
+        case RABBIT_BASHING_UP_RIGHT: // DONE
+        case RABBIT_BASHING_UP_LEFT: // DONE
+        case RABBIT_BASHING_USELESSLY_RIGHT: // DONE
+        case RABBIT_BASHING_USELESSLY_LEFT: // DONE
+        case RABBIT_BASHING_USELESSLY_RIGHT_UP: // DONE
+        case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
             return true;
         default:
             return false;

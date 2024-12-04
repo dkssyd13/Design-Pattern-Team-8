@@ -102,29 +102,29 @@ public class Bashing extends Behaviour
 
         switch ( state )
         {
-            case RABBIT_BASHING_RIGHT:
-            case RABBIT_BASHING_LEFT:
+            case RABBIT_BASHING_RIGHT: // DONE
+            case RABBIT_BASHING_LEFT: // DONE
             {
                 rabbit.slopeBashHop = false;
                 world.changes.removeBlockAt( destX( rabbit ), rabbit.y );
                 return true;
             }
-            case RABBIT_BASHING_UP_RIGHT:
-            case RABBIT_BASHING_UP_LEFT:
+            case RABBIT_BASHING_UP_RIGHT: // DONE
+            case RABBIT_BASHING_UP_LEFT: // DONE
             {
                 world.changes.removeBlockAt( destX( rabbit ), rabbit.y - 1 );
                 rabbit.slopeBashHop = true;
                 rabbit.y -= 1;
                 return true;
             }
-            case RABBIT_BASHING_USELESSLY_RIGHT:
-            case RABBIT_BASHING_USELESSLY_LEFT:
+            case RABBIT_BASHING_USELESSLY_RIGHT: // DONE
+            case RABBIT_BASHING_USELESSLY_LEFT: // DONE
             {
                 rabbit.slopeBashHop = false;
                 return true;
             }
-            case RABBIT_BASHING_USELESSLY_RIGHT_UP:
-            case RABBIT_BASHING_USELESSLY_LEFT_UP:
+            case RABBIT_BASHING_USELESSLY_RIGHT_UP: // DONE
+            case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
             {
                 rabbit.slopeBashHop = true;
                 rabbit.y -= 1;
