@@ -64,7 +64,7 @@ public class Drowning extends Behaviour
     {
         switch ( state )
         {
-        case RABBIT_DROWNING:
+        case RABBIT_DROWNING: // DONE
             world.changes.killRabbit( rabbit );
             return true;
         default:

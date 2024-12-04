@@ -288,7 +288,7 @@ public class ChangeRenderer
             case RABBIT_EXPLODING:
                 chars.set( change.x, change.y, 'P' );
                 break;
-            case RABBIT_DROWNING:
+            case RABBIT_DROWNING: // DONE
                 chars.set( change.x, change.y, 'R' );
                 break;
             case RABBIT_CRASHING:

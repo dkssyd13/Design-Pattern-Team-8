@@ -170,7 +170,7 @@ public class ChangeDescription
         RABBIT_CLIMBING_RIGHT_END, // DONE
         RABBIT_CLIMBING_RIGHT_BANG_HEAD, // DONE
 
-        RABBIT_DROWNING,
+        RABBIT_DROWNING, // DONE
 
         RABBIT_BLOCKING,
         RABBIT_BLOCKING_RISE_RIGHT,
