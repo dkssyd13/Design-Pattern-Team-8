@@ -298,7 +298,7 @@ public class ChangeRenderer
             case RABBIT_WAITING_RIGHT:
                 chars.set( change.x, change.y, 'z' );
                 break;
-            case RABBIT_OUT_OF_BOUNDS:
+            case RABBIT_OUT_OF_BOUNDS: // DONE
                 break;
             case TOKEN_BASH_STILL:
             case TOKEN_BASH_ON_SLOPE:

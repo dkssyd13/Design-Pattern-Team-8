@@ -45,7 +45,7 @@ public class OutOfBounds extends Behaviour
     {
         switch( state )
         {
-            case RABBIT_OUT_OF_BOUNDS:
+            case RABBIT_OUT_OF_BOUNDS: // DONE
             {
                 checkMars( world, rabbit );
                 world.changes.killRabbit( rabbit );
