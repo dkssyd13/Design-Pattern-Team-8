@@ -67,9 +67,9 @@ public class TestConfigFile
         assertThat( fs.exists( "~/.rabbitescape/config" ), is( true ) );
 
         assertThat(
-            fs.readLines( fileName ),
+            String.join("\n", fs.readLines(fileName)).replace("\r", ""),
             equalTo(
-                new String[] {
+                String.join("\n", new String[] {
                     "# The version of this config file.",
                     "#config.version=0",
                     "",
@@ -81,8 +81,28 @@ public class TestConfigFile
                     "",
                     "# desc3",
                     "#key3=defaultValue3"
-                }
+                })
             )
         );
+
+
+//        assertThat(
+//            fs.readLines( fileName ),
+//            equalTo(
+//                new String[] {
+//                    "# The version of this config file.",
+//                    "#config.version=0",
+//                    "",
+//                    "# desc1",
+//                    "#key1=defaultValue1",
+//                    "",
+//                    "# desc2",
+//                    "key2=my value 2",
+//                    "",
+//                    "# desc3",
+//                    "#key3=defaultValue3"
+//                }
+//            )
+//        );
     }
 }
