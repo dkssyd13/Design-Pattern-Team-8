@@ -43,36 +43,36 @@ public class ChangeRenderer
         {
             case NOTHING:
                 break;
-            case FIRE_A:
-            case FIRE_B:
-            case FIRE_C:
-            case FIRE_D:
-            case FIRE_A_RISE_RIGHT:
-            case FIRE_B_RISE_RIGHT:
-            case FIRE_C_RISE_RIGHT:
-            case FIRE_D_RISE_RIGHT:
-            case FIRE_A_RISE_LEFT:
-            case FIRE_B_RISE_LEFT:
-            case FIRE_C_RISE_LEFT:
-            case FIRE_D_RISE_LEFT:
+            case FIRE_A: // DONE
+            case FIRE_B: // DONE
+            case FIRE_C: // DONE
+            case FIRE_D: // DONE
+            case FIRE_A_RISE_RIGHT:// DONE
+            case FIRE_B_RISE_RIGHT:// DONE
+            case FIRE_C_RISE_RIGHT:// DONE
+            case FIRE_D_RISE_RIGHT:// DONE
+            case FIRE_A_RISE_LEFT:// DONE
+            case FIRE_B_RISE_LEFT:// DONE
+            case FIRE_C_RISE_LEFT:// DONE
+            case FIRE_D_RISE_LEFT:// DONE
                 break;
-            case FIRE_A_FALLING:
-            case FIRE_B_FALLING:
-            case FIRE_C_FALLING:
-            case FIRE_D_FALLING:
-            case FIRE_A_FALL_TO_RISE_RIGHT:
-            case FIRE_B_FALL_TO_RISE_RIGHT:
-            case FIRE_C_FALL_TO_RISE_RIGHT:
-            case FIRE_D_FALL_TO_RISE_RIGHT:
-            case FIRE_A_FALL_TO_RISE_LEFT:
-            case FIRE_B_FALL_TO_RISE_LEFT:
-            case FIRE_C_FALL_TO_RISE_LEFT:
-            case FIRE_D_FALL_TO_RISE_LEFT:
+            case FIRE_A_FALLING: // DONE
+            case FIRE_B_FALLING: // DONE
+            case FIRE_C_FALLING: // DONE
+            case FIRE_D_FALLING: // DONE
+            case FIRE_A_FALL_TO_RISE_RIGHT: // DONE
+            case FIRE_B_FALL_TO_RISE_RIGHT: // DONE
+            case FIRE_C_FALL_TO_RISE_RIGHT: // DONE
+            case FIRE_D_FALL_TO_RISE_RIGHT: // DONE
+            case FIRE_A_FALL_TO_RISE_LEFT: // DONE
+            case FIRE_B_FALL_TO_RISE_LEFT: // DONE
+            case FIRE_C_FALL_TO_RISE_LEFT: // DONE
+            case FIRE_D_FALL_TO_RISE_LEFT: // DONE
                 chars.set(  change.x, change.y + 1, 'g' );
                 break;
-            case FIRE_EXTINGUISHING:
+            case FIRE_EXTINGUISHING: // DONE
                 break;
-            case PIPE:
+            case PIPE: // DONE
                 chars.set( change.x, change.y, 'P' );
                 break;
             case RABBIT_BURNING:

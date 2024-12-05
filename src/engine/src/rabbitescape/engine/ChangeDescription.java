@@ -11,34 +11,34 @@ public class ChangeDescription
 {
     public enum State
     {
-        NOTHING,
-        FIRE_A,
-        FIRE_A_RISE_RIGHT,
-        FIRE_A_RISE_LEFT,
-        FIRE_A_FALLING,
-        FIRE_A_FALL_TO_RISE_LEFT,
-        FIRE_A_FALL_TO_RISE_RIGHT,
-        FIRE_B,
-        FIRE_B_RISE_RIGHT,
-        FIRE_B_RISE_LEFT,
-        FIRE_B_FALLING,
-        FIRE_B_FALL_TO_RISE_LEFT,
-        FIRE_B_FALL_TO_RISE_RIGHT,
-        FIRE_C,
-        FIRE_C_RISE_RIGHT,
-        FIRE_C_RISE_LEFT,
-        FIRE_C_FALLING,
-        FIRE_C_FALL_TO_RISE_LEFT,
-        FIRE_C_FALL_TO_RISE_RIGHT,
-        FIRE_D,
-        FIRE_D_RISE_RIGHT,
-        FIRE_D_RISE_LEFT,
-        FIRE_D_FALLING,
-        FIRE_D_FALL_TO_RISE_LEFT,
-        FIRE_D_FALL_TO_RISE_RIGHT,
+        NOTHING, // DONE
+        FIRE_A, // DONE
+        FIRE_A_RISE_RIGHT, // DONE
+        FIRE_A_RISE_LEFT, // DONE
+        FIRE_A_FALLING, // DONE
+        FIRE_A_FALL_TO_RISE_LEFT, // DONE
+        FIRE_A_FALL_TO_RISE_RIGHT, // DONE
+        FIRE_B, // DONE
+        FIRE_B_RISE_RIGHT, // DONE
+        FIRE_B_RISE_LEFT, // DONE
+        FIRE_B_FALLING, // DONE
+        FIRE_B_FALL_TO_RISE_LEFT, // DONE
+        FIRE_B_FALL_TO_RISE_RIGHT, // DONE
+        FIRE_C, // DONE
+        FIRE_C_RISE_RIGHT, // DONE
+        FIRE_C_RISE_LEFT, // DONE
+        FIRE_C_FALLING, // DONE
+        FIRE_C_FALL_TO_RISE_LEFT, // DONE
+        FIRE_C_FALL_TO_RISE_RIGHT, // DONE
+        FIRE_D, // DONE
+        FIRE_D_RISE_RIGHT, // DONE
+        FIRE_D_RISE_LEFT, // DONE
+        FIRE_D_FALLING, // DONE
+        FIRE_D_FALL_TO_RISE_LEFT, // DONE
+        FIRE_D_FALL_TO_RISE_RIGHT, // DONE
         FIRE_EXTINGUISHING,
 
-        PIPE,
+        PIPE, // DONE
 
         RABBIT_BURNING, // DONE
         RABBIT_BURNING_ON_SLOPE, // DONE

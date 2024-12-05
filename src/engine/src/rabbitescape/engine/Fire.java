@@ -20,18 +20,18 @@ public class Fire extends Thing
         baseVariant = state;
     }
 
-    private static State stateForVariant( int variant )
+    private static State stateForVariant( int variant ) // TODO : 삭제 필요
     {
         switch ( variant )
         {
         case 0:
-            return FIRE_A;
+            return FIRE_A; // DONE
         case 1:
-            return FIRE_B;
+            return FIRE_B; // DONE
         case 2:
-            return FIRE_C;
+            return FIRE_C; // DONE
         case 3:
-            return FIRE_D;
+            return FIRE_D; // DONE
         }
         throw new RuntimeException(
             "Variant outside expected range (0 - 3):" + variant );
@@ -123,17 +123,17 @@ public class Fire extends Thing
         }
     }
 
-    private State baseVariantSwitch( State a, State b, State c, State d )
+    private State baseVariantSwitch( State a, State b, State c, State d ) // TODO : State 적용
     {
         switch ( baseVariant )
         {
-        case FIRE_A:
+        case FIRE_A: // DONE
             return a;
-        case FIRE_B:
+        case FIRE_B: // DONE
             return b;
-        case FIRE_C:
+        case FIRE_C: // DONE
             return c;
-        case FIRE_D:
+        case FIRE_D: // DONE
             return d;
         default:
             throw new RuntimeException( "Fire not in fire state:" + state );
@@ -145,18 +145,18 @@ public class Fire extends Thing
     {
         switch ( state )
         {
-        case FIRE_A_FALLING:
-        case FIRE_B_FALLING:
-        case FIRE_C_FALLING:
-        case FIRE_D_FALLING:
-        case FIRE_A_FALL_TO_RISE_RIGHT:
-        case FIRE_B_FALL_TO_RISE_RIGHT:
-        case FIRE_C_FALL_TO_RISE_RIGHT:
-        case FIRE_D_FALL_TO_RISE_RIGHT:
-        case FIRE_A_FALL_TO_RISE_LEFT:
-        case FIRE_B_FALL_TO_RISE_LEFT:
-        case FIRE_C_FALL_TO_RISE_LEFT:
-        case FIRE_D_FALL_TO_RISE_LEFT:
+        case FIRE_A_FALLING: // DONE
+        case FIRE_B_FALLING: // DONE
+        case FIRE_C_FALLING: // DONE
+        case FIRE_D_FALLING: // DONE
+        case FIRE_A_FALL_TO_RISE_RIGHT: // DONE
+        case FIRE_B_FALL_TO_RISE_RIGHT: // DONE
+        case FIRE_C_FALL_TO_RISE_RIGHT: // DONE
+        case FIRE_D_FALL_TO_RISE_RIGHT: // DONE
+        case FIRE_A_FALL_TO_RISE_LEFT: // DONE
+        case FIRE_B_FALL_TO_RISE_LEFT: // DONE
+        case FIRE_C_FALL_TO_RISE_LEFT: // DONE
+        case FIRE_D_FALL_TO_RISE_LEFT: // DONE
             ++y;
 
             if ( y >= world.size.height )
@@ -164,7 +164,7 @@ public class Fire extends Thing
                 world.changes.removeFire( this );
             }
             return;
-        case FIRE_EXTINGUISHING:
+        case FIRE_EXTINGUISHING: // DONE
             world.changes.removeFire( this );
             return;
         default:
