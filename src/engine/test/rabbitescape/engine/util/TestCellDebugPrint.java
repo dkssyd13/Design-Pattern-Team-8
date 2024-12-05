@@ -36,7 +36,12 @@ public class TestCellDebugPrint
         PrintStream p = new PrintStream(b);
         cdp.print( p );
         String output = b.toString("UTF8");
-        assertThat( output, equalTo( expected  ) );
+//        assertThat( output, equalTo( expected  ) );
+
+        String normalizedOut = output.replace("\r\n", "\n").replace("\r", "\n");
+        String normalizedExp = expected.replace("\r\n", "\n").replace("\r", "\n");
+
+        assertThat(normalizedOut, equalTo(normalizedExp));
     }
 
 }

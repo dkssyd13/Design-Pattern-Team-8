@@ -488,7 +488,12 @@ public class TestSolutionRunner
             "   00000" + "\n" +
             "   01234" + "\n";
 
-        assertThat( out, equalTo( exp ) );
+//        assertThat( out, equalTo( exp ) );
+
+        String normalizedOut = out.replace("\r\n", "\n").replace("\r", "\n");
+        String normalizedExp = exp.replace("\r\n", "\n").replace("\r", "\n");
+
+        assertThat(normalizedOut, equalTo(normalizedExp));
     }
 
     // --
