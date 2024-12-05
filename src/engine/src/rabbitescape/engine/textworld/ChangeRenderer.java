@@ -331,20 +331,20 @@ public class ChangeRenderer
             case TOKEN_BROLLY_FALL_TO_SLOPE: // DONE
                 chars.set( change.x, change.y + 1, 'f' );
                 break;
-            case WATER_REGION:
+            case WATER_REGION: // DONE
                 chars.set( change.x, change.y, 'N' );
                 break;
-            case WATER_REGION_HALF:
+            case WATER_REGION_HALF: // DONE
                 chars.set( change.x, change.y, 'n' );
                 break;
-            case WATER_REGION_FALLING:
+            case WATER_REGION_FALLING: // DONE
                 chars.set( change.x, change.y, 'n' );
                 break;
-            case WATER_REGION_EMPTY:
+            case WATER_REGION_EMPTY: // DONE
                 break;
-            case ENTRANCE:
+            case ENTRANCE: // DONE
                 break;
-            case EXIT:
+            case EXIT: // DONE
                 break;
             default:
                 throw new AssertionError(

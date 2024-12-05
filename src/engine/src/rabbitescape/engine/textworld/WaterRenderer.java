@@ -12,19 +12,19 @@ public class WaterRenderer
         {
             switch ( waterRegion.state )
             {
-            case WATER_REGION:
+            case WATER_REGION: // DONE
                 chars.set( waterRegion.x, waterRegion.y, 'N', null,
                     waterRegion.getContents() );
                 break;
-            case WATER_REGION_HALF:
+            case WATER_REGION_HALF: // DONE
                 chars.set( waterRegion.x, waterRegion.y, 'n', null,
                     waterRegion.getContents() );
                 break;
-            case WATER_REGION_FALLING:
+            case WATER_REGION_FALLING: // DONE
                 chars.set( waterRegion.x, waterRegion.y, 'n', null,
                     waterRegion.getContents() );
                 break;
-            case WATER_REGION_EMPTY:
+            case WATER_REGION_EMPTY: // DONE
                 break;
             default:
                 throw new AssertionError(

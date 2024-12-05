@@ -214,12 +214,12 @@ public class ChangeDescription
         TOKEN_BROLLY_FALL_TO_SLOPE, // DONE
         TOKEN_BROLLY_ON_SLOPE, // DONE
 
-        WATER_REGION,
-        WATER_REGION_HALF,
-        WATER_REGION_EMPTY,
-        WATER_REGION_FALLING,
+        WATER_REGION, // DONE
+        WATER_REGION_HALF, // DONE
+        WATER_REGION_EMPTY, // DONE
+        WATER_REGION_FALLING, // DONE
 
-        ENTRANCE,
+        ENTRANCE, // DONE
         EXIT,
     }
 
