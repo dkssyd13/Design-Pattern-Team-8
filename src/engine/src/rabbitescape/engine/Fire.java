@@ -1,11 +1,12 @@
 package rabbitescape.engine;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.fire.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import rabbitescape.engine.ChangeDescription.State;
 
 public class Fire extends Thing
 {
@@ -20,21 +21,22 @@ public class Fire extends Thing
         baseVariant = state;
     }
 
-    private static State stateForVariant( int variant ) // TODO : 삭제 필요
+    private static State stateForVariant( int variant )
     {
-        switch ( variant )
-        {
-        case 0:
-            return FIRE_A; // DONE
-        case 1:
-            return FIRE_B; // DONE
-        case 2:
-            return FIRE_C; // DONE
-        case 3:
-            return FIRE_D; // DONE
-        }
-        throw new RuntimeException(
-            "Variant outside expected range (0 - 3):" + variant );
+        return FireState.stateForVariant( variant );
+//        switch ( variant ) // TODO : 주석 삭제
+//        {
+//        case 0:
+//            return FIRE_A; // DONE
+//        case 1:
+//            return FIRE_B; // DONE
+//        case 2:
+//            return FIRE_C; // DONE
+//        case 3:
+//            return FIRE_D; // DONE
+//        }
+//        throw new RuntimeException(
+//            "Variant outside expected range (0 - 3):" + variant );
     }
 
     @Override
@@ -45,7 +47,7 @@ public class Fire extends Thing
         {
             if ( waterRegion.getContents() > 0 )
             {
-                state = FIRE_EXTINGUISHING;
+                state = new FireExtinguishingState();
                 return;
             }
         }
@@ -65,20 +67,20 @@ public class Fire extends Thing
             if ( BehaviourTools.isLeftRiseSlope( onBlock ) )
             {
                 state = baseVariantSwitch( 
-                    FIRE_A_RISE_LEFT, 
-                    FIRE_B_RISE_LEFT,     
-                    FIRE_C_RISE_LEFT, 
-                    FIRE_D_RISE_LEFT 
+                    new FireARiseLeftState(),
+                    new FireBRiseLeftState(),
+                    new FireCRiseLeftState(),
+                    new FireDRiseLeftState()
                 );
                 return;
             }
             if ( BehaviourTools.isRightRiseSlope( onBlock ) )
             {
-                state = baseVariantSwitch( 
-                    FIRE_A_RISE_RIGHT, 
-                    FIRE_B_RISE_RIGHT,
-                    FIRE_C_RISE_RIGHT, 
-                    FIRE_D_RISE_RIGHT 
+                state = baseVariantSwitch(
+                    new FireARiseRightState(),
+                    new FireBRiseRightState(),
+                    new FireCRiseRightState(),
+                    new FireDRiseRightState()
                 );
                 return;
             }
@@ -96,28 +98,28 @@ public class Fire extends Thing
             if ( BehaviourTools.isLeftRiseSlope( blockBelow ) )
             {
                 state = baseVariantSwitch( 
-                    FIRE_A_FALL_TO_RISE_LEFT,
-                    FIRE_B_FALL_TO_RISE_LEFT,
-                    FIRE_C_FALL_TO_RISE_LEFT,
-                    FIRE_D_FALL_TO_RISE_LEFT 
+                    new FireAFallToRiseLeftState(),
+                    new FireBFallToRiseLeftState(),
+                    new FireCFallToRiseLeftState(),
+                    new FireDFallToRiseLeftState()
                 );
                 return;
             }
             if ( BehaviourTools.isRightRiseSlope( blockBelow ) )
             {
-                state = baseVariantSwitch( 
-                    FIRE_A_FALL_TO_RISE_RIGHT,
-                    FIRE_B_FALL_TO_RISE_RIGHT,
-                    FIRE_C_FALL_TO_RISE_RIGHT,
-                    FIRE_D_FALL_TO_RISE_RIGHT 
+                state = baseVariantSwitch(
+                    new FireAFallToRiseRightState(),
+                    new FireBFallToRiseRightState(),
+                    new FireCFallToRiseRightState(),
+                    new FireDFallToRiseRightState()
                 );
                 return;
             }
             state = baseVariantSwitch( 
-                FIRE_A_FALLING, 
-                FIRE_B_FALLING,       
-                FIRE_C_FALLING, 
-                FIRE_D_FALLING 
+                new FireAFallingState(),
+                new FireBFallingState(),
+                new FireCFallingState(),
+                new FireDFallingState()
             );
             return;
         }
@@ -125,51 +127,60 @@ public class Fire extends Thing
 
     private State baseVariantSwitch( State a, State b, State c, State d ) // TODO : State 적용
     {
-        switch ( baseVariant )
+        if (baseVariant instanceof FireState)
         {
-        case FIRE_A: // DONE
-            return a;
-        case FIRE_B: // DONE
-            return b;
-        case FIRE_C: // DONE
-            return c;
-        case FIRE_D: // DONE
-            return d;
-        default:
-            throw new RuntimeException( "Fire not in fire state:" + state );
+            return ((FireState) baseVariant).baseVariantSwitch( a, b, c, d, state );
         }
+        throw new RuntimeException( "Fire not in fire state:" + state );
+//        switch ( baseVariant ) // TODO : 주석 삭제
+//        {
+//        case FIRE_A: // DONE
+//            return a;
+//        case FIRE_B: // DONE
+//            return b;
+//        case FIRE_C: // DONE
+//            return c;
+//        case FIRE_D: // DONE
+//            return d;
+//        default:
+//            throw new RuntimeException( "Fire not in fire state:" + state );
+//        }
     }
 
     @Override
     public void step( World world )
     {
-        switch ( state )
+        if (state instanceof FireState)
         {
-        case FIRE_A_FALLING: // DONE
-        case FIRE_B_FALLING: // DONE
-        case FIRE_C_FALLING: // DONE
-        case FIRE_D_FALLING: // DONE
-        case FIRE_A_FALL_TO_RISE_RIGHT: // DONE
-        case FIRE_B_FALL_TO_RISE_RIGHT: // DONE
-        case FIRE_C_FALL_TO_RISE_RIGHT: // DONE
-        case FIRE_D_FALL_TO_RISE_RIGHT: // DONE
-        case FIRE_A_FALL_TO_RISE_LEFT: // DONE
-        case FIRE_B_FALL_TO_RISE_LEFT: // DONE
-        case FIRE_C_FALL_TO_RISE_LEFT: // DONE
-        case FIRE_D_FALL_TO_RISE_LEFT: // DONE
-            ++y;
-
-            if ( y >= world.size.height )
-            {
-                world.changes.removeFire( this );
-            }
-            return;
-        case FIRE_EXTINGUISHING: // DONE
-            world.changes.removeFire( this );
-            return;
-        default:
-            return;
+            ((FireState) state).step(  world, this );
         }
+//        switch ( state )  // TODO : 주석 삭제
+//        {
+//        case FIRE_A_FALLING: // DONE
+//        case FIRE_B_FALLING: // DONE
+//        case FIRE_C_FALLING: // DONE
+//        case FIRE_D_FALLING: // DONE
+//        case FIRE_A_FALL_TO_RISE_RIGHT: // DONE
+//        case FIRE_B_FALL_TO_RISE_RIGHT: // DONE
+//        case FIRE_C_FALL_TO_RISE_RIGHT: // DONE
+//        case FIRE_D_FALL_TO_RISE_RIGHT: // DONE
+//        case FIRE_A_FALL_TO_RISE_LEFT: // DONE
+//        case FIRE_B_FALL_TO_RISE_LEFT: // DONE
+//        case FIRE_C_FALL_TO_RISE_LEFT: // DONE
+//        case FIRE_D_FALL_TO_RISE_LEFT: // DONE
+//            ++y;
+//
+//            if ( y >= world.size.height )
+//            {
+//                world.changes.removeFire( this );
+//            }
+//            return;
+//        case FIRE_EXTINGUISHING: // DONE
+//            world.changes.removeFire( this );
+//            return;
+//        default:
+//            return;
+//        }
 
     }
 

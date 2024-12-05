@@ -6,7 +6,7 @@ import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.textworld.Chars;
 
-public class RabbitBashingUpRIghtState extends RabbitBashingCommon{
+public class RabbitBashingUpRightState extends RabbitBashingCommon{
     @Override
     public boolean behave( World world, Rabbit rabbit, Behaviour behaviour )
     {

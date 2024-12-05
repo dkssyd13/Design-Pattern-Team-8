@@ -1,6 +1,5 @@
 package rabbitescape.engine.behaviours;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
 import static rabbitescape.engine.Token.Type.brolly;
 
 import java.util.Map;
@@ -8,10 +7,10 @@ import java.util.Map;
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.BehaviourState;
 import rabbitescape.engine.BehaviourTools;
-import rabbitescape.engine.Block;
-import rabbitescape.engine.ChangeDescription.State;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitBrollychutingState;
 
 public class Brollychuting extends Behaviour
 {
@@ -28,66 +27,77 @@ public class Brollychuting extends Behaviour
     @Override
     public State newState( BehaviourTools t, boolean triggered )
     {
-        if ( triggered )
-        {
-            hasAbility = true;
-        }
-
-        if( !hasAbility )
-        {
-            return null;
-        }
-
-        if ( climbing.abilityActive )
-        {
-            return null;
-        }
-
-        Block below = t.blockBelow();
-
-        if ( t.isFlat( below ) )
-        {
-            return null;
-        }
-
-        if (
-            t.rabbit.onSlope
-         && !t.blockHereJustRemoved()
-        )
-        {
-            return null;
-        }
-
-        if ( below != null )
-        {
-            if ( t.isUpSlope( below ) )
-            {
-                return t.rl(
-                    RABBIT_FALLING_1_ONTO_RISE_RIGHT,
-                    RABBIT_FALLING_1_ONTO_RISE_LEFT
-                );
-            }
-            else // Must be a slope in the opposite direction
-            {
-                return t.rl(
-                    RABBIT_FALLING_1_ONTO_LOWER_RIGHT,
-                    RABBIT_FALLING_1_ONTO_LOWER_LEFT
-                );
-            }
-        }
-
-        return RABBIT_BROLLYCHUTING;
+        return RabbitBrollychutingState.newState( t, triggered, this);
+//        if ( triggered )
+//        {
+//            hasAbility = true;
+//        }
+//
+//        if( !hasAbility )
+//        {
+//            return null;
+//        }
+//
+//        if ( climbing.abilityActive )
+//        {
+//            return null;
+//        }
+//
+//        Block below = t.blockBelow();
+//
+//        if ( t.isFlat( below ) )
+//        {
+//            return null;
+//        }
+//
+//        if (
+//            t.rabbit.onSlope
+//         && !t.blockHereJustRemoved()
+//        )
+//        {
+//            return null;
+//        }
+//
+//        if ( below != null )
+//        {
+//            if ( t.isUpSlope( below ) )
+//            {
+//                return t.rl(
+////                    RABBIT_FALLING_1_ONTO_RISE_RIGHT,
+////                    RABBIT_FALLING_1_ONTO_RISE_LEFT
+//                    new RabbitFalling1OntoRiseRightState(),
+//                    new RabbitFalling1OntoRiseLeftState()
+//                );
+//            }
+//            else // Must be a slope in the opposite direction
+//            {
+//                return t.rl(
+////                    RABBIT_FALLING_1_ONTO_LOWER_RIGHT,
+////                    RABBIT_FALLING_1_ONTO_LOWER_LEFT
+//                    new RabbitFalling1OntoLowerRightState(),
+//                    new RabbitFalling1OntoLowerLeftState()
+//                );
+//            }
+//        }
+//
+////        return RABBIT_BROLLYCHUTING;
+//        return new RabbitBrollychutingState();
     }
 
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == RABBIT_BROLLYCHUTING ) // DONE
+        if ( state instanceof RabbitBrollychutingState )
         {
-            rabbit.y = rabbit.y + 1;
-            return true;
+            return ((RabbitBrollychutingState)state).behave( world, rabbit, this );
         }
         return false;
+//        if ( state == RABBIT_BROLLYCHUTING ) // DONE
+//        {
+//            rabbit.y = rabbit.y + 1;
+//            return true;
+//        }
+//        return false;
     }
 
     public boolean hasBrolly()
@@ -152,5 +162,25 @@ public class Brollychuting extends Behaviour
             saveState, "Brollychuting.hasAbility", hasAbility
         );
 
+    }
+
+    public boolean isHasAbility()
+    {
+        return hasAbility;
+    }
+
+    public void setHasAbility( boolean hasAbility )
+    {
+        this.hasAbility = hasAbility;
+    }
+
+    public Climbing getClimbing()
+    {
+        return climbing;
+    }
+
+    public Digging getDigging()
+    {
+        return digging;
     }
 }

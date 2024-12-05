@@ -11,6 +11,7 @@ import java.util.Map;
 import rabbitescape.engine.Rabbit.Type;
 import rabbitescape.engine.WaterRegion;
 import rabbitescape.engine.err.RabbitEscapeException;
+import rabbitescape.engine.state.rabbit.digging.RabbitDiggingState;
 import rabbitescape.engine.textworld.Comment;
 import rabbitescape.engine.util.Dimension;
 import rabbitescape.engine.util.LookupTable2D;
@@ -268,6 +269,10 @@ public class World
 
         for ( Thing thing : allThings() )
         {
+            if ( thing instanceof Rabbit )
+            {
+                System.out.println("Rabbit");
+            }
             thing.calcNewState( this );
         }
     }
@@ -309,6 +314,10 @@ public class World
 
         for ( Thing thing : allThings() )
         {
+            if ( thing instanceof Rabbit )
+            {
+                System.out.println("Rabbit");
+            }
             thing.step( this );
         }
 

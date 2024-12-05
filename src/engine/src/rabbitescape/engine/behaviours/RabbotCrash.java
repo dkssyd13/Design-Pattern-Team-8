@@ -2,9 +2,12 @@ package rabbitescape.engine.behaviours;
 
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.BehaviourTools;
-import rabbitescape.engine.ChangeDescription.State;
+
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitCrashingState;
+import rabbitescape.engine.state.rabbit.RabbitState;
 
 public class RabbotCrash extends Behaviour
 {
@@ -38,7 +41,7 @@ public class RabbotCrash extends Behaviour
     {
         if ( triggered )
         {
-            return State.RABBIT_CRASHING;
+            return new RabbitCrashingState();
         }
         else
         {
@@ -49,12 +52,10 @@ public class RabbotCrash extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == State.RABBIT_CRASHING ) // DONE
+        if ( state instanceof RabbitCrashingState )
         {
-            world.changes.killRabbit( rabbit );
-            return true;
+            return ((RabbitCrashingState)state).behave( world, rabbit, this );
         }
-
         return false;
     }
 }

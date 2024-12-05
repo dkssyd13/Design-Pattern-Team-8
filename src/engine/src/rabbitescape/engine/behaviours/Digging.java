@@ -1,12 +1,14 @@
 package rabbitescape.engine.behaviours;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+
 import static rabbitescape.engine.Token.Type.*;
 
 import java.util.Map;
 
 import rabbitescape.engine.*;
-import rabbitescape.engine.ChangeDescription.State;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.digging.RabbitDiggingCommon;
+
 
 public class Digging extends Behaviour
 {
@@ -28,75 +30,87 @@ public class Digging extends Behaviour
     @Override
     public State newState( BehaviourTools t, boolean triggered )
     {
-        if ( !triggered && stepsOfDigging == 0 )
-        {
-            return null;
-        }
-
-        t.rabbit.possiblyUndoSlopeBashHop( t.world );
-
-        if ( t.rabbit.state == RABBIT_DIGGING )
-        {
-            stepsOfDigging = 1;
-            return RABBIT_DIGGING_2;
-        }
-
-        if (
-               triggered
-            || stepsOfDigging > 0
-        )
-        {
-            if ( t.rabbit.onSlope && t.blockHere() != null )
-            {
-                stepsOfDigging = 1;
-                return RABBIT_DIGGING_ON_SLOPE;
-            }
-            else if ( t.blockBelow() != null )
-            {
-                if ( t.blockBelow().material == Block.Material.METAL )
-                {
-                    stepsOfDigging = 0;
-                    return RABBIT_DIGGING_USELESSLY;
-                }
-                else
-                {
-                stepsOfDigging = 2;
-                return RABBIT_DIGGING;
-                }
-            }
-        }
-
-        --stepsOfDigging;
-        return null;
+        return RabbitDiggingCommon.newState(t, triggered, this);
+//        if ( !triggered && stepsOfDigging == 0 )
+//        {
+//            return null;
+//        }
+//
+//        t.rabbit.possiblyUndoSlopeBashHop( t.world );
+//
+//        if ( t.rabbit.state == RABBIT_DIGGING )
+//        {
+//            stepsOfDigging = 1;
+//            return RABBIT_DIGGING_2;
+//        }
+//
+//        if (
+//               triggered
+//            || stepsOfDigging > 0
+//        )
+//        {
+//            if ( t.rabbit.onSlope && t.blockHere() != null )
+//            {
+//                stepsOfDigging = 1;
+//                return RABBIT_DIGGING_ON_SLOPE;
+//            }
+//            else if ( t.blockBelow() != null )
+//            {
+//                if ( t.blockBelow().material == Block.Material.METAL )
+//                {
+//                    stepsOfDigging = 0;
+//                    return RABBIT_DIGGING_USELESSLY;
+//                }
+//                else
+//                {
+//                stepsOfDigging = 2;
+//                return RABBIT_DIGGING;
+//                }
+//            }
+//        }
+//
+//        --stepsOfDigging;
+//        return null;
     }
 
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        switch ( state )
+        if ( state instanceof RabbitDiggingCommon )
         {
-            case RABBIT_DIGGING: // DONE
-            {
-                world.changes.removeBlockAt( rabbit.x, rabbit.y + 1 );
-                ++rabbit.y;
-                return true;
-            }
-            case RABBIT_DIGGING_ON_SLOPE: // DONE
-            {
-                world.changes.removeBlockAt( rabbit.x, rabbit.y );
-                rabbit.onSlope = false;
-                return true;
-            }
-            case RABBIT_DIGGING_2: // DONE
-            case RABBIT_DIGGING_USELESSLY: // DONE
-            {
-                return true;
-            }
-            default:
-            {
-                return false;
-            }
+            return ( ( RabbitDiggingCommon )state ).behave(
+                world,
+                rabbit,
+                this
+            );
+        }else
+        {
+            return false;
         }
+//        switch ( state )
+//        {
+//            case RABBIT_DIGGING: // DONE
+//            {
+//                world.changes.removeBlockAt( rabbit.x, rabbit.y + 1 );
+//                ++rabbit.y;
+//                return true;
+//            }
+//            case RABBIT_DIGGING_ON_SLOPE: // DONE
+//            {
+//                world.changes.removeBlockAt( rabbit.x, rabbit.y );
+//                rabbit.onSlope = false;
+//                return true;
+//            }
+//            case RABBIT_DIGGING_2: // DONE
+//            case RABBIT_DIGGING_USELESSLY: // DONE
+//            {
+//                return true;
+//            }
+//            default:
+//            {
+//                return false;
+//            }
+//        }
     }
 
     @Override
@@ -115,16 +129,32 @@ public class Digging extends Behaviour
 
     public static boolean isDigging( State state )
     {
-        switch ( state )
+        if (state instanceof RabbitDiggingCommon)
         {
-            case RABBIT_DIGGING: // DONE
-            case RABBIT_DIGGING_2: // DONE
-            case RABBIT_DIGGING_ON_SLOPE: // DONE
-            case RABBIT_DIGGING_USELESSLY: // DONE
-                return true;
-            default:
-                return false;
+            return ( ( RabbitDiggingCommon )state ).isDigging();
+        }else
+        {
+            return false;
         }
+//        switch ( state )
+//        {
+//            case RABBIT_DIGGING: // DONE
+//            case RABBIT_DIGGING_2: // DONE
+//            case RABBIT_DIGGING_ON_SLOPE: // DONE
+//            case RABBIT_DIGGING_USELESSLY: // DONE
+//                return true;
+//            default:
+//                return false;
+//        }
     }
 
+    public int getStepsOfDigging()
+    {
+        return stepsOfDigging;
+    }
+
+    public void setStepsOfDigging( int stepsOfDigging )
+    {
+        this.stepsOfDigging = stepsOfDigging;
+    }
 }

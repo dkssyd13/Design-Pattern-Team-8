@@ -4,7 +4,7 @@ import rabbitescape.engine.WaterRegion;
 import rabbitescape.engine.state.State;
 import rabbitescape.engine.textworld.Chars;
 
-abstract class WaterCommon implements State
+public abstract class WaterCommon implements State
 {
     public void render( Chars chars, WaterRegion waterRegion ){
         throw new AssertionError(

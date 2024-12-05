@@ -1,10 +1,12 @@
 package rabbitescape.engine.state.rabbit.digging;
 
 import rabbitescape.engine.*;
+import rabbitescape.engine.behaviours.Digging;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.util.Position;
 
-abstract class RabbitDiggingCommon implements RabbitState
+public abstract class RabbitDiggingCommon implements RabbitState
 {
     @Override
     public boolean rabbitIsFalling()
@@ -39,7 +41,7 @@ abstract class RabbitDiggingCommon implements RabbitState
     @Override
     public boolean isDigging()
     {
-        return false;
+        return true;
     }
 
     @Override
@@ -59,10 +61,62 @@ abstract class RabbitDiggingCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }
 
+    public static State newState( BehaviourTools t, boolean triggered, Digging digging )
+    {
+        if ( !triggered && digging.getStepsOfDigging() == 0 )
+        {
+            return null;
+        }
 
+        t.rabbit.possiblyUndoSlopeBashHop( t.world );
+
+//        if ( t.rabbit.state == RABBIT_DIGGING )
+        if ( t.rabbit.state instanceof RabbitDiggingState )
+        {
+//            stepsOfDigging = 1;
+//            return RABBIT_DIGGING_2;
+             digging.setStepsOfDigging( 1 );
+            return new RabbitDigging2State();
+        }
+
+        if (
+            triggered
+                || digging.getStepsOfDigging() > 0
+        )
+        {
+            if ( t.rabbit.onSlope && t.blockHere() != null )
+            {
+//                stepsOfDigging = 1;
+//                return RABBIT_DIGGING_ON_SLOPE;
+                digging.setStepsOfDigging( 1 );
+                return new RabbitDiggingOnSlopeState();
+            }
+            else if ( t.blockBelow() != null )
+            {
+                if ( t.blockBelow().material == Block.Material.METAL )
+                {
+//                    stepsOfDigging = 0;
+//                    return RABBIT_DIGGING_USELESSLY;
+                    digging.setStepsOfDigging( 0 );
+                    return new RabbitDiggingUselesslyState();
+                }
+                else
+                {
+//                    stepsOfDigging = 2;
+//                    return RABBIT_DIGGING;
+                    digging.setStepsOfDigging( 2 );
+                    return new RabbitDiggingState();
+                }
+            }
+        }
+
+//        --stepsOfDigging;
+        digging.setStepsOfDigging( digging.getStepsOfDigging() - 1 );
+        return null;
+    }
 }

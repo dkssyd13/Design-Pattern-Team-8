@@ -1,10 +1,11 @@
 package rabbitescape.engine.state.rabbit.entering;
 
 import rabbitescape.engine.*;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.util.Position;
 
-abstract class RabbitEnteringExitCommon implements RabbitState
+public abstract class RabbitEnteringExitCommon implements RabbitState
 {
     @Override
     public boolean rabbitIsFalling()
@@ -66,7 +67,7 @@ abstract class RabbitEnteringExitCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }

@@ -16,5 +16,5 @@ public interface RabbitState extends State
     boolean behave(World world, Rabbit rabbit, Behaviour behaviour);
 //    boolean checkTriggered( Rabbit rabbit, World world ); // TODO : Falling의 checkTrigered 한번 더 확인. 없어도 구현 가능할 것 같음
     Position whereBridging( int x, int y );
-    char bridgingStage( ChangeDescription.State state );
+    char bridgingStage( State state );
 }

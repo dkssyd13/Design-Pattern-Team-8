@@ -1,14 +1,15 @@
 package rabbitescape.engine;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import rabbitescape.engine.ChangeDescription.State;
 import rabbitescape.engine.behaviours.*;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.waiting.RabbitWaitingCommon;
+import rabbitescape.engine.state.rabbit.walking.RabbitWalkingLeftState;
 
 public class Rabbit extends Thing implements Comparable<Rabbit>
 {
@@ -35,7 +36,8 @@ public class Rabbit extends Thing implements Comparable<Rabbit>
 
     public Rabbit( int x, int y, Direction dir, Type type )
     {
-        super( x, y, RABBIT_WALKING_LEFT );
+//        super( x, y, RABBIT_WALKING_LEFT );
+        super( x, y, new RabbitWalkingLeftState() );
         this.dir = dir;
         this.onSlope = false;
         this.type = type;
@@ -113,6 +115,10 @@ public class Rabbit extends Thing implements Comparable<Rabbit>
 
         for ( Behaviour behaviour : behavioursTriggerOrder )
         {
+            if ( behaviour instanceof RabbotWait )
+            {
+                System.out.println("RabbotWait");
+            }
             behaviour.triggered = behaviour.checkTriggered( this, world );
             if ( behaviour.triggered )
             {

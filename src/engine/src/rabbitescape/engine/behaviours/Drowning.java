@@ -6,10 +6,13 @@ import static rabbitescape.engine.CellularDirection.UP;
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.BehaviourTools;
 import rabbitescape.engine.CellularDirection;
-import rabbitescape.engine.ChangeDescription.State;
+
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.WaterRegion;
 import rabbitescape.engine.World;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitState;
+import rabbitescape.engine.state.rabbit.drowning.RabbitDrowningState;
 
 public class Drowning extends Behaviour
 {
@@ -56,19 +59,26 @@ public class Drowning extends Behaviour
         BehaviourTools t,
         boolean triggered )
     {
-        return ( triggered ? State.RABBIT_DROWNING : null );
+        return ( triggered ? new RabbitDrowningState() : null );
     }
 
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        switch ( state )
+        if ( state instanceof RabbitDrowningState )
         {
-        case RABBIT_DROWNING: // DONE
-            world.changes.killRabbit( rabbit );
-            return true;
-        default:
+            return ( (RabbitDrowningState) state ).behave( world, rabbit, this );
+        }else
+        {
             return false;
         }
+//        switch ( state ) // TODO : 주석 삭제
+//        {
+//        case RABBIT_DROWNING: // DONE
+//            world.changes.killRabbit( rabbit );
+//            return true;
+//        default:
+//            return false;
+//        }
     }
 }

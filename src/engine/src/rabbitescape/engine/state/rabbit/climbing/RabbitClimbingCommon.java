@@ -143,7 +143,7 @@ public abstract class RabbitClimbingCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }

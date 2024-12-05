@@ -1,12 +1,15 @@
 package rabbitescape.engine;
 
+import rabbitescape.engine.state.State;
+
 import java.util.Locale;
 import java.util.Map;
 
-import rabbitescape.engine.ChangeDescription.State;
+//import rabbitescape.engine.ChangeDescription.State;
 
 public abstract class Thing implements ShownOnOverlay
 {
+//    public State state;
     public State state;
     public int x;
     public int y;

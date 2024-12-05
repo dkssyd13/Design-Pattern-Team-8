@@ -1,13 +1,16 @@
 package rabbitescape.engine.behaviours;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+
 
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.BehaviourTools;
-import rabbitescape.engine.ChangeDescription.State;
+
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.config.TapTimer;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitOutOfBoundsState;
+import rabbitescape.engine.state.rabbit.RabbitState;
 
 public class OutOfBounds extends Behaviour
 {
@@ -34,7 +37,7 @@ public class OutOfBounds extends Behaviour
     {
         if ( triggered )
         {
-            return RABBIT_OUT_OF_BOUNDS;
+            return new RabbitOutOfBoundsState();
         }
 
         return null;
@@ -43,19 +46,26 @@ public class OutOfBounds extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        switch( state )
+        if ( state instanceof RabbitOutOfBoundsState )
         {
-            case RABBIT_OUT_OF_BOUNDS: // DONE
-            {
-                checkMars( world, rabbit );
-                world.changes.killRabbit( rabbit );
-                return true;
-            }
-            default:
-            {
-                return false;
-            }
+            return ((RabbitOutOfBoundsState)state).behave( world, rabbit, this );
+        }else
+        {
+            return false;
         }
+//        switch( state ) // TODO : 주석 삭제
+//        {
+//            case RABBIT_OUT_OF_BOUNDS: // DONE
+//            {
+//                checkMars( world, rabbit );
+//                world.changes.killRabbit( rabbit );
+//                return true;
+//            }
+//            default:
+//            {
+//                return false;
+//            }
+//        }
     }
 
     /**

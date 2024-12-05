@@ -9,7 +9,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import rabbitescape.engine.ChangeDescription.State;
+import rabbitescape.engine.state.water.WaterRegionEmptyState;
+import rabbitescape.engine.state.water.WaterRegionHalfState;
+import rabbitescape.engine.state.water.WaterRegionState;
 import rabbitescape.engine.util.LookupItem2D;
 import rabbitescape.engine.util.Position;
 import rabbitescape.engine.util.Util;
@@ -63,7 +65,8 @@ public class WaterRegion extends Thing implements LookupItem2D
         boolean outsideWorld 
     )
     {
-        super( x, y, State.WATER_REGION_EMPTY );
+//        super( x, y, State.WATER_REGION_EMPTY ); // TODO : 삭제 필요
+        super( x, y, new WaterRegionEmptyState() );
         this.connections = connections;
         this.capacity = capacity;
         // This also sets the water region state.
@@ -87,15 +90,18 @@ public class WaterRegion extends Thing implements LookupItem2D
         this.contents = contents;
         if ( contents == 0 )
         {
-            state = State.WATER_REGION_EMPTY;
+//            state = State.WATER_REGION_EMPTY;
+            state = new WaterRegionEmptyState() ;
         }
         else if ( contents < WaterUtil.MAX_CAPACITY )
         {
-            state = State.WATER_REGION_HALF;
+//            state = State.WATER_REGION_HALF;
+            state = new WaterRegionHalfState();
         }
         else
         {
-            state = State.WATER_REGION;
+//            state = State.WATER_REGION;
+            state = new WaterRegionState();
         }
     }
 

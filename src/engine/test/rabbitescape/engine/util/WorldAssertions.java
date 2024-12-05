@@ -128,6 +128,8 @@ public class WorldAssertions
         for ( IdxObj<String> state : enumerate( laterStates ) )
         {
             world.step();
+            System.out.println("---------------------------------------------");
+            String[] x = renderWorld( world, true, false );
 
             assertThat(
                 renderWorld( world, true, false ),

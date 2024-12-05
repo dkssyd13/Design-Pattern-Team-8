@@ -1,8 +1,10 @@
 package rabbitescape.engine;
 
+import rabbitescape.engine.state.State;
+
 import java.util.Map;
 
-import rabbitescape.engine.ChangeDescription.State;
+//import rabbitescape.engine.ChangeDescription.State;
 
 public abstract class Behaviour
 {

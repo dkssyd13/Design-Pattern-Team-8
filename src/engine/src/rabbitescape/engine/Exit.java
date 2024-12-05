@@ -1,6 +1,8 @@
 package rabbitescape.engine;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+
+
+import rabbitescape.engine.state.ExitState;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ public class Exit extends Thing
 
     public Exit( int x, int y )
     {
-        super( x, y, EXIT );
+        super( x, y, new ExitState());//EXIT );
     }
 
     @Override

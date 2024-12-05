@@ -3,7 +3,7 @@ package rabbitescape.engine;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.fail;
-import static rabbitescape.engine.ChangeDescription.State.*;
+
 import static rabbitescape.engine.Tools.*;
 import static rabbitescape.engine.textworld.TextWorldManip.*;
 import static rabbitescape.engine.Rabbit.Type.*;
@@ -29,9 +29,7 @@ import rabbitescape.engine.state.rabbit.climbing.*;
 import rabbitescape.engine.state.rabbit.falling.*;
 import rabbitescape.engine.state.rabbit.lowering.*;
 import rabbitescape.engine.state.rabbit.rising.*;
-import rabbitescape.engine.state.rabbit.turning.RabbitTurningLeftToRightLoweringState;
-import rabbitescape.engine.state.rabbit.turning.RabbitTurningLeftToRightState;
-import rabbitescape.engine.state.rabbit.turning.RabbitTurningRightToLeftState;
+import rabbitescape.engine.state.rabbit.turning.*;
 import rabbitescape.engine.state.rabbit.walking.RabbitWalkingLeftState;
 import rabbitescape.engine.state.rabbit.walking.RabbitWalkingRightState;
 import rabbitescape.engine.state.token.TokenBashFallingState;
@@ -153,7 +151,8 @@ public class TestTextWorldManip
         desc.add( 0, 1, new RabbitRisingRightStartState() );
         desc.add( 0, 3, new RabbitRisingRightContinueState() );
         desc.add( 0, 5, new RabbitRisingRightEndState() );
-        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING ); // TODO : State 패턴 적용
+//        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING ); // TODO : 주석 삭제
+        desc.add( 0, 7, new RabbitTurningRightToLeftRisingState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),
@@ -183,7 +182,8 @@ public class TestTextWorldManip
         desc.add( 4, 1, new RabbitRisingLeftStartState() );
         desc.add( 4, 3, new RabbitRisingLeftContinueState() );
         desc.add( 4, 5, new RabbitRisingLeftEndState()  );
-        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  ); // TODO : State 패턴 적용
+//        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  ); // TODO : 주석 삭제
+        desc.add( 4, 7, new RabbitTurningLeftToRightRisingState() );
 
         assertThat(
             renderChangeDescription( world, desc, false ),

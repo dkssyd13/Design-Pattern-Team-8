@@ -3,7 +3,8 @@ package rabbitescape.engine.logic;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+
+import static org.junit.Assert.assertTrue;
 import static rabbitescape.engine.textworld.TextWorldManip.*;
 import static rabbitescape.engine.util.WorldAssertions.*;
 
@@ -11,6 +12,9 @@ import org.junit.Test;
 
 import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
+import rabbitescape.engine.state.token.TokenBashFallingState;
+import rabbitescape.engine.state.token.TokenBrollyOnSlopeState;
+import rabbitescape.engine.state.token.TokenBrollyStillState;
 
 public class TestTokens
 {
@@ -20,7 +24,7 @@ public class TestTokens
     public void Tokens_return_their_state_names_lowercase()
     {
         Token t = new Token( 1, 2, Token.Type.bash );
-        t.state = TOKEN_BASH_FALLING;
+        t.state = new TokenBashFallingState();
         assertThat(t.stateName(), equalTo("token_bash_falling"));
     }
 
@@ -359,7 +363,9 @@ public class TestTokens
         Token onSlope = new Token( 1, 1, Token.Type.brolly, world );
 
         // Until a time step passes, these are in non-moving states
-        assertThat( inAir.state, is( TOKEN_BROLLY_STILL ) );
-        assertThat( onSlope.state, is( TOKEN_BROLLY_ON_SLOPE ) );
+//        assertThat( inAir.state, is( TOKEN_BROLLY_STILL ) );
+        assertTrue( inAir.state instanceof TokenBrollyStillState );
+//        assertThat( onSlope.state, is( TOKEN_BROLLY_ON_SLOPE ) );
+        assertTrue( onSlope.state instanceof TokenBrollyOnSlopeState);
     }
 }

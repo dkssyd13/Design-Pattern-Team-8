@@ -1,14 +1,12 @@
 package rabbitescape.engine.state.rabbit.burning;
 
-import rabbitescape.engine.Behaviour;
-import rabbitescape.engine.ChangeDescription;
-import rabbitescape.engine.Rabbit;
-import rabbitescape.engine.World;
+import rabbitescape.engine.*;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.textworld.Chars;
 import rabbitescape.engine.util.Position;
 
-abstract class RabbitBurningCommon implements RabbitState
+public abstract class RabbitBurningCommon implements RabbitState
 {
     @Override
     public boolean rabbitIsFalling()
@@ -66,7 +64,7 @@ abstract class RabbitBurningCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }
@@ -75,5 +73,23 @@ abstract class RabbitBurningCommon implements RabbitState
     public void charForChange( ChangeDescription.Change change, Chars chars )
     {
         chars.set(  change.x, change.y, 'X' );
+    }
+
+    public static State newState(
+        BehaviourTools t, boolean triggered
+    ){
+        if ( triggered )
+        {
+            if ( t.rabbit.onSlope )
+            {
+                return new RabbitBurningOnSlopeState();
+            }
+            else
+            {
+                return new RabbitBurningState();
+            }
+        }
+
+        return null;
     }
 }

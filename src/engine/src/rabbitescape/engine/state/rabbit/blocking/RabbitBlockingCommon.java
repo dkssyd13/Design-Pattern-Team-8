@@ -2,13 +2,14 @@ package rabbitescape.engine.state.rabbit.blocking;
 
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.ChangeDescription;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.textworld.Chars;
 import rabbitescape.engine.util.Position;
 
-abstract class RabbitBlockingCommon implements RabbitState
+public abstract class RabbitBlockingCommon implements RabbitState
 {
     @Override
     public boolean rabbitIsFalling()
@@ -65,7 +66,7 @@ abstract class RabbitBlockingCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }

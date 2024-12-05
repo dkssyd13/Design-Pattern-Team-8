@@ -2,9 +2,10 @@ package rabbitescape.engine;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
-import static rabbitescape.engine.ChangeDescription.State.*;
+
 
 import org.junit.Test;
+import rabbitescape.engine.state.rabbit.walking.RabbitWalkingLeftState;
 
 public class TestRabbit
 {
@@ -12,7 +13,8 @@ public class TestRabbit
     public void Rabbit_reports_state_in_lowercase()
     {
         Rabbit r = new Rabbit( 1, 1, Direction.LEFT, Rabbit.Type.RABBIT );
-        r.state = RABBIT_WALKING_LEFT; // TODO : 테스트 필요
+//        r.state = RABBIT_WALKING_LEFT; // TODO : 주석 삭제
+        r.state = new RabbitWalkingLeftState();
         assertThat(r.stateName(), equalTo("rabbit_walking_left"));
     }
 
@@ -20,7 +22,8 @@ public class TestRabbit
     public void Rabbot_reports_state_except_it_says_rabbot()
     {
         Rabbit r = new Rabbit( 1, 1, Direction.LEFT, Rabbit.Type.RABBOT );
-        r.state = RABBIT_WALKING_LEFT;
+//        r.state = RABBIT_WALKING_LEFT;
+        r.state = new RabbitWalkingLeftState();
         assertThat(r.stateName(), equalTo("rabbot_walking_left"));
     }
 }

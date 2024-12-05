@@ -1,6 +1,8 @@
 package rabbitescape.engine;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
+import rabbitescape.engine.state.EntranceState;
+
+
 import static rabbitescape.engine.Direction.*;
 
 import java.util.HashMap;
@@ -18,7 +20,9 @@ public class Entrance extends Thing
 
     public Entrance( int x, int y )
     {
-        super( x, y, ENTRANCE );
+//        super( x, y, ENTRANCE );
+//        super( x, y, ENTRANCE );
+        super(x,y, new EntranceState() );
         delay[0] = -1;
         timeToNextRabbit = 0;
         rabbitEntranceCount = 0;

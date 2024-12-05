@@ -1,10 +1,13 @@
 package rabbitescape.engine.behaviours;
 
 import static rabbitescape.engine.Token.Type.*;
-import static rabbitescape.engine.ChangeDescription.State.*;
+
 
 import rabbitescape.engine.*;
-import rabbitescape.engine.ChangeDescription.State;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitExplodingState;
+import rabbitescape.engine.state.rabbit.RabbitState;
+
 
 public class Exploding extends Behaviour
 {
@@ -25,7 +28,7 @@ public class Exploding extends Behaviour
     {
         if ( triggered )
         {
-            return RABBIT_EXPLODING;
+            return new RabbitExplodingState();
         }
         return null;
     }
@@ -33,10 +36,9 @@ public class Exploding extends Behaviour
     @Override
     public boolean behave( World world, Rabbit rabbit, State state )
     {
-        if ( state == RABBIT_EXPLODING ) // DONE
+        if ( state instanceof RabbitExplodingState )
         {
-            world.changes.killRabbit( rabbit );
-            return true;
+            return ((RabbitExplodingState)state).behave( world, rabbit, this );
         }
 
         return false;

@@ -3,12 +3,13 @@ package rabbitescape.engine;
 import java.util.ArrayList;
 import java.util.List;
 
-import rabbitescape.engine.ChangeDescription.State;
+
 import rabbitescape.engine.World.CantAddTokenOutsideWorld;
 import rabbitescape.engine.World.NoBlockFound;
 import rabbitescape.engine.World.NoSuchAbilityInThisWorld;
 import rabbitescape.engine.World.NoneOfThisAbilityLeft;
 import rabbitescape.engine.World.UnableToAddToken;
+import rabbitescape.engine.state.rabbit.RabbitExplodingState;
 import rabbitescape.engine.util.Position;
 
 public class WorldChanges
@@ -93,7 +94,8 @@ public class WorldChanges
         world.num_waiting = 0;
         for ( Rabbit rabbit : world.rabbits )
         {
-            rabbit.state = State.RABBIT_EXPLODING;
+            rabbit.state = new RabbitExplodingState();
+//            rabbit.state = State.RABBIT_EXPLODING; // TODO : 주석 삭제
         }
     }
 

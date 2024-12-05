@@ -1,7 +1,7 @@
 package rabbitescape.engine.state.rabbit.bridging;
 
 import rabbitescape.engine.Behaviour;
-import rabbitescape.engine.ChangeDescription;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.behaviours.Bridging;
@@ -23,7 +23,7 @@ public class RabbitBridgingRight2State extends RabbitBridgingCommon
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return '[';
     }

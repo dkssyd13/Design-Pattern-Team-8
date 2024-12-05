@@ -5,6 +5,7 @@ import static rabbitescape.engine.Direction.RIGHT;
 import static rabbitescape.engine.Direction.opposite;
 
 import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.util.Position;
 
 public class BehaviourTools
@@ -18,13 +19,13 @@ public class BehaviourTools
         this.world = world;
     }
 
-    public ChangeDescription.State rl( // TODO : 삭제
-        ChangeDescription.State rightState,
-        ChangeDescription.State leftState
-    )
-    {
-        return rabbit.dir == RIGHT ? rightState : leftState;
-    }
+//    public ChangeDescription.State rl( // TODO : 주석 삭제
+//        ChangeDescription.State rightState,
+//        ChangeDescription.State leftState
+//    )
+//    {
+//        return rabbit.dir == RIGHT ? rightState : leftState;
+//    }
 
     public State rl(
         State rightState,
@@ -41,73 +42,88 @@ public class BehaviourTools
 
     public boolean rabbitIsFalling()
     {
-        switch (rabbit.state)
+        if ( rabbit.state instanceof RabbitState )
         {
-        case RABBIT_FALLING: // DONE
-        case RABBIT_FALLING_1: // DONE
-        case RABBIT_FALLING_1_TO_DEATH: // DONE
-        case RABBIT_DYING_OF_FALLING_2: // DONE
-        case RABBIT_DYING_OF_FALLING: // DONE
-        case RABBIT_FALLING_ONTO_LOWER_RIGHT: // DONE
-        case RABBIT_FALLING_ONTO_RISE_RIGHT: // DONE
-        case RABBIT_FALLING_ONTO_LOWER_LEFT: // DONE
-        case RABBIT_FALLING_ONTO_RISE_LEFT: // DONE
-        case RABBIT_FALLING_1_ONTO_LOWER_RIGHT: // DONE
-        case RABBIT_FALLING_1_ONTO_RISE_RIGHT: // DONE
-        case RABBIT_FALLING_1_ONTO_LOWER_LEFT: // DONE
-        case RABBIT_FALLING_1_ONTO_RISE_LEFT: // DONE
-        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT: // DONE
-        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2: // DONE
-        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT: // DONE
-        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2: // DONE
-        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT: // DONE
-        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2: // DONE
-        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT: // DONE
-        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2: // DONE
-            return true;
-        default:
-            return false;
+            return ( ( RabbitState )rabbit.state ).rabbitIsFalling();
         }
+        return false;
+//        switch (rabbit.state)
+//        {
+//        case RABBIT_FALLING: // DONE
+//        case RABBIT_FALLING_1: // DONE
+//        case RABBIT_FALLING_1_TO_DEATH: // DONE
+//        case RABBIT_DYING_OF_FALLING_2: // DONE
+//        case RABBIT_DYING_OF_FALLING: // DONE
+//        case RABBIT_FALLING_ONTO_LOWER_RIGHT: // DONE
+//        case RABBIT_FALLING_ONTO_RISE_RIGHT: // DONE
+//        case RABBIT_FALLING_ONTO_LOWER_LEFT: // DONE
+//        case RABBIT_FALLING_ONTO_RISE_LEFT: // DONE
+//        case RABBIT_FALLING_1_ONTO_LOWER_RIGHT: // DONE
+//        case RABBIT_FALLING_1_ONTO_RISE_RIGHT: // DONE
+//        case RABBIT_FALLING_1_ONTO_LOWER_LEFT: // DONE
+//        case RABBIT_FALLING_1_ONTO_RISE_LEFT: // DONE
+//        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT: // DONE
+//        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_RIGHT_2: // DONE
+//        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT: // DONE
+//        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_RIGHT_2: // DONE
+//        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT: // DONE
+//        case RABBIT_DYING_OF_FALLING_SLOPE_RISE_LEFT_2: // DONE
+//        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT: // DONE
+//        case RABBIT_DYING_OF_FALLING_2_SLOPE_RISE_LEFT_2: // DONE
+//            return true;
+//        default:
+//            return false;
+//        }
     }
 
     public boolean rabbitIsClimbing()
     {
-        switch( rabbit.state)
+        if ( rabbit.state instanceof RabbitState )
         {
-        case RABBIT_ENTERING_EXIT_CLIMBING_RIGHT: // DONE
-        case RABBIT_ENTERING_EXIT_CLIMBING_LEFT: // DONE
-        case RABBIT_CLIMBING_LEFT_START: // DONE
-        case RABBIT_CLIMBING_LEFT_CONTINUE_1:// DONE
-        case RABBIT_CLIMBING_LEFT_CONTINUE_2:// DONE
-        case RABBIT_CLIMBING_LEFT_END:// DONE
-        case RABBIT_CLIMBING_LEFT_BANG_HEAD:// DONE
-        case RABBIT_CLIMBING_RIGHT_START:// DONE
-        case RABBIT_CLIMBING_RIGHT_CONTINUE_1:// DONE
-        case RABBIT_CLIMBING_RIGHT_CONTINUE_2:// DONE
-        case RABBIT_CLIMBING_RIGHT_END:// DONE
-        case RABBIT_CLIMBING_RIGHT_BANG_HEAD:// DONE
-            return true;
-        default:
-            return false;
+            return ( ( RabbitState )rabbit.state ).rabbitIsClimbing();
         }
+        return false;
+//        switch( rabbit.state)
+//        {
+//        case RABBIT_ENTERING_EXIT_CLIMBING_RIGHT: // DONE
+//        case RABBIT_ENTERING_EXIT_CLIMBING_LEFT: // DONE
+//        case RABBIT_CLIMBING_LEFT_START: // DONE
+//        case RABBIT_CLIMBING_LEFT_CONTINUE_1:// DONE
+//        case RABBIT_CLIMBING_LEFT_CONTINUE_2:// DONE
+//        case RABBIT_CLIMBING_LEFT_END:// DONE
+//        case RABBIT_CLIMBING_LEFT_BANG_HEAD:// DONE
+//        case RABBIT_CLIMBING_RIGHT_START:// DONE
+//        case RABBIT_CLIMBING_RIGHT_CONTINUE_1:// DONE
+//        case RABBIT_CLIMBING_RIGHT_CONTINUE_2:// DONE
+//        case RABBIT_CLIMBING_RIGHT_END:// DONE
+//        case RABBIT_CLIMBING_RIGHT_BANG_HEAD:// DONE
+//            return true;
+//        default:
+//            return false;
+//        }
     }
 
     public boolean rabbitIsBashing()
     {
-        switch( rabbit.state)
+        if ( rabbit.state instanceof RabbitState )
         {
-        case RABBIT_BASHING_RIGHT: // DONE
-        case RABBIT_BASHING_LEFT: // DONE
-        case RABBIT_BASHING_UP_RIGHT: // DONE
-        case RABBIT_BASHING_UP_LEFT: // DONE
-        case RABBIT_BASHING_USELESSLY_RIGHT: // DONE
-        case RABBIT_BASHING_USELESSLY_LEFT: // DONE
-        case RABBIT_BASHING_USELESSLY_RIGHT_UP: // DONE
-        case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
-            return true;
-        default:
-            return false;
+            return ( ( RabbitState )rabbit.state ).rabbitIsBashing();
         }
+        return false;
+//        switch( rabbit.state)
+//        {
+//        case RABBIT_BASHING_RIGHT: // DONE
+//        case RABBIT_BASHING_LEFT: // DONE
+//        case RABBIT_BASHING_UP_RIGHT: // DONE
+//        case RABBIT_BASHING_UP_LEFT: // DONE
+//        case RABBIT_BASHING_USELESSLY_RIGHT: // DONE
+//        case RABBIT_BASHING_USELESSLY_LEFT: // DONE
+//        case RABBIT_BASHING_USELESSLY_RIGHT_UP: // DONE
+//        case RABBIT_BASHING_USELESSLY_LEFT_UP: // DONE
+//            return true;
+//        default:
+//            return false;
+//        }
     }
 
     /**

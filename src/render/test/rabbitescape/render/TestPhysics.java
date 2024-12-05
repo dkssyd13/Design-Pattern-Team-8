@@ -8,11 +8,12 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
-import rabbitescape.engine.ChangeDescription;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.LevelWinListener;
 import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
 import rabbitescape.engine.solution.SolutionIgnorer;
+import rabbitescape.engine.state.token.TokenBashStillState;
 import rabbitescape.engine.textworld.TextWorldManip;
 import rabbitescape.render.gameloop.GeneralPhysics;
 import rabbitescape.render.gameloop.Physics.StatsChangedListener;
@@ -226,9 +227,12 @@ public class TestPhysics
         // It was added - there is now a token
         assertEquals( 1, world.things.size() );
 
-        assertEquals(
-            ChangeDescription.State.TOKEN_BASH_STILL,
-            world.things.get( 0 ).state
+//        assertEquals(// TODO : 주석 삭제
+//            ChangeDescription.State.TOKEN_BASH_STILL,
+//            world.things.get( 0 ).state
+//        );
+        assertTrue(
+            world.things.get( 0 ).state instanceof TokenBashStillState
         );
     }
 

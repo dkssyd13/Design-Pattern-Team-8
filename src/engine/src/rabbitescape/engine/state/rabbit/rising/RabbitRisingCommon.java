@@ -1,7 +1,9 @@
 package rabbitescape.engine.state.rabbit.rising;
 
 import rabbitescape.engine.*;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitState;
+import rabbitescape.engine.state.rabbit.walking.RabbitWalkingCommon;
 import rabbitescape.engine.util.Position;
 
 abstract class RabbitRisingCommon implements RabbitState
@@ -59,7 +61,7 @@ abstract class RabbitRisingCommon implements RabbitState
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return ' ';
     }

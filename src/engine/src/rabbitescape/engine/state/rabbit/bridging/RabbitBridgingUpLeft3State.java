@@ -1,6 +1,7 @@
 package rabbitescape.engine.state.rabbit.bridging;
 
 import rabbitescape.engine.*;
+import rabbitescape.engine.state.State;
 import rabbitescape.engine.util.Position;
 
 import static rabbitescape.engine.Block.Material.EARTH;
@@ -32,7 +33,7 @@ public class RabbitBridgingUpLeft3State extends RabbitBridgingCommon{
     }
 
     @Override
-    public char bridgingStage( ChangeDescription.State state )
+    public char bridgingStage( State state )
     {
         return '}';
     }

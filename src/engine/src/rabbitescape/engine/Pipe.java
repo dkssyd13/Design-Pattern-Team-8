@@ -1,10 +1,9 @@
 package rabbitescape.engine;
 
-import static rabbitescape.engine.ChangeDescription.State.PIPE;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import rabbitescape.engine.state.PipeState;
 import rabbitescape.engine.util.WaterUtil;
 
 public class Pipe extends Thing
@@ -13,7 +12,8 @@ public class Pipe extends Thing
 
     public Pipe( int x, int y )
     {
-        super( x, y, PIPE );
+//        super( x, y, PIPE ); // TODO : 주석 삭제
+        super( x, y, new PipeState() );
         rate = WaterUtil.SOURCE_RATE;
     }
 

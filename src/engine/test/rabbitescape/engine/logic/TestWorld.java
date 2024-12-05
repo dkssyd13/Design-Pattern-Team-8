@@ -5,8 +5,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static rabbitescape.engine.ChangeDescription.State.RABBIT_BRIDGING_RIGHT_1;
-import static rabbitescape.engine.ChangeDescription.State.RABBIT_WALKING_RIGHT;
+import static org.junit.Assert.assertTrue;
 import static rabbitescape.engine.Tools.equalTo;
 import static rabbitescape.engine.World.CompletionState.LOST;
 import static rabbitescape.engine.World.CompletionState.RUNNING;
@@ -25,6 +24,8 @@ import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
 import rabbitescape.engine.World.DontStepAfterFinish;
 import rabbitescape.engine.WorldStatsListener;
+import rabbitescape.engine.state.rabbit.bridging.RabbitBridgingRight1State;
+import rabbitescape.engine.state.rabbit.walking.RabbitWalkingRightState;
 import rabbitescape.engine.textworld.TextWorldManip;
 import rabbitescape.engine.util.Position;
 import rabbitescape.engine.util.WaterUtil;
@@ -394,8 +395,10 @@ public class TestWorld
         // This is what we are testing: ask what's in the rabbitty square
         Rabbit[] rabbits = world.getRabbitsAt( 1, 0 );
 
-        assertThat( rabbits[0].state, equalTo( RABBIT_BRIDGING_RIGHT_1 ) ); // TODO : 테스트 확인
-        assertThat( rabbits[1].state, equalTo( RABBIT_WALKING_RIGHT ) );
+//        assertThat( rabbits[0].state, equalTo( RABBIT_BRIDGING_RIGHT_1 ) ); // TODO : 테스트 확인
+//        assertThat( rabbits[1].state, equalTo( RABBIT_WALKING_RIGHT ) );
+        assertTrue( rabbits[0].state instanceof RabbitBridgingRight1State);
+        assertTrue( rabbits[1].state instanceof RabbitWalkingRightState);
 
         assertThat( rabbits.length, equalTo( 2 ) );
     }

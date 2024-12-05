@@ -1,13 +1,17 @@
 package rabbitescape.engine.behaviours;
 
-import static rabbitescape.engine.ChangeDescription.State.*;
 import static rabbitescape.engine.Token.Type.*;
 
 import java.util.Map;
 
 import rabbitescape.engine.*;
-import rabbitescape.engine.ChangeDescription.State;
+import rabbitescape.engine.state.State;
+import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingCommon;
+import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingRiseLeftState;
+import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingRiseRightState;
+import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingState;
 
+// TODO : 주석 삭제
 public class Blocking extends Behaviour
 {
     public boolean abilityActive = false;
@@ -35,15 +39,18 @@ public class Blocking extends Behaviour
             Block here = t.blockHere();
             if( BehaviourTools.isRightRiseSlope( here ) )
             {
-                return RABBIT_BLOCKING_RISE_RIGHT;
+//                return RABBIT_BLOCKING_RISE_RIGHT;
+                return new RabbitBlockingRiseRightState();
             }
             else if ( BehaviourTools.isLeftRiseSlope( here ) )
             {
-                return RABBIT_BLOCKING_RISE_LEFT;
+//                return RABBIT_BLOCKING_RISE_LEFT;
+                return new RabbitBlockingRiseLeftState();
             }
             else
             {
-                return RABBIT_BLOCKING;
+//                return RABBIT_BLOCKING;
+                return new RabbitBlockingState();
             }
         }
 
@@ -87,13 +94,18 @@ public class Blocking extends Behaviour
 
     static boolean isBlocking( State s )
     {
-        switch ( s ) {
-        case RABBIT_BLOCKING: // DONE
-        case RABBIT_BLOCKING_RISE_RIGHT: // DONE
-        case RABBIT_BLOCKING_RISE_LEFT: // DONE
-            return true;
-        default:
-            return false;
+        if ( s instanceof RabbitBlockingCommon )
+        {
+            return ( ( RabbitBlockingCommon )s ).isBlocking();
         }
+        return false;
+//        switch ( s ) {
+//        case RABBIT_BLOCKING: // DONE
+//        case RABBIT_BLOCKING_RISE_RIGHT: // DONE
+//        case RABBIT_BLOCKING_RISE_LEFT: // DONE
+//            return true;
+//        default:
+//            return false;
+//        }
     }
 }

@@ -7,7 +7,7 @@ import rabbitescape.engine.state.State;
 import rabbitescape.engine.textworld.Chars;
 
 
-abstract class FireState implements State
+public abstract class FireState implements State
 {
     public void step( World world, Fire fire ){
 
@@ -19,7 +19,11 @@ abstract class FireState implements State
 
     }
 
-    public final State stateForVariant( int variant ){
+    public State baseVariantSwitch( State a, State b, State c, State d, State currentState ){
+        throw new RuntimeException( "Fire not in fire state:" + currentState );
+    }
+
+    public static State stateForVariant( int variant ){
         switch ( variant )
         {
             case 0:
