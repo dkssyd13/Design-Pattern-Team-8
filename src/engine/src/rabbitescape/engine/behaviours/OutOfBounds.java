@@ -1,7 +1,5 @@
 package rabbitescape.engine.behaviours;
 
-
-
 import rabbitescape.engine.Behaviour;
 import rabbitescape.engine.BehaviourTools;
 
@@ -10,7 +8,6 @@ import rabbitescape.engine.World;
 import rabbitescape.engine.config.TapTimer;
 import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitOutOfBoundsState;
-import rabbitescape.engine.state.rabbit.RabbitState;
 
 public class OutOfBounds extends Behaviour
 {
@@ -53,19 +50,6 @@ public class OutOfBounds extends Behaviour
         {
             return false;
         }
-//        switch( state ) // TODO : 주석 삭제
-//        {
-//            case RABBIT_OUT_OF_BOUNDS: // DONE
-//            {
-//                checkMars( world, rabbit );
-//                world.changes.killRabbit( rabbit );
-//                return true;
-//            }
-//            default:
-//            {
-//                return false;
-//            }
-//        }
     }
 
     /**

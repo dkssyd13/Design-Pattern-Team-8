@@ -1,10 +1,8 @@
 package rabbitescape.engine.state.rabbit.blocking;
 
-import rabbitescape.engine.Behaviour;
-import rabbitescape.engine.ChangeDescription;
+import rabbitescape.engine.*;
+import rabbitescape.engine.behaviours.Blocking;
 import rabbitescape.engine.state.State;
-import rabbitescape.engine.Rabbit;
-import rabbitescape.engine.World;
 import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.textworld.Chars;
 import rabbitescape.engine.util.Position;
@@ -76,5 +74,33 @@ public abstract class RabbitBlockingCommon implements RabbitState
     {
         chars.set( change.x, change.y, 'H' );
 
+    }
+
+    static public State newState(
+        BehaviourTools t,
+        boolean triggered,
+        Blocking blocking
+    )
+    {
+        if ( blocking.isAbilityActive() || triggered )
+        {
+            t.rabbit.possiblyUndoSlopeBashHop( t.world );
+            blocking.setAbilityActive( true );
+            Block here = t.blockHere();
+            if( BehaviourTools.isRightRiseSlope( here ) )
+            {
+                return new RabbitBlockingRiseRightState();
+            }
+            else if ( BehaviourTools.isLeftRiseSlope( here ) )
+            {
+                return new RabbitBlockingRiseLeftState();
+            }
+            else
+            {
+                return new RabbitBlockingState();
+            }
+        }
+
+        return null;
     }
 }

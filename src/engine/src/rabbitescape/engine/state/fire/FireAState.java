@@ -2,7 +2,7 @@ package rabbitescape.engine.state.fire;
 
 import rabbitescape.engine.state.State;
 
-public class FireAState extends FireState
+public class FireAState extends FireStateCommon
 {
     @Override
     public State baseVariantSwitch(

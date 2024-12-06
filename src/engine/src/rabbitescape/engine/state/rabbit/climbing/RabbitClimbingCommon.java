@@ -15,12 +15,37 @@ public abstract class RabbitClimbingCommon implements RabbitState
         return true;
     }
 
+    static public State newState(
+        BehaviourTools t,
+        boolean triggered,
+        Climbing behaviour
+    )
+    {
+        if ( triggered )
+        {
+            behaviour.setHasAbility( true );
+        }
+
+        if ( !behaviour.isHasAbility() )
+        {
+            return null;
+        }
+        if ( t.rabbit.state instanceof RabbitClimbingCommon )
+        {
+            return ( ( RabbitClimbingCommon )t.rabbit.state ).newState(
+                t,
+                behaviour
+            );
+        }
+        return newStateNotClimbing( t, behaviour );
+    }
+
     public State newState( BehaviourTools t, Behaviour behaviour ){
         return newStateNotClimbing( t, (Climbing )behaviour );
     }
 
     // 기존 newStateNotClimbing() 구현
-    public State newStateNotClimbing( BehaviourTools t, Climbing behaviour )
+    static private State newStateNotClimbing( BehaviourTools t, Climbing behaviour )
     {
         int nextX = t.nextX();
         int nextY = t.nextY();

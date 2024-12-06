@@ -3,10 +3,8 @@ package rabbitescape.engine.behaviours;
 import rabbitescape.engine.*;
 import rabbitescape.engine.state.ExitState;
 import rabbitescape.engine.state.State;
-import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.state.rabbit.entering.RabbitEnteringExitCommon;
 
-// TODO : 주석 삭제
 public class Exiting extends Behaviour
 {
     @Override
@@ -39,19 +37,6 @@ public class Exiting extends Behaviour
     public State newState( BehaviourTools t, boolean triggered )
     {
         return ExitState.newState( t, triggered, this );
-//        if ( triggered )
-//        {
-//            if ( t.rabbit.state == RABBIT_CLIMBING_LEFT_CONTINUE_2 ) // DONE
-//            {
-//                return RABBIT_ENTERING_EXIT_CLIMBING_LEFT;
-//            }
-//            if ( t.rabbit.state == RABBIT_CLIMBING_RIGHT_CONTINUE_2 ) // DONE
-//            {
-//                return RABBIT_ENTERING_EXIT_CLIMBING_RIGHT;
-//            }
-//            return RABBIT_ENTERING_EXIT;
-//        }
-//        return null;
     }
 
     @Override
@@ -61,15 +46,6 @@ public class Exiting extends Behaviour
         {
             return ( ( RabbitEnteringExitCommon ) state ).behave( world, rabbit, this );
         }
-//        if (
-//               state == RABBIT_ENTERING_EXIT // DONE
-//            || state == RABBIT_ENTERING_EXIT_CLIMBING_RIGHT // DONE
-//            || state == RABBIT_ENTERING_EXIT_CLIMBING_LEFT // DONE
-//           )
-//        {
-//            world.changes.saveRabbit( rabbit );
-//            return true;
-//        }
         else
         {
             return false;

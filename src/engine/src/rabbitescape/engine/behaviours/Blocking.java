@@ -7,11 +7,7 @@ import java.util.Map;
 import rabbitescape.engine.*;
 import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingCommon;
-import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingRiseLeftState;
-import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingRiseRightState;
-import rabbitescape.engine.state.rabbit.blocking.RabbitBlockingState;
 
-// TODO : 주석 삭제
 public class Blocking extends Behaviour
 {
     public boolean abilityActive = false;
@@ -32,29 +28,7 @@ public class Blocking extends Behaviour
     @Override
     public State newState( BehaviourTools t, boolean triggered )
     {
-        if ( abilityActive || triggered )
-        {
-            t.rabbit.possiblyUndoSlopeBashHop( t.world );
-            abilityActive = true;
-            Block here = t.blockHere();
-            if( BehaviourTools.isRightRiseSlope( here ) )
-            {
-//                return RABBIT_BLOCKING_RISE_RIGHT;
-                return new RabbitBlockingRiseRightState();
-            }
-            else if ( BehaviourTools.isLeftRiseSlope( here ) )
-            {
-//                return RABBIT_BLOCKING_RISE_LEFT;
-                return new RabbitBlockingRiseLeftState();
-            }
-            else
-            {
-//                return RABBIT_BLOCKING;
-                return new RabbitBlockingState();
-            }
-        }
-
-        return null;
+        return RabbitBlockingCommon.newState( t, triggered, this );
     }
 
     @Override
@@ -99,13 +73,15 @@ public class Blocking extends Behaviour
             return ( ( RabbitBlockingCommon )s ).isBlocking();
         }
         return false;
-//        switch ( s ) {
-//        case RABBIT_BLOCKING: // DONE
-//        case RABBIT_BLOCKING_RISE_RIGHT: // DONE
-//        case RABBIT_BLOCKING_RISE_LEFT: // DONE
-//            return true;
-//        default:
-//            return false;
-//        }
+    }
+
+    public boolean isAbilityActive()
+    {
+        return abilityActive;
+    }
+
+    public void setAbilityActive( boolean abilityActive )
+    {
+        this.abilityActive = abilityActive;
     }
 }

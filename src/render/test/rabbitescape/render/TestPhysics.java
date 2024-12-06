@@ -227,10 +227,6 @@ public class TestPhysics
         // It was added - there is now a token
         assertEquals( 1, world.things.size() );
 
-//        assertEquals(// TODO : 주석 삭제
-//            ChangeDescription.State.TOKEN_BASH_STILL,
-//            world.things.get( 0 ).state
-//        );
         assertTrue(
             world.things.get( 0 ).state instanceof TokenBashStillState
         );

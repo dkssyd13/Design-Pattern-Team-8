@@ -8,7 +8,6 @@ import java.util.List;
 import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.state.rabbit.RabbitOutOfBoundsState;
 
-// TODO : 주석 삭제
 public class RabbitRenderer
 {
     public static void render( 
@@ -19,7 +18,6 @@ public class RabbitRenderer
     {
         for ( Rabbit rabbit : rabbits )
         {
-//            if ( State.RABBIT_OUT_OF_BOUNDS == rabbit.state )
             if ( rabbit.state instanceof RabbitOutOfBoundsState )
             {
                 continue;

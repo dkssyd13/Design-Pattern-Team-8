@@ -6,7 +6,6 @@ import static rabbitescape.engine.Token.Type.*;
 import rabbitescape.engine.*;
 import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitExplodingState;
-import rabbitescape.engine.state.rabbit.RabbitState;
 
 
 public class Exploding extends Behaviour

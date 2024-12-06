@@ -5,7 +5,8 @@ import rabbitescape.engine.Fire;
 import rabbitescape.engine.World;
 import rabbitescape.engine.textworld.Chars;
 
-public class FireCFallToRiseRightState extends FireState{
+public class FireCFallToRiseRightState extends FireStateCommon
+{
     @Override
     public void step( World world, Fire fire )
     {

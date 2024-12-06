@@ -5,7 +5,7 @@ import rabbitescape.engine.Token;
 import rabbitescape.engine.World;
 import rabbitescape.engine.textworld.Chars;
 
-public class TokenDigStillState implements TokenState{
+public class TokenDigStillState extends TokenState{
     @Override
     public void step( World world, Token token )
     {

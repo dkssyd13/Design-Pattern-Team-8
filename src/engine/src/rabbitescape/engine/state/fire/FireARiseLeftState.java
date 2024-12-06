@@ -1,6 +1,7 @@
 package rabbitescape.engine.state.fire;
 
-public class FireARiseLeftState extends FireState{
+public class FireARiseLeftState extends FireStateCommon
+{
     @Override
     public String name()
     {

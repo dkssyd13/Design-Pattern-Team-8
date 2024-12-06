@@ -269,10 +269,6 @@ public class World
 
         for ( Thing thing : allThings() )
         {
-            if ( thing instanceof Rabbit )
-            {
-                System.out.println("Rabbit");
-            }
             thing.calcNewState( this );
         }
     }
@@ -314,10 +310,6 @@ public class World
 
         for ( Thing thing : allThings() )
         {
-            if ( thing instanceof Rabbit )
-            {
-                System.out.println("Rabbit");
-            }
             thing.step( this );
         }
 

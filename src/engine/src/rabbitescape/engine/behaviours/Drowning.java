@@ -11,7 +11,6 @@ import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.WaterRegion;
 import rabbitescape.engine.World;
 import rabbitescape.engine.state.State;
-import rabbitescape.engine.state.rabbit.RabbitState;
 import rabbitescape.engine.state.rabbit.drowning.RabbitDrowningState;
 
 public class Drowning extends Behaviour
@@ -72,13 +71,5 @@ public class Drowning extends Behaviour
         {
             return false;
         }
-//        switch ( state ) // TODO : 주석 삭제
-//        {
-//        case RABBIT_DROWNING: // DONE
-//            world.changes.killRabbit( rabbit );
-//            return true;
-//        default:
-//            return false;
-//        }
     }
 }

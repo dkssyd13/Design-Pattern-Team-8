@@ -50,140 +50,19 @@ public class Token extends Thing
         state = switchType( type, false, false, onSlope );
     }
 
-    private static State switchType(  // TODO : 주석 삭제
+    private static State switchType(
         Type type, 
         boolean moving,
         boolean slopeBelow, 
         boolean onSlope 
     )
     {
-        switch( type )
-        {
-            case bash:   return chooseState( 
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_BASH_FALLING,
-//                TOKEN_BASH_STILL,
-//                TOKEN_BASH_FALL_TO_SLOPE,
-//                TOKEN_BASH_ON_SLOPE,
-                new TokenBashFallingState(),
-                new TokenBashStillState(),
-                new TokenBashFallToSlopeState(),
-                new TokenBashOnSlopeState()
-                );
-
-            case dig:    return chooseState( 
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_DIG_FALLING,
-//                TOKEN_DIG_STILL,
-//                TOKEN_DIG_FALL_TO_SLOPE,
-//                TOKEN_DIG_ON_SLOPE
-                new TokenDigFallingState(),
-                new TokenDigStillState(),
-                new TokenDigFallToSlopeState(),
-                new TokenDigOnSlopeState()
-                );
-
-            case bridge: return chooseState( 
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_BRIDGE_FALLING,
-//                TOKEN_BRIDGE_STILL,
-//                TOKEN_BRIDGE_FALL_TO_SLOPE,
-//                TOKEN_BRIDGE_ON_SLOPE
-                new TokenBridgeFallingState(),
-                new TokenBridgeStillState(),
-                new TokenBridgeFallToSlopeState(),
-                new TokenBridgeOnSlopeState()
-                );
-
-            case block: return chooseState(
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_BLOCK_FALLING,
-//                TOKEN_BLOCK_STILL,
-//                TOKEN_BLOCK_FALL_TO_SLOPE,
-//                TOKEN_BLOCK_ON_SLOPE
-                new TokenBlockFallingState(),
-                new TokenBlockStillState(),
-                new TokenBlockFallToSlopeState(),
-                new TokenBlockOnSlopeState()
-                );
-
-            case climb: return chooseState(
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_CLIMB_FALLING,
-//                TOKEN_CLIMB_STILL,
-//                TOKEN_CLIMB_FALL_TO_SLOPE,
-//                TOKEN_CLIMB_ON_SLOPE
-                new TokenClimbFallingState(),
-                new TokenClimbStillState(),
-                new TokenClimbFallToSlopeState(),
-                new TokenClimbOnSlopeState()
-                );
-
-            case explode: return chooseState( 
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_EXPLODE_FALLING,
-//                TOKEN_EXPLODE_STILL,
-//                TOKEN_EXPLODE_FALL_TO_SLOPE,
-//                TOKEN_EXPLODE_ON_SLOPE
-                new TokenExplodeFallingState(),
-                new TokenExplodeStillState(),
-                new TokenExplodeFallToSlopeState(),
-                new TokenExplodeOnSlopeState()
-            );
-
-            case brolly: return chooseState( 
-                moving, 
-                slopeBelow, 
-                onSlope,
-//                TOKEN_BROLLY_FALLING,
-//                TOKEN_BROLLY_STILL,
-//                TOKEN_BROLLY_FALL_TO_SLOPE,
-//                TOKEN_BROLLY_ON_SLOPE
-                new TokenBrollyFallingState(),
-                new TokenBrollyStillState(),
-                new TokenBrollyFallToSlopeState(),
-                new TokenBrollyOnSlopeState()
-                );
-
-            default: throw new UnknownType( type );
-        }
-    }
-
-    private static State chooseState( 
-        boolean moving, 
-        boolean slopeBelow,
-        boolean onSlope, 
-        State falling,
-        State onFlat, 
-        State fallingToSlope,
-        State onSlopeState
-    )
-    {
-        if ( onSlope )
-        {
-            return onSlopeState;
-        }
-        if ( !moving )
-        {
-            return onFlat;
-        }
-        if ( slopeBelow )
-        {
-            return fallingToSlope;
-        }
-        return falling;
+        return TokenState.switchByType(
+            type,
+            moving,
+            slopeBelow,
+            onSlope
+        );
     }
 
     @Override
@@ -209,35 +88,6 @@ public class Token extends Thing
         {
             ( ( TokenState )state ).step( world, this );
         }
-//        switch ( state )
-//        {
-//        case TOKEN_BASH_FALLING: // DONE
-//        case TOKEN_BASH_FALL_TO_SLOPE: // DONE
-//        case TOKEN_DIG_FALLING: // DONE
-//        case TOKEN_DIG_FALL_TO_SLOPE: // DONE
-//        case TOKEN_BRIDGE_FALLING: // DONE
-//        case TOKEN_BRIDGE_FALL_TO_SLOPE: // DONE
-//        case TOKEN_BLOCK_FALLING: // DONE
-//        case TOKEN_BLOCK_FALL_TO_SLOPE: // DONE
-//        case TOKEN_CLIMB_FALLING: // DONE
-//        case TOKEN_CLIMB_FALL_TO_SLOPE: // DONE
-//        case TOKEN_EXPLODE_FALL_TO_SLOPE: // DONE
-//        case TOKEN_EXPLODE_FALLING: // DONE
-//        case TOKEN_BROLLY_FALLING: // DONE
-//        case TOKEN_BROLLY_FALL_TO_SLOPE: // DONE
-//        {
-//            ++y;
-//
-//            if ( y >= world.size.height )
-//            {
-//                world.changes.removeToken( this );
-//            }
-//
-//            return;
-//        }
-//        default:
-//            // Nothing to do
-//        }
     }
 
     @Override

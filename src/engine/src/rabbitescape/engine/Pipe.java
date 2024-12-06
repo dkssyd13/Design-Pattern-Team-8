@@ -12,7 +12,6 @@ public class Pipe extends Thing
 
     public Pipe( int x, int y )
     {
-//        super( x, y, PIPE ); // TODO : 주석 삭제
         super( x, y, new PipeState() );
         rate = WaterUtil.SOURCE_RATE;
     }

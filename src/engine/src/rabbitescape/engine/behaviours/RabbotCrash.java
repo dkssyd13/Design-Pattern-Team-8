@@ -7,7 +7,6 @@ import rabbitescape.engine.Rabbit;
 import rabbitescape.engine.World;
 import rabbitescape.engine.state.State;
 import rabbitescape.engine.state.rabbit.RabbitCrashingState;
-import rabbitescape.engine.state.rabbit.RabbitState;
 
 public class RabbotCrash extends Behaviour
 {

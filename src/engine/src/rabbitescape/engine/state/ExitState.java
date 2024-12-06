@@ -27,19 +27,14 @@ public class ExitState implements State{
     {
         if ( triggered )
         {
-//            if ( t.rabbit.state == RABBIT_CLIMBING_LEFT_CONTINUE_2 ) // DONE
             if ( t.rabbit.state instanceof RabbitClimbingLeftContinue2State ) // DONE
             {
-//                return RABBIT_ENTERING_EXIT_CLIMBING_LEFT;
                 return new RabbitEnteringExitClimbingLeftState();
             }
-//            if ( t.rabbit.state == RABBIT_CLIMBING_RIGHT_CONTINUE_2 ) // DONE
             if ( t.rabbit.state instanceof RabbitClimbingRightContinue2State ) // DONE
             {
-//                return RABBIT_ENTERING_EXIT_CLIMBING_RIGHT;
                 return new RabbitEnteringExitClimbingRightState();
             }
-//            return RABBIT_ENTERING_EXIT;
             return new RabbitEnteringExitState();
         }
         return null;

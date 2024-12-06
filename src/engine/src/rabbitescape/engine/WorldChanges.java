@@ -95,7 +95,6 @@ public class WorldChanges
         for ( Rabbit rabbit : world.rabbits )
         {
             rabbit.state = new RabbitExplodingState();
-//            rabbit.state = State.RABBIT_EXPLODING; // TODO : 주석 삭제
         }
     }
 

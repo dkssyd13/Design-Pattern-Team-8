@@ -122,8 +122,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_TURNING_LEFT_TO_RIGHT ); // TODO : 주석 삭제
-//        desc.add( 2, 0, RABBIT_TURNING_RIGHT_TO_LEFT  );
 
         desc.add( 0, 0, new RabbitTurningLeftToRightState() );
         desc.add( 2, 0, new RabbitTurningRightToLeftState() );
@@ -143,15 +141,10 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 8 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 1, RABBIT_RISING_RIGHT_START );
-//        desc.add( 0, 3, RABBIT_RISING_RIGHT_CONTINUE );
-//        desc.add( 0, 5, RABBIT_RISING_RIGHT_END );
-//        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING );
 
         desc.add( 0, 1, new RabbitRisingRightStartState() );
         desc.add( 0, 3, new RabbitRisingRightContinueState() );
         desc.add( 0, 5, new RabbitRisingRightEndState() );
-//        desc.add( 0, 7, RABBIT_TURNING_RIGHT_TO_LEFT_RISING ); // TODO : 주석 삭제
         desc.add( 0, 7, new RabbitTurningRightToLeftRisingState() );
 
         assertThat(
@@ -175,14 +168,9 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 8 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 4, 1, RABBIT_RISING_LEFT_START );
-//        desc.add( 4, 3, RABBIT_RISING_LEFT_CONTINUE  );
-//        desc.add( 4, 5, RABBIT_RISING_LEFT_END  );
-//        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  );
         desc.add( 4, 1, new RabbitRisingLeftStartState() );
         desc.add( 4, 3, new RabbitRisingLeftContinueState() );
         desc.add( 4, 5, new RabbitRisingLeftEndState()  );
-//        desc.add( 4, 7, RABBIT_TURNING_LEFT_TO_RIGHT_RISING  ); // TODO : 주석 삭제
         desc.add( 4, 7, new RabbitTurningLeftToRightRisingState() );
 
         assertThat(
@@ -206,10 +194,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 8 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_LOWERING_RIGHT_START ); // TODO : 주석 삭제
-//        desc.add( 0, 2, RABBIT_LOWERING_RIGHT_CONTINUE  );
-//        desc.add( 0, 4, RABBIT_LOWERING_RIGHT_END  );
-//        desc.add( 0, 6, RABBIT_TURNING_LEFT_TO_RIGHT_LOWERING  );
 
         desc.add( 0, 0, new RabbitLoweringRightStartState());
         desc.add( 0, 2, new RabbitLoweringRightContinueState() );
@@ -264,9 +248,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 5 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_FALLING ); // TODO : 주석 삭제
-//        desc.add( 2, 1, RABBIT_FALLING  );
-//        desc.add( 1, 2, RABBIT_FALLING_1 );
 
         desc.add( 0, 0, new RabbitFallingState());
         desc.add( 2, 1, new RabbitFallingState()  );
@@ -290,8 +271,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_FALLING_1_TO_DEATH ); // TODO : 주석 삭제
-//        desc.add( 2, 0, RABBIT_DYING_OF_FALLING_2  );
 
         desc.add( 0, 0, new RabbitFalling1ToDeathState() );
         desc.add( 2, 0, new RabbitDyingOfFalling2State()  );
@@ -311,7 +290,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_DYING_OF_FALLING ); // TODO : 주석 삭제
         desc.add( 0, 0, new RabbitDyingOfFallingState() );
 
         assertThat(
@@ -350,8 +328,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 5, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, RABBIT_RISING_AND_LOWERING_RIGHT ); // TODO : 주석 삭제
-//        desc.add( 4, 0, RABBIT_RISING_AND_LOWERING_LEFT );
 
         desc.add( 0, 0, new RabbitRisingAndLoweringRightState() );
         desc.add( 4, 0, new RabbitRisingAndLoweringLeftState() );
@@ -371,17 +347,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 8, 3 );
 
         ChangeDescription desc = new ChangeDescription();
-        // TODO : 주석 삭제
-//        desc.add( 0, 0, RABBIT_FALLING_ONTO_LOWER_RIGHT );
-//        desc.add( 1, 0, RABBIT_FALLING_ONTO_RISE_RIGHT );
-//        desc.add( 2, 0, RABBIT_FALLING_ONTO_LOWER_LEFT );
-//        desc.add( 3, 0, RABBIT_FALLING_ONTO_RISE_LEFT );
-//        desc.add( 4, 0, RABBIT_FALLING_1_ONTO_LOWER_RIGHT );
-//        desc.add( 5, 0, RABBIT_FALLING_1_ONTO_RISE_RIGHT );
-//        desc.add( 6, 0, RABBIT_FALLING_1_ONTO_LOWER_LEFT );
-//        desc.add( 7, 0, RABBIT_FALLING_1_ONTO_RISE_LEFT );
-
-        // Falling 관련 State 패턴 적용 테스트
         desc.add( 0, 0, new RabbitFallingOntoLowerRightState() );
         desc.add( 1, 0, new RabbitFallingOntoRiseRightState());
         desc.add( 2, 0, new RabbitFallingOntoLowerLeftState() );
@@ -407,10 +372,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 4, 2 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 0, 0, TOKEN_BASH_FALLING ); // TODO : 주석 삭제
-//        desc.add( 1, 0, TOKEN_DIG_FALLING );
-//        desc.add( 2, 0, TOKEN_BRIDGE_FALLING );
-//        desc.add( 3, 0, TOKEN_BLOCK_FALLING );
 
         desc.add( 0, 0, new TokenBashFallingState() );
         desc.add( 1, 0, new TokenDigFallingState() );
@@ -432,10 +393,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 3, 4 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add( 1, 0, RABBIT_BASHING_RIGHT );// DONE // TODO : 주석 삭제
-//        desc.add( 1, 1, RABBIT_BASHING_LEFT ); // DONE
-//        desc.add( 1, 2, RABBIT_BASHING_USELESSLY_RIGHT ); // DONE
-//        desc.add( 1, 3, RABBIT_BASHING_USELESSLY_LEFT ); // DONE
 
         desc.add( 1, 0, new RabbitBashingRightState() );
         desc.add( 1, 1, new RabbitBashingLeftState() );
@@ -459,15 +416,6 @@ public class TestTextWorldManip
         World world = createEmptyWorld( 17, 3 );
 
         ChangeDescription desc = new ChangeDescription();
-//        desc.add(  1, 1, RABBIT_CLIMBING_LEFT_START ); // TODO : 주석 삭제
-//        desc.add(  3, 1, RABBIT_CLIMBING_LEFT_CONTINUE_1 );
-//        desc.add(  5, 1, RABBIT_CLIMBING_LEFT_CONTINUE_2 );
-//        desc.add(  7, 1, RABBIT_CLIMBING_LEFT_END );
-//        desc.add(  9, 1, RABBIT_CLIMBING_RIGHT_START );
-//        desc.add( 11, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_1 );
-//        desc.add( 13, 1, RABBIT_CLIMBING_RIGHT_CONTINUE_2 );
-//        desc.add( 15, 1, RABBIT_CLIMBING_RIGHT_END );
-
         desc.add(  1, 1, new RabbitClimbingLeftStartState() );
         desc.add(  3, 1, new RabbitClimbingLeftContinue1State() );
         desc.add(  5, 1, new RabbitClimbingLeftContinue2State() );

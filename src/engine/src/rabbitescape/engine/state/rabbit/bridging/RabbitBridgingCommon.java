@@ -68,7 +68,7 @@ public abstract class RabbitBridgingCommon implements RabbitState
 
     }
 
-    public static State bridgingState( // TODO : 주석 삭제
+    public static State bridgingState(
         BehaviourTools t,
         int bs,
         int ss,
@@ -132,8 +132,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 if ( slopeUp )
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_UP_RIGHT_1,
-//                        RABBIT_BRIDGING_UP_LEFT_1
                         new RabbitBridgingUpRight1State(),
                         new RabbitBridgingUpLeft1State()
                     );
@@ -141,8 +139,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 else if ( slopeDown )
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_DOWN_UP_RIGHT_1,
-//                        RABBIT_BRIDGING_DOWN_UP_LEFT_1
                         new RabbitBridgingDownUpRight1State(),
                         new RabbitBridgingDownUpLeft1State()
                     );
@@ -150,8 +146,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 else
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_RIGHT_1,
-//                        RABBIT_BRIDGING_LEFT_1
                         new RabbitBridgingRight1State(),
                         new RabbitBridgingLeft1State()
                     );
@@ -164,8 +158,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case ALONG:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_RIGHT_2,
-//                            RABBIT_BRIDGING_LEFT_2
                             new RabbitBridgingRight2State(),
                             new RabbitBridgingLeft2State()
                         );
@@ -173,8 +165,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case UP:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_UP_RIGHT_2,
-//                            RABBIT_BRIDGING_UP_LEFT_2
                             new RabbitBridgingUpRight2State(),
                             new RabbitBridgingUpLeft2State()
                         );
@@ -182,8 +172,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case DOWN_UP:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_DOWN_UP_RIGHT_2,
-//                            RABBIT_BRIDGING_DOWN_UP_LEFT_2
                             new RabbitBridgingDownUpRight2State(),
                             new RabbitBridgingDownUpLeft2State()
                         );
@@ -202,8 +190,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case ALONG:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_RIGHT_3,
-//                            RABBIT_BRIDGING_LEFT_3
                             new RabbitBridgingRight3State(),
                             new RabbitBridgingLeft3State()
                         );
@@ -211,8 +197,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case UP:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_UP_RIGHT_3,
-//                            RABBIT_BRIDGING_UP_LEFT_3
                             new RabbitBridgingUpRight3State(),
                             new RabbitBridgingUpLeft3State()
                         );
@@ -220,8 +204,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                     case DOWN_UP:
                     {
                         return t.rl(
-//                            RABBIT_BRIDGING_DOWN_UP_RIGHT_3,
-//                            RABBIT_BRIDGING_DOWN_UP_LEFT_3
                             new RabbitBridgingDownUpRight3State(),
                             new RabbitBridgingDownUpLeft3State()
                         );
@@ -270,8 +252,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
 
                     if ( twoAbove == null || twoAbove.isBridge() ) {
                         return t.rl(
-//                            RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_1,
-//                            RABBIT_BRIDGING_IN_CORNER_UP_LEFT_1
                             new RabbitBridgingInCornerUpRight1State(),
                             new RabbitBridgingInCornerUpLeft1State()
                         );
@@ -285,8 +265,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 else
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_IN_CORNER_RIGHT_1,
-//                        RABBIT_BRIDGING_IN_CORNER_LEFT_1
                         new RabbitBridgingInCornerRight1State(),
                         new RabbitBridgingInCornerLeft1State()
                     );
@@ -297,8 +275,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 if ( isSlope( thisBlock ) )
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_2,
-//                        RABBIT_BRIDGING_IN_CORNER_UP_LEFT_2
                         new RabbitBridgingInCornerUpRight2State(),
                         new RabbitBridgingInCornerUpLeft2State()
                     );
@@ -306,8 +282,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 else
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_IN_CORNER_RIGHT_2,
-//                        RABBIT_BRIDGING_IN_CORNER_LEFT_2
                         new RabbitBridgingInCornerRight2State(),
                         new RabbitBridgingInCornerLeft2State()
                     );
@@ -318,8 +292,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 if ( isSlope( thisBlock ) )
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_IN_CORNER_UP_RIGHT_3,
-//                        RABBIT_BRIDGING_IN_CORNER_UP_LEFT_3
                         new RabbitBridgingInCornerUpRight3State(),
                         new RabbitBridgingInCornerUpLeft3State()
                     );
@@ -327,8 +299,6 @@ public abstract class RabbitBridgingCommon implements RabbitState
                 else
                 {
                     return t.rl(
-//                        RABBIT_BRIDGING_IN_CORNER_RIGHT_3,
-//                        RABBIT_BRIDGING_IN_CORNER_LEFT_3
                         new RabbitBridgingInCornerRight3State(),
                         new RabbitBridgingInCornerLeft3State()
                     );

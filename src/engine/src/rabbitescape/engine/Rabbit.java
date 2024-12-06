@@ -115,10 +115,6 @@ public class Rabbit extends Thing implements Comparable<Rabbit>
 
         for ( Behaviour behaviour : behavioursTriggerOrder )
         {
-            if ( behaviour instanceof RabbotWait )
-            {
-                System.out.println("RabbotWait");
-            }
             behaviour.triggered = behaviour.checkTriggered( this, world );
             if ( behaviour.triggered )
             {

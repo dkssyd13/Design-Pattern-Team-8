@@ -28,60 +28,6 @@ public class Brollychuting extends Behaviour
     public State newState( BehaviourTools t, boolean triggered )
     {
         return RabbitBrollychutingState.newState( t, triggered, this);
-//        if ( triggered )
-//        {
-//            hasAbility = true;
-//        }
-//
-//        if( !hasAbility )
-//        {
-//            return null;
-//        }
-//
-//        if ( climbing.abilityActive )
-//        {
-//            return null;
-//        }
-//
-//        Block below = t.blockBelow();
-//
-//        if ( t.isFlat( below ) )
-//        {
-//            return null;
-//        }
-//
-//        if (
-//            t.rabbit.onSlope
-//         && !t.blockHereJustRemoved()
-//        )
-//        {
-//            return null;
-//        }
-//
-//        if ( below != null )
-//        {
-//            if ( t.isUpSlope( below ) )
-//            {
-//                return t.rl(
-////                    RABBIT_FALLING_1_ONTO_RISE_RIGHT,
-////                    RABBIT_FALLING_1_ONTO_RISE_LEFT
-//                    new RabbitFalling1OntoRiseRightState(),
-//                    new RabbitFalling1OntoRiseLeftState()
-//                );
-//            }
-//            else // Must be a slope in the opposite direction
-//            {
-//                return t.rl(
-////                    RABBIT_FALLING_1_ONTO_LOWER_RIGHT,
-////                    RABBIT_FALLING_1_ONTO_LOWER_LEFT
-//                    new RabbitFalling1OntoLowerRightState(),
-//                    new RabbitFalling1OntoLowerLeftState()
-//                );
-//            }
-//        }
-//
-////        return RABBIT_BROLLYCHUTING;
-//        return new RabbitBrollychutingState();
     }
 
     @Override
@@ -92,12 +38,6 @@ public class Brollychuting extends Behaviour
             return ((RabbitBrollychutingState)state).behave( world, rabbit, this );
         }
         return false;
-//        if ( state == RABBIT_BROLLYCHUTING ) // DONE
-//        {
-//            rabbit.y = rabbit.y + 1;
-//            return true;
-//        }
-//        return false;
     }
 
     public boolean hasBrolly()
